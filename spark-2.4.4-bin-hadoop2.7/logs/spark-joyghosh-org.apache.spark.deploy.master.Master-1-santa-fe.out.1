@@ -1,0 +1,137 @@
+Spark Command: /usr/local/jdk1.8.0_51/bin/java -cp /s/chopin/a/grad/joyghosh/spark-2.4.4-bin-hadoop2.7/conf/:/s/chopin/a/grad/joyghosh/spark-2.4.4-bin-hadoop2.7/jars/*:/s/chopin/a/grad/joyghosh/Documents/Code/cs555/FlightHadoopAssignment/hadoop-conf/ -Xmx1g org.apache.spark.deploy.master.Master --host santa-fe.cs.colostate.edu --port 47002 --webui-port 47007
+========================================
+2019-11-14 10:55:29,689 INFO master.Master: Started daemon with process name: 22371@santa-fe
+2019-11-14 10:55:29,697 INFO util.SignalUtils: Registered signal handler for TERM
+2019-11-14 10:55:29,699 INFO util.SignalUtils: Registered signal handler for HUP
+2019-11-14 10:55:29,699 INFO util.SignalUtils: Registered signal handler for INT
+2019-11-14 10:55:29,721 WARN master.MasterArguments: SPARK_MASTER_IP is deprecated, please use SPARK_MASTER_HOST
+2019-11-14 10:55:30,177 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2019-11-14 10:55:30,278 INFO spark.SecurityManager: Changing view acls to: joyghosh
+2019-11-14 10:55:30,279 INFO spark.SecurityManager: Changing modify acls to: joyghosh
+2019-11-14 10:55:30,279 INFO spark.SecurityManager: Changing view acls groups to: 
+2019-11-14 10:55:30,280 INFO spark.SecurityManager: Changing modify acls groups to: 
+2019-11-14 10:55:30,280 INFO spark.SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(joyghosh); groups with view permissions: Set(); users  with modify permissions: Set(joyghosh); groups with modify permissions: Set()
+2019-11-14 10:55:30,655 INFO util.Utils: Successfully started service 'sparkMaster' on port 47002.
+2019-11-14 10:55:30,688 INFO master.Master: Starting Spark master at spark://santa-fe.cs.colostate.edu:47002
+2019-11-14 10:55:30,691 INFO master.Master: Running Spark version 2.4.4
+2019-11-14 10:55:30,747 INFO util.log: Logging initialized @1764ms
+2019-11-14 10:55:30,795 INFO server.Server: jetty-9.3.z-SNAPSHOT, build timestamp: unknown, git hash: unknown
+2019-11-14 10:55:30,811 INFO server.Server: Started @1829ms
+2019-11-14 10:55:30,830 INFO server.AbstractConnector: Started ServerConnector@4ff3c7{HTTP/1.1,[http/1.1]}{0.0.0.0:47007}
+2019-11-14 10:55:30,830 INFO util.Utils: Successfully started service 'MasterUI' on port 47007.
+2019-11-14 10:55:30,855 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@e8e210{/app,null,AVAILABLE,@Spark}
+2019-11-14 10:55:30,855 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@b98baf{/app/json,null,AVAILABLE,@Spark}
+2019-11-14 10:55:30,856 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@1dc4899{/,null,AVAILABLE,@Spark}
+2019-11-14 10:55:30,857 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@34238c{/json,null,AVAILABLE,@Spark}
+2019-11-14 10:55:30,863 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@9e3a56{/static,null,AVAILABLE,@Spark}
+2019-11-14 10:55:30,863 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@1474ecc{/app/kill,null,AVAILABLE,@Spark}
+2019-11-14 10:55:30,864 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@145e775{/driver/kill,null,AVAILABLE,@Spark}
+2019-11-14 10:55:30,866 INFO ui.MasterWebUI: Bound MasterWebUI to 0.0.0.0, and started at http://santa-fe.cs.colostate.edu:47007
+2019-11-14 10:55:31,036 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@125e6cb{/metrics/master/json,null,AVAILABLE,@Spark}
+2019-11-14 10:55:31,037 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@1760acf{/metrics/applications/json,null,AVAILABLE,@Spark}
+2019-11-14 10:55:31,085 INFO master.Master: I have been elected leader! New state: ALIVE
+2019-11-14 10:55:34,869 INFO master.Master: Registering worker 129.82.44.173:35309 with 1 cores, 2.0 GB RAM
+2019-11-14 10:55:34,987 INFO master.Master: Registering worker 129.82.44.168:36871 with 1 cores, 2.0 GB RAM
+2019-11-14 10:55:34,989 INFO master.Master: Registering worker 129.82.44.172:40789 with 1 cores, 2.0 GB RAM
+2019-11-14 10:55:34,993 INFO master.Master: Registering worker 129.82.44.174:39869 with 1 cores, 2.0 GB RAM
+2019-11-14 10:55:34,997 INFO master.Master: Registering worker 129.82.44.164:38361 with 1 cores, 2.0 GB RAM
+2019-11-14 10:55:35,016 INFO master.Master: Registering worker 129.82.44.169:34151 with 1 cores, 2.0 GB RAM
+2019-11-14 10:55:35,029 INFO master.Master: Registering worker 129.82.44.163:39403 with 1 cores, 2.0 GB RAM
+2019-11-14 10:55:35,161 INFO master.Master: Registering worker 129.82.44.162:43759 with 1 cores, 2.0 GB RAM
+2019-11-14 10:55:35,164 INFO master.Master: Registering worker 129.82.44.166:43397 with 1 cores, 2.0 GB RAM
+2019-11-14 10:55:37,325 INFO master.Master: Registering worker 129.82.44.162:35709 with 1 cores, 2.0 GB RAM
+2019-11-14 10:55:37,363 INFO master.Master: Registering worker 129.82.44.172:45223 with 1 cores, 2.0 GB RAM
+2019-11-14 10:55:37,596 INFO master.Master: Registering worker 129.82.44.173:45223 with 1 cores, 2.0 GB RAM
+2019-11-14 10:55:37,742 INFO master.Master: Registering worker 129.82.44.174:40973 with 1 cores, 2.0 GB RAM
+2019-11-14 10:55:37,756 INFO master.Master: Registering worker 129.82.44.168:36101 with 1 cores, 2.0 GB RAM
+2019-11-14 10:55:37,818 INFO master.Master: Registering worker 129.82.44.164:40991 with 1 cores, 2.0 GB RAM
+2019-11-14 10:55:37,833 INFO master.Master: Registering worker 129.82.44.169:43039 with 1 cores, 2.0 GB RAM
+2019-11-14 10:55:37,881 INFO master.Master: Registering worker 129.82.44.163:36035 with 1 cores, 2.0 GB RAM
+2019-11-14 10:55:37,960 INFO master.Master: Registering worker 129.82.44.166:33787 with 1 cores, 2.0 GB RAM
+2019-11-14 10:56:24,791 INFO master.Master: Registering app PySparkShell
+2019-11-14 10:56:24,795 INFO master.Master: Registered app PySparkShell with ID app-20191114105624-0000
+2019-11-14 10:56:24,806 INFO master.Master: Launching executor app-20191114105624-0000/0 on worker worker-20191114105536-129.82.44.172-45223
+2019-11-14 10:56:24,816 INFO master.Master: Launching executor app-20191114105624-0000/1 on worker worker-20191114105534-129.82.44.172-40789
+2019-11-14 10:56:24,817 INFO master.Master: Launching executor app-20191114105624-0000/2 on worker worker-20191114105537-129.82.44.174-40973
+2019-11-14 10:56:24,818 INFO master.Master: Launching executor app-20191114105624-0000/3 on worker worker-20191114105537-129.82.44.163-36035
+2019-11-14 10:56:24,819 INFO master.Master: Launching executor app-20191114105624-0000/4 on worker worker-20191114105536-129.82.44.162-35709
+2019-11-14 10:56:24,820 INFO master.Master: Launching executor app-20191114105624-0000/5 on worker worker-20191114105537-129.82.44.168-36101
+2019-11-14 10:56:24,820 INFO master.Master: Launching executor app-20191114105624-0000/6 on worker worker-20191114105534-129.82.44.166-43397
+2019-11-14 10:56:24,821 INFO master.Master: Launching executor app-20191114105624-0000/7 on worker worker-20191114105534-129.82.44.169-34151
+2019-11-14 10:56:24,823 INFO master.Master: Launching executor app-20191114105624-0000/8 on worker worker-20191114105534-129.82.44.163-39403
+2019-11-14 10:56:24,823 INFO master.Master: Launching executor app-20191114105624-0000/9 on worker worker-20191114105537-129.82.44.164-40991
+2019-11-14 10:56:24,824 INFO master.Master: Launching executor app-20191114105624-0000/10 on worker worker-20191114105534-129.82.44.174-39869
+2019-11-14 10:56:24,825 INFO master.Master: Launching executor app-20191114105624-0000/11 on worker worker-20191114105537-129.82.44.173-45223
+2019-11-14 10:56:24,825 INFO master.Master: Launching executor app-20191114105624-0000/12 on worker worker-20191114105534-129.82.44.173-35309
+2019-11-14 10:56:24,826 INFO master.Master: Launching executor app-20191114105624-0000/13 on worker worker-20191114105537-129.82.44.166-33787
+2019-11-14 10:56:24,826 INFO master.Master: Launching executor app-20191114105624-0000/14 on worker worker-20191114105537-129.82.44.169-43039
+2019-11-14 10:56:24,827 INFO master.Master: Launching executor app-20191114105624-0000/15 on worker worker-20191114105534-129.82.44.168-36871
+2019-11-14 10:56:24,828 INFO master.Master: Launching executor app-20191114105624-0000/16 on worker worker-20191114105534-129.82.44.162-43759
+2019-11-14 10:56:24,828 INFO master.Master: Launching executor app-20191114105624-0000/17 on worker worker-20191114105534-129.82.44.164-38361
+2019-11-14 11:00:55,613 INFO master.Master: Removing executor app-20191114105624-0000/12 because it is FAILED
+2019-11-14 11:00:55,616 INFO master.Master: Launching executor app-20191114105624-0000/18 on worker worker-20191114105534-129.82.44.173-35309
+2019-11-14 11:00:55,617 INFO master.Master: Removing executor app-20191114105624-0000/16 because it is EXITED
+2019-11-14 11:00:55,618 INFO master.Master: Launching executor app-20191114105624-0000/19 on worker worker-20191114105534-129.82.44.162-43759
+2019-11-14 11:00:55,622 INFO master.Master: Removing executor app-20191114105624-0000/11 because it is FAILED
+2019-11-14 11:00:55,622 INFO master.Master: Launching executor app-20191114105624-0000/20 on worker worker-20191114105537-129.82.44.173-45223
+2019-11-14 11:00:55,690 INFO master.Master: Removing executor app-20191114105624-0000/17 because it is EXITED
+2019-11-14 11:00:55,690 INFO master.Master: Launching executor app-20191114105624-0000/21 on worker worker-20191114105534-129.82.44.164-38361
+2019-11-14 11:00:55,708 INFO master.Master: Removing executor app-20191114105624-0000/10 because it is EXITED
+2019-11-14 11:00:55,709 INFO master.Master: Launching executor app-20191114105624-0000/22 on worker worker-20191114105534-129.82.44.174-39869
+2019-11-14 11:00:55,724 INFO master.Master: Removing executor app-20191114105624-0000/15 because it is EXITED
+2019-11-14 11:00:55,725 INFO master.Master: Launching executor app-20191114105624-0000/23 on worker worker-20191114105534-129.82.44.168-36871
+2019-11-14 11:00:55,728 INFO master.Master: Removing executor app-20191114105624-0000/4 because it is FAILED
+2019-11-14 11:00:55,728 INFO master.Master: Launching executor app-20191114105624-0000/24 on worker worker-20191114105536-129.82.44.162-35709
+2019-11-14 11:00:55,746 INFO master.Master: Removing executor app-20191114105624-0000/2 because it is EXITED
+2019-11-14 11:00:55,746 INFO master.Master: Launching executor app-20191114105624-0000/25 on worker worker-20191114105537-129.82.44.174-40973
+2019-11-14 11:00:55,748 INFO master.Master: Removing executor app-20191114105624-0000/9 because it is EXITED
+2019-11-14 11:00:55,748 INFO master.Master: Launching executor app-20191114105624-0000/26 on worker worker-20191114105537-129.82.44.164-40991
+2019-11-14 11:00:55,768 INFO master.Master: Removing executor app-20191114105624-0000/5 because it is EXITED
+2019-11-14 11:00:55,772 INFO master.Master: Launching executor app-20191114105624-0000/27 on worker worker-20191114105537-129.82.44.168-36101
+2019-11-14 11:00:55,782 INFO master.Master: Removing executor app-20191114105624-0000/7 because it is EXITED
+2019-11-14 11:00:55,782 INFO master.Master: Launching executor app-20191114105624-0000/28 on worker worker-20191114105534-129.82.44.169-34151
+2019-11-14 11:00:55,784 INFO master.Master: Removing executor app-20191114105624-0000/8 because it is EXITED
+2019-11-14 11:00:55,785 INFO master.Master: Launching executor app-20191114105624-0000/29 on worker worker-20191114105534-129.82.44.163-39403
+2019-11-14 11:00:55,801 INFO master.Master: Removing executor app-20191114105624-0000/14 because it is EXITED
+2019-11-14 11:00:55,801 INFO master.Master: Launching executor app-20191114105624-0000/30 on worker worker-20191114105537-129.82.44.169-43039
+2019-11-14 11:00:55,846 INFO master.Master: Removing executor app-20191114105624-0000/3 because it is EXITED
+2019-11-14 11:00:55,846 INFO master.Master: Launching executor app-20191114105624-0000/31 on worker worker-20191114105537-129.82.44.163-36035
+2019-11-14 11:00:55,951 WARN server.TransportChannelHandler: Exception in connection from /129.82.44.173:35162
+java.io.IOException: Connection reset by peer
+	at sun.nio.ch.FileDispatcherImpl.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:39)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192)
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:380)
+	at io.netty.buffer.PooledUnsafeDirectByteBuf.setBytes(PooledUnsafeDirectByteBuf.java:288)
+	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1106)
+	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:343)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:123)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:645)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:580)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:497)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:459)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:858)
+	at io.netty.util.concurrent.DefaultThreadFactory$DefaultRunnableDecorator.run(DefaultThreadFactory.java:138)
+	at java.lang.Thread.run(Thread.java:745)
+2019-11-14 11:00:55,958 INFO master.Master: 129.82.44.173:35164 got disassociated, removing it.
+2019-11-14 11:00:55,959 INFO master.Master: 129.82.44.173:45223 got disassociated, removing it.
+2019-11-14 11:00:55,959 INFO master.Master: Removing worker worker-20191114105537-129.82.44.173-45223 on 129.82.44.173:45223
+2019-11-14 11:00:55,960 INFO master.Master: Telling app of lost executor: 20
+2019-11-14 11:00:55,961 INFO master.Master: Telling app of lost worker: worker-20191114105537-129.82.44.173-45223
+2019-11-14 11:00:55,963 INFO master.Master: 129.82.44.173:35162 got disassociated, removing it.
+2019-11-14 11:00:55,964 INFO master.Master: 129.82.44.173:35309 got disassociated, removing it.
+2019-11-14 11:00:55,964 INFO master.Master: Removing worker worker-20191114105534-129.82.44.173-35309 on 129.82.44.173:35309
+2019-11-14 11:00:55,964 INFO master.Master: Telling app of lost executor: 18
+2019-11-14 11:00:55,964 INFO master.Master: Telling app of lost worker: worker-20191114105534-129.82.44.173-35309
+2019-11-14 11:00:55,991 INFO master.Master: 129.82.44.162:33924 got disassociated, removing it.
+2019-11-14 11:00:55,991 INFO master.Master: 129.82.44.162:43759 got disassociated, removing it.
+2019-11-14 11:00:55,991 INFO master.Master: Removing worker worker-20191114105534-129.82.44.162-43759 on 129.82.44.162:43759
+2019-11-14 11:00:55,991 INFO master.Master: Telling app of lost executor: 19
+2019-11-14 11:00:55,991 INFO master.Master: Telling app of lost worker: worker-20191114105534-129.82.44.162-43759
+2019-11-14 11:00:56,028 INFO master.Master: 129.82.44.164:60624 got disassociated, removing it.
+2019-11-14 11:00:56,028 INFO master.Master: 129.82.44.164:38361 got disassociated, removing it.
+2019-11-14 11:00:56,028 INFO master.Master: Removing worker worker-20191114105534-129.82.44.164-38361 on 129.82.44.164:38361
+2019-11-14 11:00:56,028 INFO master.Master: Telling app of lost executor: 21
+2019-11-14 11:00:56,028 INFO master.Master: Telling app of lost worker: worker-20191114105534-129.82.44.164-38361
+2019-11-14 11:00:56,040 ERROR master.Master: RECEIVED SIGNAL TERM

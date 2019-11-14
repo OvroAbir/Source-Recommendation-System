@@ -1,0 +1,2 @@
+hadoop : http://santa-fe:47006
+spark : http://santa-fe:47007

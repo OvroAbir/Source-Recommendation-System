@@ -1,0 +1,37 @@
+Spark Executor Command: "/usr/local/jdk1.8.0_51/bin/java" "-cp" "/s/chopin/a/grad/joyghosh/Source-Recommendation-System/spark-2.4.4-bin-hadoop2.7/conf/:/s/chopin/a/grad/joyghosh/Source-Recommendation-System/spark-2.4.4-bin-hadoop2.7/jars/*:/s/chopin/a/grad/joyghosh/Documents/Code/cs555/FlightHadoopAssignment/hadoop-conf/" "-Xmx1024M" "-Dspark.driver.port=42931" "org.apache.spark.executor.CoarseGrainedExecutorBackend" "--driver-url" "spark://CoarseGrainedScheduler@santa-fe.cs.colostate.edu:42931" "--executor-id" "5" "--hostname" "129.82.44.162" "--cores" "1" "--app-id" "app-20191114162124-0000" "--worker-url" "spark://Worker@129.82.44.162:46201"
+========================================
+
+2019-11-14 16:21:25,693 INFO executor.CoarseGrainedExecutorBackend: Started daemon with process name: 28900@phoenix
+2019-11-14 16:21:25,696 INFO util.SignalUtils: Registered signal handler for TERM
+2019-11-14 16:21:25,696 INFO util.SignalUtils: Registered signal handler for HUP
+2019-11-14 16:21:25,696 INFO util.SignalUtils: Registered signal handler for INT
+2019-11-14 16:21:26,220 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2019-11-14 16:21:26,371 INFO spark.SecurityManager: Changing view acls to: joyghosh
+2019-11-14 16:21:26,371 INFO spark.SecurityManager: Changing modify acls to: joyghosh
+2019-11-14 16:21:26,372 INFO spark.SecurityManager: Changing view acls groups to: 
+2019-11-14 16:21:26,372 INFO spark.SecurityManager: Changing modify acls groups to: 
+2019-11-14 16:21:26,373 INFO spark.SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(joyghosh); groups with view permissions: Set(); users  with modify permissions: Set(joyghosh); groups with modify permissions: Set()
+2019-11-14 16:21:26,783 INFO client.TransportClientFactory: Successfully created connection to santa-fe.cs.colostate.edu/129.82.44.171:42931 after 89 ms (0 ms spent in bootstraps)
+2019-11-14 16:21:26,971 INFO spark.SecurityManager: Changing view acls to: joyghosh
+2019-11-14 16:21:26,971 INFO spark.SecurityManager: Changing modify acls to: joyghosh
+2019-11-14 16:21:26,971 INFO spark.SecurityManager: Changing view acls groups to: 
+2019-11-14 16:21:26,971 INFO spark.SecurityManager: Changing modify acls groups to: 
+2019-11-14 16:21:26,972 INFO spark.SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(joyghosh); groups with view permissions: Set(); users  with modify permissions: Set(joyghosh); groups with modify permissions: Set()
+2019-11-14 16:21:27,053 INFO client.TransportClientFactory: Successfully created connection to santa-fe.cs.colostate.edu/129.82.44.171:42931 after 1 ms (0 ms spent in bootstraps)
+2019-11-14 16:21:27,101 INFO storage.DiskBlockManager: Created local directory at /tmp/spark-bbbe97c3-8b97-4723-8fe0-273a12d4261b/executor-1abc70e8-7f5c-4b94-aaa3-049a5243b298/blockmgr-2ddb57a8-f31b-45b1-8ba3-3e1dc10ed50d
+2019-11-14 16:21:27,123 INFO memory.MemoryStore: MemoryStore started with capacity 366.1 MB
+2019-11-14 16:21:27,397 INFO executor.CoarseGrainedExecutorBackend: Connecting to driver: spark://CoarseGrainedScheduler@santa-fe.cs.colostate.edu:42931
+2019-11-14 16:21:27,399 INFO worker.WorkerWatcher: Connecting to worker spark://Worker@129.82.44.162:46201
+2019-11-14 16:21:27,417 INFO client.TransportClientFactory: Successfully created connection to /129.82.44.162:46201 after 17 ms (0 ms spent in bootstraps)
+2019-11-14 16:21:27,419 INFO worker.WorkerWatcher: Successfully connected to spark://Worker@129.82.44.162:46201
+2019-11-14 16:21:27,426 INFO executor.CoarseGrainedExecutorBackend: Successfully registered with driver
+2019-11-14 16:21:27,428 INFO executor.Executor: Starting executor ID 5 on host 129.82.44.162
+2019-11-14 16:21:27,513 INFO util.Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 44571.
+2019-11-14 16:21:27,513 INFO netty.NettyBlockTransferService: Server created on 129.82.44.162:44571
+2019-11-14 16:21:27,515 INFO storage.BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+2019-11-14 16:21:27,547 INFO storage.BlockManagerMaster: Registering BlockManager BlockManagerId(5, 129.82.44.162, 44571, None)
+2019-11-14 16:21:27,556 INFO storage.BlockManagerMaster: Registered BlockManager BlockManagerId(5, 129.82.44.162, 44571, None)
+2019-11-14 16:21:27,556 INFO storage.BlockManager: Initialized BlockManager: BlockManagerId(5, 129.82.44.162, 44571, None)
+2019-11-14 16:21:48,436 INFO executor.CoarseGrainedExecutorBackend: Driver commanded a shutdown
+2019-11-14 16:21:48,451 ERROR executor.CoarseGrainedExecutorBackend: RECEIVED SIGNAL TERM
+tdown

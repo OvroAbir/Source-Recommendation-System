@@ -1,0 +1,64 @@
+Spark Command: /usr/local/jdk1.8.0_51/bin/java -cp /s/chopin/a/grad/joyghosh/Source-Recommendation-System/spark-2.4.4-bin-hadoop2.7/conf/:/s/chopin/a/grad/joyghosh/Source-Recommendation-System/spark-2.4.4-bin-hadoop2.7/jars/*:/s/chopin/a/grad/joyghosh/Documents/Code/cs555/FlightHadoopAssignment/hadoop-conf/ -Xmx1g org.apache.spark.deploy.worker.Worker --webui-port 8081 spark://santa-fe.cs.colostate.edu:47002
+========================================
+2019-11-14 16:20:04,469 INFO worker.Worker: Started daemon with process name: 9230@pierre
+2019-11-14 16:20:04,477 INFO util.SignalUtils: Registered signal handler for TERM
+2019-11-14 16:20:04,478 INFO util.SignalUtils: Registered signal handler for HUP
+2019-11-14 16:20:04,478 INFO util.SignalUtils: Registered signal handler for INT
+2019-11-14 16:20:05,141 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2019-11-14 16:20:05,319 INFO spark.SecurityManager: Changing view acls to: joyghosh
+2019-11-14 16:20:05,319 INFO spark.SecurityManager: Changing modify acls to: joyghosh
+2019-11-14 16:20:05,320 INFO spark.SecurityManager: Changing view acls groups to: 
+2019-11-14 16:20:05,320 INFO spark.SecurityManager: Changing modify acls groups to: 
+2019-11-14 16:20:05,320 INFO spark.SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(joyghosh); groups with view permissions: Set(); users  with modify permissions: Set(joyghosh); groups with modify permissions: Set()
+2019-11-14 16:20:05,871 INFO util.Utils: Successfully started service 'sparkWorker' on port 43623.
+2019-11-14 16:20:06,111 INFO worker.Worker: Starting Spark worker 129.82.44.163:43623 with 1 cores, 2.0 GB RAM
+2019-11-14 16:20:06,114 INFO worker.Worker: Running Spark version 2.4.4
+2019-11-14 16:20:06,114 INFO worker.Worker: Spark home: /s/chopin/a/grad/joyghosh/Source-Recommendation-System/spark-2.4.4-bin-hadoop2.7
+2019-11-14 16:20:06,167 INFO util.log: Logging initialized @3242ms
+2019-11-14 16:20:06,223 INFO server.Server: jetty-9.3.z-SNAPSHOT, build timestamp: unknown, git hash: unknown
+2019-11-14 16:20:06,240 INFO server.Server: Started @3317ms
+2019-11-14 16:20:06,256 WARN util.Utils: Service 'WorkerUI' could not bind on port 8081. Attempting port 8082.
+2019-11-14 16:20:06,257 WARN util.Utils: Service 'WorkerUI' could not bind on port 8082. Attempting port 8083.
+2019-11-14 16:20:06,257 WARN util.Utils: Service 'WorkerUI' could not bind on port 8083. Attempting port 8084.
+2019-11-14 16:20:06,257 WARN util.Utils: Service 'WorkerUI' could not bind on port 8084. Attempting port 8085.
+2019-11-14 16:20:06,258 WARN util.Utils: Service 'WorkerUI' could not bind on port 8085. Attempting port 8086.
+2019-11-14 16:20:06,258 WARN util.Utils: Service 'WorkerUI' could not bind on port 8086. Attempting port 8087.
+2019-11-14 16:20:06,258 WARN util.Utils: Service 'WorkerUI' could not bind on port 8087. Attempting port 8088.
+2019-11-14 16:20:06,258 WARN util.Utils: Service 'WorkerUI' could not bind on port 8088. Attempting port 8089.
+2019-11-14 16:20:06,259 WARN util.Utils: Service 'WorkerUI' could not bind on port 8089. Attempting port 8090.
+2019-11-14 16:20:06,259 WARN util.Utils: Service 'WorkerUI' could not bind on port 8090. Attempting port 8091.
+2019-11-14 16:20:06,260 WARN util.Utils: Service 'WorkerUI' could not bind on port 8091. Attempting port 8092.
+2019-11-14 16:20:06,260 WARN util.Utils: Service 'WorkerUI' could not bind on port 8092. Attempting port 8093.
+2019-11-14 16:20:06,260 WARN util.Utils: Service 'WorkerUI' could not bind on port 8093. Attempting port 8094.
+2019-11-14 16:20:06,260 WARN util.Utils: Service 'WorkerUI' could not bind on port 8094. Attempting port 8095.
+2019-11-14 16:20:06,261 WARN util.Utils: Service 'WorkerUI' could not bind on port 8095. Attempting port 8096.
+2019-11-14 16:20:06,261 WARN util.Utils: Service 'WorkerUI' could not bind on port 8096. Attempting port 8097.
+2019-11-14 16:20:06,264 ERROR ui.WorkerWebUI: Failed to bind WorkerWebUI
+java.net.BindException: Address already in use: Service 'WorkerUI' failed after 16 retries (starting from 8081)! Consider explicitly setting the appropriate port for the service 'WorkerUI' (for example spark.ui.port for SparkUI) to an available port or increasing spark.port.maxRetries.
+	at sun.nio.ch.Net.bind0(Native Method)
+	at sun.nio.ch.Net.bind(Net.java:437)
+	at sun.nio.ch.Net.bind(Net.java:429)
+	at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:223)
+	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:74)
+	at org.spark_project.jetty.server.ServerConnector.openAcceptChannel(ServerConnector.java:351)
+	at org.spark_project.jetty.server.ServerConnector.open(ServerConnector.java:319)
+	at org.spark_project.jetty.server.AbstractNetworkConnector.doStart(AbstractNetworkConnector.java:80)
+	at org.spark_project.jetty.server.ServerConnector.doStart(ServerConnector.java:235)
+	at org.spark_project.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:68)
+	at org.apache.spark.ui.JettyUtils$.org$apache$spark$ui$JettyUtils$$newConnector$1(JettyUtils.scala:353)
+	at org.apache.spark.ui.JettyUtils$.org$apache$spark$ui$JettyUtils$$httpConnect$1(JettyUtils.scala:384)
+	at org.apache.spark.ui.JettyUtils$$anonfun$7.apply(JettyUtils.scala:387)
+	at org.apache.spark.ui.JettyUtils$$anonfun$7.apply(JettyUtils.scala:387)
+	at org.apache.spark.util.Utils$$anonfun$startServiceOnPort$1.apply$mcVI$sp(Utils.scala:2269)
+	at scala.collection.immutable.Range.foreach$mVc$sp(Range.scala:160)
+	at org.apache.spark.util.Utils$.startServiceOnPort(Utils.scala:2261)
+	at org.apache.spark.ui.JettyUtils$.startJettyServer(JettyUtils.scala:387)
+	at org.apache.spark.ui.WebUI.bind(WebUI.scala:132)
+	at org.apache.spark.deploy.worker.Worker.onStart(Worker.scala:214)
+	at org.apache.spark.rpc.netty.Inbox$$anonfun$process$1.apply$mcV$sp(Inbox.scala:122)
+	at org.apache.spark.rpc.netty.Inbox.safelyCall(Inbox.scala:205)
+	at org.apache.spark.rpc.netty.Inbox.process(Inbox.scala:101)
+	at org.apache.spark.rpc.netty.Dispatcher$MessageLoop.run(Dispatcher.scala:221)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)

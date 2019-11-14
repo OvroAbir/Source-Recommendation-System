@@ -1,0 +1,39 @@
+Spark Command: /usr/local/jdk1.8.0_51/bin/java -cp /s/chopin/a/grad/joyghosh/spark-2.4.4-bin-hadoop2.7/conf/:/s/chopin/a/grad/joyghosh/spark-2.4.4-bin-hadoop2.7/jars/*:/s/chopin/a/grad/joyghosh/Documents/Code/cs555/FlightHadoopAssignment/hadoop-conf/ -Xmx1g org.apache.spark.deploy.worker.Worker --webui-port 8082 spark://santa-fe.cs.colostate.edu:47002
+========================================
+2019-11-13 19:03:15,301 INFO worker.Worker: Started daemon with process name: 5513@tallahassee
+2019-11-13 19:03:15,312 INFO util.SignalUtils: Registered signal handler for TERM
+2019-11-13 19:03:15,313 INFO util.SignalUtils: Registered signal handler for HUP
+2019-11-13 19:03:15,313 INFO util.SignalUtils: Registered signal handler for INT
+2019-11-13 19:03:15,902 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2019-11-13 19:03:16,050 INFO spark.SecurityManager: Changing view acls to: joyghosh
+2019-11-13 19:03:16,051 INFO spark.SecurityManager: Changing modify acls to: joyghosh
+2019-11-13 19:03:16,051 INFO spark.SecurityManager: Changing view acls groups to: 
+2019-11-13 19:03:16,052 INFO spark.SecurityManager: Changing modify acls groups to: 
+2019-11-13 19:03:16,055 INFO spark.SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(joyghosh); groups with view permissions: Set(); users  with modify permissions: Set(joyghosh); groups with modify permissions: Set()
+2019-11-13 19:03:16,596 INFO util.Utils: Successfully started service 'sparkWorker' on port 42621.
+2019-11-13 19:03:16,885 INFO worker.Worker: Starting Spark worker 129.82.44.173:42621 with 1 cores, 2.0 GB RAM
+2019-11-13 19:03:16,888 INFO worker.Worker: Running Spark version 2.4.4
+2019-11-13 19:03:16,889 INFO worker.Worker: Spark home: /s/chopin/a/grad/joyghosh/spark-2.4.4-bin-hadoop2.7
+2019-11-13 19:03:16,954 INFO util.log: Logging initialized @3337ms
+2019-11-13 19:03:17,012 INFO server.Server: jetty-9.3.z-SNAPSHOT, build timestamp: unknown, git hash: unknown
+2019-11-13 19:03:17,034 INFO server.Server: Started @3419ms
+2019-11-13 19:03:17,049 WARN util.Utils: Service 'WorkerUI' could not bind on port 8082. Attempting port 8083.
+2019-11-13 19:03:17,049 WARN util.Utils: Service 'WorkerUI' could not bind on port 8083. Attempting port 8084.
+2019-11-13 19:03:17,049 WARN util.Utils: Service 'WorkerUI' could not bind on port 8084. Attempting port 8085.
+2019-11-13 19:03:17,050 WARN util.Utils: Service 'WorkerUI' could not bind on port 8085. Attempting port 8086.
+2019-11-13 19:03:17,050 WARN util.Utils: Service 'WorkerUI' could not bind on port 8086. Attempting port 8087.
+2019-11-13 19:03:17,050 WARN util.Utils: Service 'WorkerUI' could not bind on port 8087. Attempting port 8088.
+2019-11-13 19:03:17,055 INFO server.AbstractConnector: Started ServerConnector@17a5c89{HTTP/1.1,[http/1.1]}{0.0.0.0:8088}
+2019-11-13 19:03:17,056 INFO util.Utils: Successfully started service 'WorkerUI' on port 8088.
+2019-11-13 19:03:17,085 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@1422549{/logPage,null,AVAILABLE,@Spark}
+2019-11-13 19:03:17,085 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@bb186{/logPage/json,null,AVAILABLE,@Spark}
+2019-11-13 19:03:17,086 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@1d3ae50{/,null,AVAILABLE,@Spark}
+2019-11-13 19:03:17,087 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@11d8ac9{/json,null,AVAILABLE,@Spark}
+2019-11-13 19:03:17,096 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@f78cad{/static,null,AVAILABLE,@Spark}
+2019-11-13 19:03:17,097 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@1b26602{/log,null,AVAILABLE,@Spark}
+2019-11-13 19:03:17,099 INFO ui.WorkerWebUI: Bound WorkerWebUI to 0.0.0.0, and started at http://tallahassee.cs.colostate.edu:8088
+2019-11-13 19:03:17,103 INFO worker.Worker: Connecting to master santa-fe.cs.colostate.edu:47002...
+2019-11-13 19:03:17,192 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@d46e0{/metrics/json,null,AVAILABLE,@Spark}
+2019-11-13 19:03:17,285 INFO client.TransportClientFactory: Successfully created connection to santa-fe.cs.colostate.edu/129.82.44.171:47002 after 95 ms (0 ms spent in bootstraps)
+2019-11-13 19:03:17,366 INFO worker.Worker: Successfully registered with master spark://santa-fe.cs.colostate.edu:47002
+2019-11-13 19:03:27,934 ERROR worker.Worker: RECEIVED SIGNAL TERM

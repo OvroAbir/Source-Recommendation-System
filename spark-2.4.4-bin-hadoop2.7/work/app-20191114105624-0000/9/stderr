@@ -1,0 +1,89 @@
+Spark Executor Command: "/usr/local/jdk1.8.0_51/bin/java" "-cp" "/s/chopin/a/grad/joyghosh/spark-2.4.4-bin-hadoop2.7/conf/:/s/chopin/a/grad/joyghosh/spark-2.4.4-bin-hadoop2.7/jars/*:/s/chopin/a/grad/joyghosh/Documents/Code/cs555/FlightHadoopAssignment/hadoop-conf/" "-Xmx1024M" "-Dspark.driver.port=33957" "org.apache.spark.executor.CoarseGrainedExecutorBackend" "--driver-url" "spark://CoarseGrainedScheduler@santa-fe.cs.colostate.edu:33957" "--executor-id" "9" "--hostname" "129.82.44.164" "--cores" "1" "--app-id" "app-20191114105624-0000" "--worker-url" "spark://Worker@129.82.44.164:40991"
+========================================
+
+2019-11-14 10:56:25,963 INFO executor.CoarseGrainedExecutorBackend: Started daemon with process name: 9851@providence
+2019-11-14 10:56:25,966 INFO util.SignalUtils: Registered signal handler for TERM
+2019-11-14 10:56:25,966 INFO util.SignalUtils: Registered signal handler for HUP
+2019-11-14 10:56:25,967 INFO util.SignalUtils: Registered signal handler for INT
+2019-11-14 10:56:26,450 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2019-11-14 10:56:26,597 INFO spark.SecurityManager: Changing view acls to: joyghosh
+2019-11-14 10:56:26,598 INFO spark.SecurityManager: Changing modify acls to: joyghosh
+2019-11-14 10:56:26,598 INFO spark.SecurityManager: Changing view acls groups to: 
+2019-11-14 10:56:26,599 INFO spark.SecurityManager: Changing modify acls groups to: 
+2019-11-14 10:56:26,600 INFO spark.SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(joyghosh); groups with view permissions: Set(); users  with modify permissions: Set(joyghosh); groups with modify permissions: Set()
+2019-11-14 10:56:26,990 INFO client.TransportClientFactory: Successfully created connection to santa-fe.cs.colostate.edu/129.82.44.171:33957 after 86 ms (0 ms spent in bootstraps)
+2019-11-14 10:56:27,076 INFO spark.SecurityManager: Changing view acls to: joyghosh
+2019-11-14 10:56:27,077 INFO spark.SecurityManager: Changing modify acls to: joyghosh
+2019-11-14 10:56:27,077 INFO spark.SecurityManager: Changing view acls groups to: 
+2019-11-14 10:56:27,077 INFO spark.SecurityManager: Changing modify acls groups to: 
+2019-11-14 10:56:27,077 INFO spark.SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(joyghosh); groups with view permissions: Set(); users  with modify permissions: Set(joyghosh); groups with modify permissions: Set()
+2019-11-14 10:56:27,179 INFO client.TransportClientFactory: Successfully created connection to santa-fe.cs.colostate.edu/129.82.44.171:33957 after 1 ms (0 ms spent in bootstraps)
+2019-11-14 10:56:27,227 INFO storage.DiskBlockManager: Created local directory at /tmp/spark-3f7b617a-5a1a-49f8-b848-ab7bd1947cf7/executor-c890f53c-fcbf-493a-a24e-758662b53161/blockmgr-9cd83056-8cbf-4427-9520-095a49ae092a
+2019-11-14 10:56:27,251 INFO memory.MemoryStore: MemoryStore started with capacity 366.1 MB
+2019-11-14 10:56:27,455 INFO executor.CoarseGrainedExecutorBackend: Connecting to driver: spark://CoarseGrainedScheduler@santa-fe.cs.colostate.edu:33957
+2019-11-14 10:56:27,456 INFO worker.WorkerWatcher: Connecting to worker spark://Worker@129.82.44.164:40991
+2019-11-14 10:56:27,476 INFO client.TransportClientFactory: Successfully created connection to /129.82.44.164:40991 after 18 ms (0 ms spent in bootstraps)
+2019-11-14 10:56:27,478 INFO worker.WorkerWatcher: Successfully connected to spark://Worker@129.82.44.164:40991
+2019-11-14 10:56:27,484 INFO executor.CoarseGrainedExecutorBackend: Successfully registered with driver
+2019-11-14 10:56:27,487 INFO executor.Executor: Starting executor ID 9 on host 129.82.44.164
+2019-11-14 10:56:27,641 INFO util.Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 34759.
+2019-11-14 10:56:27,641 INFO netty.NettyBlockTransferService: Server created on 129.82.44.164:34759
+2019-11-14 10:56:27,643 INFO storage.BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+2019-11-14 10:56:27,678 INFO storage.BlockManagerMaster: Registering BlockManager BlockManagerId(9, 129.82.44.164, 34759, None)
+2019-11-14 10:56:27,686 INFO storage.BlockManagerMaster: Registered BlockManager BlockManagerId(9, 129.82.44.164, 34759, None)
+2019-11-14 10:56:27,687 INFO storage.BlockManager: Initialized BlockManager: BlockManagerId(9, 129.82.44.164, 34759, None)
+2019-11-14 11:00:50,947 WARN executor.Executor: Issue communicating with driver in heartbeater
+org.apache.spark.rpc.RpcTimeoutException: Futures timed out after [10000 milliseconds]. This timeout is controlled by spark.executor.heartbeatInterval
+	at org.apache.spark.rpc.RpcTimeout.org$apache$spark$rpc$RpcTimeout$$createRpcTimeoutException(RpcTimeout.scala:47)
+	at org.apache.spark.rpc.RpcTimeout$$anonfun$addMessageIfTimeout$1.applyOrElse(RpcTimeout.scala:62)
+	at org.apache.spark.rpc.RpcTimeout$$anonfun$addMessageIfTimeout$1.applyOrElse(RpcTimeout.scala:58)
+	at scala.runtime.AbstractPartialFunction.apply(AbstractPartialFunction.scala:36)
+	at org.apache.spark.rpc.RpcTimeout.awaitResult(RpcTimeout.scala:76)
+	at org.apache.spark.rpc.RpcEndpointRef.askSync(RpcEndpointRef.scala:92)
+	at org.apache.spark.executor.Executor.org$apache$spark$executor$Executor$$reportHeartBeat(Executor.scala:841)
+	at org.apache.spark.executor.Executor$$anon$2$$anonfun$run$1.apply$mcV$sp(Executor.scala:870)
+	at org.apache.spark.executor.Executor$$anon$2$$anonfun$run$1.apply(Executor.scala:870)
+	at org.apache.spark.executor.Executor$$anon$2$$anonfun$run$1.apply(Executor.scala:870)
+	at org.apache.spark.util.Utils$.logUncaughtExceptions(Utils.scala:1945)
+	at org.apache.spark.executor.Executor$$anon$2.run(Executor.scala:870)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.runAndReset(FutureTask.java:308)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:294)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.util.concurrent.TimeoutException: Futures timed out after [10000 milliseconds]
+	at scala.concurrent.impl.Promise$DefaultPromise.ready(Promise.scala:223)
+	at scala.concurrent.impl.Promise$DefaultPromise.result(Promise.scala:227)
+	at org.apache.spark.util.ThreadUtils$.awaitResult(ThreadUtils.scala:220)
+	at org.apache.spark.rpc.RpcTimeout.awaitResult(RpcTimeout.scala:75)
+	... 14 more
+2019-11-14 11:00:55,407 ERROR executor.CoarseGrainedExecutorBackend: RECEIVED SIGNAL TERM
+ater
+org.apache.spark.rpc.RpcTimeoutException: Futures timed out after [10000 milliseconds]. This timeout is controlled by spark.executor.heartbeatInterval
+	at org.apache.spark.rpc.RpcTimeout.org$apache$spark$rpc$RpcTimeout$$createRpcTimeoutException(RpcTimeout.scala:47)
+	at org.apache.spark.rpc.RpcTimeout$$anonfun$addMessageIfTimeout$1.applyOrElse(RpcTimeout.scala:62)
+	at org.apache.spark.rpc.RpcTimeout$$anonfun$addMessageIfTimeout$1.applyOrElse(RpcTimeout.scala:58)
+	at scala.runtime.AbstractPartialFunction.apply(AbstractPartialFunction.scala:36)
+	at org.apache.spark.rpc.RpcTimeout.awaitResult(RpcTimeout.scala:76)
+	at org.apache.spark.rpc.RpcEndpointRef.askSync(RpcEndpointRef.scala:92)
+	at org.apache.spark.executor.Executor.org$apache$spark$executor$Executor$$reportHeartBeat(Executor.scala:841)
+	at org.apache.spark.executor.Executor$$anon$2$$anonfun$run$1.apply$mcV$sp(Executor.scala:870)
+	at org.apache.spark.executor.Executor$$anon$2$$anonfun$run$1.apply(Executor.scala:870)
+	at org.apache.spark.executor.Executor$$anon$2$$anonfun$run$1.apply(Executor.scala:870)
+	at org.apache.spark.util.Utils$.logUncaughtExceptions(Utils.scala:1945)
+	at org.apache.spark.executor.Executor$$anon$2.run(Executor.scala:870)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.runAndReset(FutureTask.java:308)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:294)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.util.concurrent.TimeoutException: Futures timed out after [10000 milliseconds]
+	at scala.concurrent.impl.Promise$DefaultPromise.ready(Promise.scala:223)
+	at scala.concurrent.impl.Promise$DefaultPromise.result(Promise.scala:227)
+	at org.apache.spark.util.ThreadUtils$.awaitResult(ThreadUtils.scala:220)
+	at org.apache.spark.rpc.RpcTimeout.awaitResult(RpcTimeout.scala:75)
+	... 14 more

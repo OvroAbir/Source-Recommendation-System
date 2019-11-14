@@ -1,0 +1,461 @@
+Spark Command: /usr/local/jdk1.8.0_51/bin/java -cp /s/chopin/a/grad/joyghosh/spark-2.4.4-bin-hadoop2.7/conf/:/s/chopin/a/grad/joyghosh/spark-2.4.4-bin-hadoop2.7/jars/*:/s/chopin/a/grad/joyghosh/Documents/Code/cs555/FlightHadoopAssignment/hadoop-conf/ -Xmx1g org.apache.spark.deploy.master.Master --host santa-fe.cs.colostate.edu --port 47002 --webui-port 47007
+========================================
+2019-11-13 19:04:09,287 INFO master.Master: Started daemon with process name: 14092@santa-fe
+2019-11-13 19:04:09,294 INFO util.SignalUtils: Registered signal handler for TERM
+2019-11-13 19:04:09,296 INFO util.SignalUtils: Registered signal handler for HUP
+2019-11-13 19:04:09,296 INFO util.SignalUtils: Registered signal handler for INT
+2019-11-13 19:04:09,316 WARN master.MasterArguments: SPARK_MASTER_IP is deprecated, please use SPARK_MASTER_HOST
+2019-11-13 19:04:09,745 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2019-11-13 19:04:09,868 INFO spark.SecurityManager: Changing view acls to: joyghosh
+2019-11-13 19:04:09,868 INFO spark.SecurityManager: Changing modify acls to: joyghosh
+2019-11-13 19:04:09,868 INFO spark.SecurityManager: Changing view acls groups to: 
+2019-11-13 19:04:09,869 INFO spark.SecurityManager: Changing modify acls groups to: 
+2019-11-13 19:04:09,869 INFO spark.SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(joyghosh); groups with view permissions: Set(); users  with modify permissions: Set(joyghosh); groups with modify permissions: Set()
+2019-11-13 19:04:10,265 INFO util.Utils: Successfully started service 'sparkMaster' on port 47002.
+2019-11-13 19:04:10,307 INFO master.Master: Starting Spark master at spark://santa-fe.cs.colostate.edu:47002
+2019-11-13 19:04:10,311 INFO master.Master: Running Spark version 2.4.4
+2019-11-13 19:04:10,371 INFO util.log: Logging initialized @1722ms
+2019-11-13 19:04:10,416 INFO server.Server: jetty-9.3.z-SNAPSHOT, build timestamp: unknown, git hash: unknown
+2019-11-13 19:04:10,431 INFO server.Server: Started @1783ms
+2019-11-13 19:04:10,454 INFO server.AbstractConnector: Started ServerConnector@5b72f1{HTTP/1.1,[http/1.1]}{0.0.0.0:47007}
+2019-11-13 19:04:10,454 INFO util.Utils: Successfully started service 'MasterUI' on port 47007.
+2019-11-13 19:04:10,489 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@307744{/app,null,AVAILABLE,@Spark}
+2019-11-13 19:04:10,489 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@13120fe{/app/json,null,AVAILABLE,@Spark}
+2019-11-13 19:04:10,490 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@54419a{/,null,AVAILABLE,@Spark}
+2019-11-13 19:04:10,491 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@302bb3{/json,null,AVAILABLE,@Spark}
+2019-11-13 19:04:10,500 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@80d49b{/static,null,AVAILABLE,@Spark}
+2019-11-13 19:04:10,501 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@1eb78db{/app/kill,null,AVAILABLE,@Spark}
+2019-11-13 19:04:10,501 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@14f5ae7{/driver/kill,null,AVAILABLE,@Spark}
+2019-11-13 19:04:10,504 INFO ui.MasterWebUI: Bound MasterWebUI to 0.0.0.0, and started at http://santa-fe.cs.colostate.edu:47007
+2019-11-13 19:04:10,678 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@40c816{/metrics/master/json,null,AVAILABLE,@Spark}
+2019-11-13 19:04:10,679 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@4f79f2{/metrics/applications/json,null,AVAILABLE,@Spark}
+2019-11-13 19:04:10,699 INFO master.Master: I have been elected leader! New state: ALIVE
+2019-11-13 19:04:14,662 INFO master.Master: Registering worker 129.82.44.169:40149 with 1 cores, 2.0 GB RAM
+2019-11-13 19:04:14,669 INFO master.Master: Registering worker 129.82.44.168:42461 with 1 cores, 2.0 GB RAM
+2019-11-13 19:04:14,670 INFO master.Master: Registering worker 129.82.44.162:36983 with 1 cores, 2.0 GB RAM
+2019-11-13 19:04:14,677 INFO master.Master: Registering worker 129.82.44.166:44697 with 1 cores, 2.0 GB RAM
+2019-11-13 19:04:14,723 INFO master.Master: Registering worker 129.82.44.173:39055 with 1 cores, 2.0 GB RAM
+2019-11-13 19:04:14,739 INFO master.Master: Registering worker 129.82.44.172:33207 with 1 cores, 2.0 GB RAM
+2019-11-13 19:04:15,067 INFO master.Master: Registering worker 129.82.44.174:35041 with 1 cores, 2.0 GB RAM
+2019-11-13 19:04:15,145 INFO master.Master: Registering worker 129.82.44.163:39081 with 1 cores, 2.0 GB RAM
+2019-11-13 19:04:16,894 INFO master.Master: Registering worker 129.82.44.164:39131 with 1 cores, 2.0 GB RAM
+2019-11-13 19:04:17,444 INFO master.Master: Registering worker 129.82.44.168:35469 with 1 cores, 2.0 GB RAM
+2019-11-13 19:04:17,497 INFO master.Master: Registering worker 129.82.44.162:40005 with 1 cores, 2.0 GB RAM
+2019-11-13 19:04:17,520 INFO master.Master: Registering worker 129.82.44.166:44029 with 1 cores, 2.0 GB RAM
+2019-11-13 19:04:17,590 INFO master.Master: Registering worker 129.82.44.169:39351 with 1 cores, 2.0 GB RAM
+2019-11-13 19:04:17,638 INFO master.Master: Registering worker 129.82.44.173:38727 with 1 cores, 2.0 GB RAM
+2019-11-13 19:04:17,834 INFO master.Master: Registering worker 129.82.44.172:44113 with 1 cores, 2.0 GB RAM
+2019-11-13 19:04:18,317 INFO master.Master: Registering worker 129.82.44.174:43885 with 1 cores, 2.0 GB RAM
+2019-11-13 19:04:18,477 INFO master.Master: Registering worker 129.82.44.163:39095 with 1 cores, 2.0 GB RAM
+2019-11-13 19:04:20,198 INFO master.Master: Registering worker 129.82.44.164:46367 with 1 cores, 2.0 GB RAM
+2019-11-13 19:04:59,571 INFO master.Master: 129.82.44.134:46114 got disassociated, removing it.
+2019-11-13 19:05:02,574 INFO master.Master: 129.82.44.134:46116 got disassociated, removing it.
+2019-11-13 19:20:40,464 INFO master.Master: Registering app PySparkShell
+2019-11-13 19:20:40,470 INFO master.Master: Registered app PySparkShell with ID app-20191113192040-0000
+2019-11-13 19:20:40,486 INFO master.Master: Launching executor app-20191113192040-0000/0 on worker worker-20191113190419-129.82.44.164-46367
+2019-11-13 19:20:40,494 INFO master.Master: Launching executor app-20191113192040-0000/1 on worker worker-20191113190415-129.82.44.164-39131
+2019-11-13 19:20:40,495 INFO master.Master: Launching executor app-20191113192040-0000/2 on worker worker-20191113190416-129.82.44.168-35469
+2019-11-13 19:20:40,496 INFO master.Master: Launching executor app-20191113192040-0000/3 on worker worker-20191113190416-129.82.44.166-44029
+2019-11-13 19:20:40,496 INFO master.Master: Launching executor app-20191113192040-0000/4 on worker worker-20191113190417-129.82.44.163-39095
+2019-11-13 19:20:40,497 INFO master.Master: Launching executor app-20191113192040-0000/5 on worker worker-20191113190414-129.82.44.172-33207
+2019-11-13 19:20:40,498 INFO master.Master: Launching executor app-20191113192040-0000/6 on worker worker-20191113190417-129.82.44.172-44113
+2019-11-13 19:20:40,500 INFO master.Master: Launching executor app-20191113192040-0000/7 on worker worker-20191113190414-129.82.44.174-35041
+2019-11-13 19:20:40,501 INFO master.Master: Launching executor app-20191113192040-0000/8 on worker worker-20191113190414-129.82.44.173-39055
+2019-11-13 19:20:40,503 INFO master.Master: Launching executor app-20191113192040-0000/9 on worker worker-20191113190414-129.82.44.169-40149
+2019-11-13 19:20:40,503 INFO master.Master: Launching executor app-20191113192040-0000/10 on worker worker-20191113190416-129.82.44.162-40005
+2019-11-13 19:20:40,504 INFO master.Master: Launching executor app-20191113192040-0000/11 on worker worker-20191113190414-129.82.44.166-44697
+2019-11-13 19:20:40,506 INFO master.Master: Launching executor app-20191113192040-0000/12 on worker worker-20191113190417-129.82.44.173-38727
+2019-11-13 19:20:40,506 INFO master.Master: Launching executor app-20191113192040-0000/13 on worker worker-20191113190417-129.82.44.169-39351
+2019-11-13 19:20:40,507 INFO master.Master: Launching executor app-20191113192040-0000/14 on worker worker-20191113190417-129.82.44.174-43885
+2019-11-13 19:20:40,509 INFO master.Master: Launching executor app-20191113192040-0000/15 on worker worker-20191113190414-129.82.44.163-39081
+2019-11-13 19:20:40,511 INFO master.Master: Launching executor app-20191113192040-0000/16 on worker worker-20191113190413-129.82.44.162-36983
+2019-11-13 19:20:40,511 INFO master.Master: Launching executor app-20191113192040-0000/17 on worker worker-20191113190413-129.82.44.168-42461
+2019-11-13 19:20:41,713 INFO master.Master: Received unregister request from application app-20191113192040-0000
+2019-11-13 19:20:41,714 INFO master.Master: Removing app app-20191113192040-0000
+2019-11-13 19:20:41,740 WARN master.Master: Got status update for unknown executor app-20191113192040-0000/16
+2019-11-13 19:20:41,740 WARN master.Master: Got status update for unknown executor app-20191113192040-0000/2
+2019-11-13 19:20:41,740 WARN master.Master: Got status update for unknown executor app-20191113192040-0000/11
+2019-11-13 19:20:41,740 WARN master.Master: Got status update for unknown executor app-20191113192040-0000/15
+2019-11-13 19:20:41,741 WARN master.Master: Got status update for unknown executor app-20191113192040-0000/3
+2019-11-13 19:20:41,741 WARN master.Master: Got status update for unknown executor app-20191113192040-0000/4
+2019-11-13 19:20:41,743 WARN master.Master: Got status update for unknown executor app-20191113192040-0000/13
+2019-11-13 19:20:41,743 WARN master.Master: Got status update for unknown executor app-20191113192040-0000/12
+2019-11-13 19:20:41,743 WARN master.Master: Got status update for unknown executor app-20191113192040-0000/8
+2019-11-13 19:20:41,744 WARN master.Master: Got status update for unknown executor app-20191113192040-0000/17
+2019-11-13 19:20:41,745 WARN master.Master: Got status update for unknown executor app-20191113192040-0000/6
+2019-11-13 19:20:41,747 INFO master.Master: 129.82.44.171:60424 got disassociated, removing it.
+2019-11-13 19:20:41,747 INFO master.Master: santa-fe.cs.colostate.edu:45293 got disassociated, removing it.
+2019-11-13 19:20:41,748 WARN master.Master: Got status update for unknown executor app-20191113192040-0000/9
+2019-11-13 19:20:41,748 WARN master.Master: Got status update for unknown executor app-20191113192040-0000/10
+2019-11-13 19:20:41,752 WARN master.Master: Got status update for unknown executor app-20191113192040-0000/1
+2019-11-13 19:20:41,752 WARN master.Master: Got status update for unknown executor app-20191113192040-0000/5
+2019-11-13 19:20:41,752 WARN master.Master: Got status update for unknown executor app-20191113192040-0000/7
+2019-11-13 19:20:41,754 WARN master.Master: Got status update for unknown executor app-20191113192040-0000/14
+2019-11-13 19:20:41,755 WARN master.Master: Got status update for unknown executor app-20191113192040-0000/0
+2019-11-13 19:20:41,921 INFO master.Master: Registering app PySparkShell
+2019-11-13 19:20:41,922 INFO master.Master: Registered app PySparkShell with ID app-20191113192041-0001
+2019-11-13 19:20:41,925 INFO master.Master: Launching executor app-20191113192041-0001/0 on worker worker-20191113190419-129.82.44.164-46367
+2019-11-13 19:20:41,927 INFO master.Master: Launching executor app-20191113192041-0001/1 on worker worker-20191113190415-129.82.44.164-39131
+2019-11-13 19:20:41,928 INFO master.Master: Launching executor app-20191113192041-0001/2 on worker worker-20191113190416-129.82.44.168-35469
+2019-11-13 19:20:41,928 INFO master.Master: Launching executor app-20191113192041-0001/3 on worker worker-20191113190416-129.82.44.166-44029
+2019-11-13 19:20:41,928 INFO master.Master: Launching executor app-20191113192041-0001/4 on worker worker-20191113190417-129.82.44.163-39095
+2019-11-13 19:20:41,929 INFO master.Master: Launching executor app-20191113192041-0001/5 on worker worker-20191113190414-129.82.44.172-33207
+2019-11-13 19:20:41,929 INFO master.Master: Launching executor app-20191113192041-0001/6 on worker worker-20191113190417-129.82.44.172-44113
+2019-11-13 19:20:41,930 INFO master.Master: Launching executor app-20191113192041-0001/7 on worker worker-20191113190414-129.82.44.174-35041
+2019-11-13 19:20:41,930 INFO master.Master: Launching executor app-20191113192041-0001/8 on worker worker-20191113190414-129.82.44.173-39055
+2019-11-13 19:20:41,930 INFO master.Master: Launching executor app-20191113192041-0001/9 on worker worker-20191113190414-129.82.44.169-40149
+2019-11-13 19:20:41,930 INFO master.Master: Launching executor app-20191113192041-0001/10 on worker worker-20191113190416-129.82.44.162-40005
+2019-11-13 19:20:41,931 INFO master.Master: Launching executor app-20191113192041-0001/11 on worker worker-20191113190414-129.82.44.166-44697
+2019-11-13 19:20:41,931 INFO master.Master: Launching executor app-20191113192041-0001/12 on worker worker-20191113190417-129.82.44.173-38727
+2019-11-13 19:20:41,931 INFO master.Master: Launching executor app-20191113192041-0001/13 on worker worker-20191113190417-129.82.44.169-39351
+2019-11-13 19:20:41,932 INFO master.Master: Launching executor app-20191113192041-0001/14 on worker worker-20191113190417-129.82.44.174-43885
+2019-11-13 19:20:41,932 INFO master.Master: Launching executor app-20191113192041-0001/15 on worker worker-20191113190414-129.82.44.163-39081
+2019-11-13 19:20:41,932 INFO master.Master: Launching executor app-20191113192041-0001/16 on worker worker-20191113190413-129.82.44.162-36983
+2019-11-13 19:20:41,933 INFO master.Master: Launching executor app-20191113192041-0001/17 on worker worker-20191113190413-129.82.44.168-42461
+2019-11-13 19:20:41,971 INFO master.Master: Received unregister request from application app-20191113192041-0001
+2019-11-13 19:20:41,972 INFO master.Master: Removing app app-20191113192041-0001
+2019-11-13 19:20:41,996 WARN master.Master: Got status update for unknown executor app-20191113192041-0001/16
+2019-11-13 19:20:41,999 INFO master.Master: 129.82.44.171:60432 got disassociated, removing it.
+2019-11-13 19:20:41,999 INFO master.Master: santa-fe.cs.colostate.edu:39313 got disassociated, removing it.
+2019-11-13 19:20:42,001 WARN master.Master: Got status update for unknown executor app-20191113192041-0001/3
+2019-11-13 19:20:42,003 WARN master.Master: Got status update for unknown executor app-20191113192041-0001/7
+2019-11-13 19:20:42,005 WARN master.Master: Got status update for unknown executor app-20191113192041-0001/8
+2019-11-13 19:20:42,025 WARN master.Master: Got status update for unknown executor app-20191113192041-0001/4
+2019-11-13 19:20:42,026 WARN master.Master: Got status update for unknown executor app-20191113192041-0001/10
+2019-11-13 19:20:42,026 WARN master.Master: Got status update for unknown executor app-20191113192041-0001/12
+2019-11-13 19:20:42,033 WARN master.Master: Got status update for unknown executor app-20191113192041-0001/17
+2019-11-13 19:20:42,033 WARN master.Master: Got status update for unknown executor app-20191113192041-0001/15
+2019-11-13 19:20:42,033 WARN master.Master: Got status update for unknown executor app-20191113192041-0001/11
+2019-11-13 19:20:42,036 WARN master.Master: Got status update for unknown executor app-20191113192041-0001/2
+2019-11-13 19:20:42,036 WARN master.Master: Got status update for unknown executor app-20191113192041-0001/13
+2019-11-13 19:20:42,037 WARN master.Master: Got status update for unknown executor app-20191113192041-0001/9
+2019-11-13 19:20:42,049 WARN master.Master: Got status update for unknown executor app-20191113192041-0001/14
+2019-11-13 19:20:42,058 WARN master.Master: Got status update for unknown executor app-20191113192041-0001/0
+2019-11-13 19:20:42,073 WARN master.Master: Got status update for unknown executor app-20191113192041-0001/6
+2019-11-13 19:20:42,074 WARN master.Master: Got status update for unknown executor app-20191113192041-0001/1
+2019-11-13 19:20:42,082 WARN master.Master: Got status update for unknown executor app-20191113192041-0001/5
+2019-11-13 19:27:13,940 INFO master.Master: Registering app PySparkShell
+2019-11-13 19:27:13,944 INFO master.Master: Registered app PySparkShell with ID app-20191113192713-0002
+2019-11-13 19:27:13,945 INFO master.Master: Launching executor app-20191113192713-0002/0 on worker worker-20191113190419-129.82.44.164-46367
+2019-11-13 19:27:13,945 INFO master.Master: Launching executor app-20191113192713-0002/1 on worker worker-20191113190415-129.82.44.164-39131
+2019-11-13 19:27:13,945 INFO master.Master: Launching executor app-20191113192713-0002/2 on worker worker-20191113190416-129.82.44.168-35469
+2019-11-13 19:27:13,946 INFO master.Master: Launching executor app-20191113192713-0002/3 on worker worker-20191113190416-129.82.44.166-44029
+2019-11-13 19:27:13,946 INFO master.Master: Launching executor app-20191113192713-0002/4 on worker worker-20191113190417-129.82.44.163-39095
+2019-11-13 19:27:13,946 INFO master.Master: Launching executor app-20191113192713-0002/5 on worker worker-20191113190414-129.82.44.172-33207
+2019-11-13 19:27:13,946 INFO master.Master: Launching executor app-20191113192713-0002/6 on worker worker-20191113190417-129.82.44.172-44113
+2019-11-13 19:27:13,947 INFO master.Master: Launching executor app-20191113192713-0002/7 on worker worker-20191113190414-129.82.44.174-35041
+2019-11-13 19:27:13,947 INFO master.Master: Launching executor app-20191113192713-0002/8 on worker worker-20191113190414-129.82.44.173-39055
+2019-11-13 19:27:13,948 INFO master.Master: Launching executor app-20191113192713-0002/9 on worker worker-20191113190414-129.82.44.169-40149
+2019-11-13 19:27:13,948 INFO master.Master: Launching executor app-20191113192713-0002/10 on worker worker-20191113190416-129.82.44.162-40005
+2019-11-13 19:27:13,948 INFO master.Master: Launching executor app-20191113192713-0002/11 on worker worker-20191113190414-129.82.44.166-44697
+2019-11-13 19:27:13,949 INFO master.Master: Launching executor app-20191113192713-0002/12 on worker worker-20191113190417-129.82.44.173-38727
+2019-11-13 19:27:13,949 INFO master.Master: Launching executor app-20191113192713-0002/13 on worker worker-20191113190417-129.82.44.169-39351
+2019-11-13 19:27:13,949 INFO master.Master: Launching executor app-20191113192713-0002/14 on worker worker-20191113190417-129.82.44.174-43885
+2019-11-13 19:27:13,949 INFO master.Master: Launching executor app-20191113192713-0002/15 on worker worker-20191113190414-129.82.44.163-39081
+2019-11-13 19:27:13,950 INFO master.Master: Launching executor app-20191113192713-0002/16 on worker worker-20191113190413-129.82.44.162-36983
+2019-11-13 19:27:13,951 INFO master.Master: Launching executor app-20191113192713-0002/17 on worker worker-20191113190413-129.82.44.168-42461
+2019-11-13 19:27:14,790 INFO master.Master: Received unregister request from application app-20191113192713-0002
+2019-11-13 19:27:14,790 INFO master.Master: Removing app app-20191113192713-0002
+2019-11-13 19:27:14,809 WARN master.Master: Got status update for unknown executor app-20191113192713-0002/17
+2019-11-13 19:27:14,809 WARN master.Master: Got status update for unknown executor app-20191113192713-0002/8
+2019-11-13 19:27:14,809 WARN master.Master: Got status update for unknown executor app-20191113192713-0002/2
+2019-11-13 19:27:14,810 WARN master.Master: Got status update for unknown executor app-20191113192713-0002/12
+2019-11-13 19:27:14,810 WARN master.Master: Got status update for unknown executor app-20191113192713-0002/9
+2019-11-13 19:27:14,810 WARN master.Master: Got status update for unknown executor app-20191113192713-0002/13
+2019-11-13 19:27:14,810 WARN master.Master: Got status update for unknown executor app-20191113192713-0002/3
+2019-11-13 19:27:14,810 WARN master.Master: Got status update for unknown executor app-20191113192713-0002/14
+2019-11-13 19:27:14,811 WARN master.Master: Got status update for unknown executor app-20191113192713-0002/16
+2019-11-13 19:27:14,811 WARN master.Master: Got status update for unknown executor app-20191113192713-0002/5
+2019-11-13 19:27:14,811 WARN master.Master: Got status update for unknown executor app-20191113192713-0002/10
+2019-11-13 19:27:14,811 WARN master.Master: Got status update for unknown executor app-20191113192713-0002/0
+2019-11-13 19:27:14,812 WARN master.Master: Got status update for unknown executor app-20191113192713-0002/11
+2019-11-13 19:27:14,813 WARN master.Master: Got status update for unknown executor app-20191113192713-0002/7
+2019-11-13 19:27:14,813 WARN master.Master: Got status update for unknown executor app-20191113192713-0002/1
+2019-11-13 19:27:14,814 WARN master.Master: Got status update for unknown executor app-20191113192713-0002/6
+2019-11-13 19:27:14,824 WARN master.Master: Got status update for unknown executor app-20191113192713-0002/4
+2019-11-13 19:27:14,824 WARN master.Master: Got status update for unknown executor app-20191113192713-0002/15
+2019-11-13 19:27:14,860 INFO master.Master: 129.82.44.171:33068 got disassociated, removing it.
+2019-11-13 19:27:14,860 INFO master.Master: santa-fe.cs.colostate.edu:37841 got disassociated, removing it.
+2019-11-13 19:27:14,986 INFO master.Master: Registering app PySparkShell
+2019-11-13 19:27:14,986 INFO master.Master: Registered app PySparkShell with ID app-20191113192714-0003
+2019-11-13 19:27:14,987 INFO master.Master: Launching executor app-20191113192714-0003/0 on worker worker-20191113190419-129.82.44.164-46367
+2019-11-13 19:27:14,988 INFO master.Master: Launching executor app-20191113192714-0003/1 on worker worker-20191113190415-129.82.44.164-39131
+2019-11-13 19:27:14,988 INFO master.Master: Launching executor app-20191113192714-0003/2 on worker worker-20191113190416-129.82.44.168-35469
+2019-11-13 19:27:14,988 INFO master.Master: Launching executor app-20191113192714-0003/3 on worker worker-20191113190416-129.82.44.166-44029
+2019-11-13 19:27:14,988 INFO master.Master: Launching executor app-20191113192714-0003/4 on worker worker-20191113190417-129.82.44.163-39095
+2019-11-13 19:27:14,989 INFO master.Master: Launching executor app-20191113192714-0003/5 on worker worker-20191113190414-129.82.44.172-33207
+2019-11-13 19:27:14,989 INFO master.Master: Launching executor app-20191113192714-0003/6 on worker worker-20191113190417-129.82.44.172-44113
+2019-11-13 19:27:14,989 INFO master.Master: Launching executor app-20191113192714-0003/7 on worker worker-20191113190414-129.82.44.174-35041
+2019-11-13 19:27:14,989 INFO master.Master: Launching executor app-20191113192714-0003/8 on worker worker-20191113190414-129.82.44.173-39055
+2019-11-13 19:27:14,989 INFO master.Master: Launching executor app-20191113192714-0003/9 on worker worker-20191113190414-129.82.44.169-40149
+2019-11-13 19:27:14,990 INFO master.Master: Launching executor app-20191113192714-0003/10 on worker worker-20191113190416-129.82.44.162-40005
+2019-11-13 19:27:14,990 INFO master.Master: Launching executor app-20191113192714-0003/11 on worker worker-20191113190414-129.82.44.166-44697
+2019-11-13 19:27:14,990 INFO master.Master: Launching executor app-20191113192714-0003/12 on worker worker-20191113190417-129.82.44.173-38727
+2019-11-13 19:27:14,990 INFO master.Master: Launching executor app-20191113192714-0003/13 on worker worker-20191113190417-129.82.44.169-39351
+2019-11-13 19:27:14,990 INFO master.Master: Launching executor app-20191113192714-0003/14 on worker worker-20191113190417-129.82.44.174-43885
+2019-11-13 19:27:14,991 INFO master.Master: Launching executor app-20191113192714-0003/15 on worker worker-20191113190414-129.82.44.163-39081
+2019-11-13 19:27:14,991 INFO master.Master: Launching executor app-20191113192714-0003/16 on worker worker-20191113190413-129.82.44.162-36983
+2019-11-13 19:27:14,992 INFO master.Master: Launching executor app-20191113192714-0003/17 on worker worker-20191113190413-129.82.44.168-42461
+2019-11-13 19:27:15,015 INFO master.Master: Received unregister request from application app-20191113192714-0003
+2019-11-13 19:27:15,016 INFO master.Master: Removing app app-20191113192714-0003
+2019-11-13 19:27:15,017 WARN master.Master: Got status update for unknown executor app-20191113192714-0003/3
+2019-11-13 19:27:15,024 WARN master.Master: Got status update for unknown executor app-20191113192714-0003/11
+2019-11-13 19:27:15,026 WARN master.Master: Got status update for unknown executor app-20191113192714-0003/10
+2019-11-13 19:27:15,034 INFO master.Master: 129.82.44.171:33074 got disassociated, removing it.
+2019-11-13 19:27:15,034 INFO master.Master: santa-fe.cs.colostate.edu:33701 got disassociated, removing it.
+2019-11-13 19:27:15,037 WARN master.Master: Got status update for unknown executor app-20191113192714-0003/6
+2019-11-13 19:27:15,038 WARN master.Master: Got status update for unknown executor app-20191113192714-0003/9
+2019-11-13 19:27:15,038 WARN master.Master: Got status update for unknown executor app-20191113192714-0003/16
+2019-11-13 19:27:15,038 WARN master.Master: Got status update for unknown executor app-20191113192714-0003/8
+2019-11-13 19:27:15,038 WARN master.Master: Got status update for unknown executor app-20191113192714-0003/2
+2019-11-13 19:27:15,039 WARN master.Master: Got status update for unknown executor app-20191113192714-0003/0
+2019-11-13 19:27:15,047 WARN master.Master: Got status update for unknown executor app-20191113192714-0003/1
+2019-11-13 19:27:15,048 WARN master.Master: Got status update for unknown executor app-20191113192714-0003/5
+2019-11-13 19:27:15,048 WARN master.Master: Got status update for unknown executor app-20191113192714-0003/7
+2019-11-13 19:27:15,048 WARN master.Master: Got status update for unknown executor app-20191113192714-0003/4
+2019-11-13 19:27:15,048 WARN master.Master: Got status update for unknown executor app-20191113192714-0003/13
+2019-11-13 19:27:15,048 WARN master.Master: Got status update for unknown executor app-20191113192714-0003/12
+2019-11-13 19:27:15,048 WARN master.Master: Got status update for unknown executor app-20191113192714-0003/17
+2019-11-13 19:27:15,058 WARN master.Master: Got status update for unknown executor app-20191113192714-0003/14
+2019-11-13 19:27:15,058 WARN master.Master: Got status update for unknown executor app-20191113192714-0003/15
+2019-11-13 19:27:15,125 WARN master.Master: Got status update for unknown executor app-20191113192714-0003/3
+2019-11-13 19:27:15,125 WARN master.Master: Got status update for unknown executor app-20191113192714-0003/8
+2019-11-13 19:27:15,125 WARN master.Master: Got status update for unknown executor app-20191113192714-0003/11
+2019-11-13 19:27:15,127 WARN master.Master: Got status update for unknown executor app-20191113192714-0003/0
+2019-11-13 19:27:15,139 WARN master.Master: Got status update for unknown executor app-20191113192714-0003/2
+2019-11-13 19:27:15,139 WARN master.Master: Got status update for unknown executor app-20191113192714-0003/9
+2019-11-13 19:27:15,148 WARN master.Master: Got status update for unknown executor app-20191113192714-0003/1
+2019-11-13 19:27:15,150 WARN master.Master: Got status update for unknown executor app-20191113192714-0003/13
+2019-11-13 19:27:15,156 WARN master.Master: Got status update for unknown executor app-20191113192714-0003/12
+2019-11-13 19:27:15,156 WARN master.Master: Got status update for unknown executor app-20191113192714-0003/17
+2019-11-13 19:27:15,170 WARN master.Master: Got status update for unknown executor app-20191113192714-0003/6
+2019-11-13 19:27:15,190 WARN master.Master: Got status update for unknown executor app-20191113192714-0003/10
+2019-11-13 19:27:15,207 WARN master.Master: Got status update for unknown executor app-20191113192714-0003/15
+2019-11-13 19:27:15,221 WARN master.Master: Got status update for unknown executor app-20191113192714-0003/5
+2019-11-13 19:27:15,224 WARN master.Master: Got status update for unknown executor app-20191113192714-0003/4
+2019-11-13 19:27:15,300 WARN master.Master: Got status update for unknown executor app-20191113192714-0003/14
+2019-11-13 19:27:15,339 WARN master.Master: Got status update for unknown executor app-20191113192714-0003/16
+2019-11-13 19:27:15,427 WARN master.Master: Got status update for unknown executor app-20191113192714-0003/7
+2019-11-13 19:29:15,593 INFO master.Master: Registering app PySparkShell
+2019-11-13 19:29:15,595 INFO master.Master: Registered app PySparkShell with ID app-20191113192915-0004
+2019-11-13 19:29:15,596 INFO master.Master: Launching executor app-20191113192915-0004/0 on worker worker-20191113190419-129.82.44.164-46367
+2019-11-13 19:29:15,597 INFO master.Master: Launching executor app-20191113192915-0004/1 on worker worker-20191113190415-129.82.44.164-39131
+2019-11-13 19:29:15,597 INFO master.Master: Launching executor app-20191113192915-0004/2 on worker worker-20191113190416-129.82.44.168-35469
+2019-11-13 19:29:15,597 INFO master.Master: Launching executor app-20191113192915-0004/3 on worker worker-20191113190416-129.82.44.166-44029
+2019-11-13 19:29:15,597 INFO master.Master: Launching executor app-20191113192915-0004/4 on worker worker-20191113190417-129.82.44.163-39095
+2019-11-13 19:29:15,597 INFO master.Master: Launching executor app-20191113192915-0004/5 on worker worker-20191113190414-129.82.44.172-33207
+2019-11-13 19:29:15,598 INFO master.Master: Launching executor app-20191113192915-0004/6 on worker worker-20191113190417-129.82.44.172-44113
+2019-11-13 19:29:15,598 INFO master.Master: Launching executor app-20191113192915-0004/7 on worker worker-20191113190414-129.82.44.174-35041
+2019-11-13 19:29:15,598 INFO master.Master: Launching executor app-20191113192915-0004/8 on worker worker-20191113190414-129.82.44.173-39055
+2019-11-13 19:29:15,598 INFO master.Master: Launching executor app-20191113192915-0004/9 on worker worker-20191113190414-129.82.44.169-40149
+2019-11-13 19:29:15,598 INFO master.Master: Launching executor app-20191113192915-0004/10 on worker worker-20191113190416-129.82.44.162-40005
+2019-11-13 19:29:15,599 INFO master.Master: Launching executor app-20191113192915-0004/11 on worker worker-20191113190414-129.82.44.166-44697
+2019-11-13 19:29:15,599 INFO master.Master: Launching executor app-20191113192915-0004/12 on worker worker-20191113190417-129.82.44.173-38727
+2019-11-13 19:29:15,599 INFO master.Master: Launching executor app-20191113192915-0004/13 on worker worker-20191113190417-129.82.44.169-39351
+2019-11-13 19:29:15,599 INFO master.Master: Launching executor app-20191113192915-0004/14 on worker worker-20191113190417-129.82.44.174-43885
+2019-11-13 19:29:15,599 INFO master.Master: Launching executor app-20191113192915-0004/15 on worker worker-20191113190414-129.82.44.163-39081
+2019-11-13 19:29:15,600 INFO master.Master: Launching executor app-20191113192915-0004/16 on worker worker-20191113190413-129.82.44.162-36983
+2019-11-13 19:29:15,601 INFO master.Master: Launching executor app-20191113192915-0004/17 on worker worker-20191113190413-129.82.44.168-42461
+2019-11-13 19:29:16,451 INFO master.Master: Received unregister request from application app-20191113192915-0004
+2019-11-13 19:29:16,451 INFO master.Master: Removing app app-20191113192915-0004
+2019-11-13 19:29:16,459 WARN master.Master: Got status update for unknown executor app-20191113192915-0004/8
+2019-11-13 19:29:16,459 WARN master.Master: Got status update for unknown executor app-20191113192915-0004/2
+2019-11-13 19:29:16,460 WARN master.Master: Got status update for unknown executor app-20191113192915-0004/11
+2019-11-13 19:29:16,466 WARN master.Master: Got status update for unknown executor app-20191113192915-0004/3
+2019-11-13 19:29:16,469 WARN master.Master: Got status update for unknown executor app-20191113192915-0004/6
+2019-11-13 19:29:16,469 WARN master.Master: Got status update for unknown executor app-20191113192915-0004/15
+2019-11-13 19:29:16,470 WARN master.Master: Got status update for unknown executor app-20191113192915-0004/17
+2019-11-13 19:29:16,470 WARN master.Master: Got status update for unknown executor app-20191113192915-0004/1
+2019-11-13 19:29:16,470 WARN master.Master: Got status update for unknown executor app-20191113192915-0004/12
+2019-11-13 19:29:16,471 WARN master.Master: Got status update for unknown executor app-20191113192915-0004/4
+2019-11-13 19:29:16,471 WARN master.Master: Got status update for unknown executor app-20191113192915-0004/0
+2019-11-13 19:29:16,471 WARN master.Master: Got status update for unknown executor app-20191113192915-0004/10
+2019-11-13 19:29:16,472 WARN master.Master: Got status update for unknown executor app-20191113192915-0004/16
+2019-11-13 19:29:16,472 WARN master.Master: Got status update for unknown executor app-20191113192915-0004/14
+2019-11-13 19:29:16,472 WARN master.Master: Got status update for unknown executor app-20191113192915-0004/7
+2019-11-13 19:29:16,474 WARN master.Master: Got status update for unknown executor app-20191113192915-0004/13
+2019-11-13 19:29:16,475 WARN master.Master: Got status update for unknown executor app-20191113192915-0004/9
+2019-11-13 19:29:16,476 WARN master.Master: Got status update for unknown executor app-20191113192915-0004/5
+2019-11-13 19:29:16,520 INFO master.Master: 129.82.44.171:33346 got disassociated, removing it.
+2019-11-13 19:29:16,520 INFO master.Master: santa-fe.cs.colostate.edu:44303 got disassociated, removing it.
+2019-11-13 19:29:16,633 INFO master.Master: Registering app PySparkShell
+2019-11-13 19:29:16,634 INFO master.Master: Registered app PySparkShell with ID app-20191113192916-0005
+2019-11-13 19:29:16,634 INFO master.Master: Launching executor app-20191113192916-0005/0 on worker worker-20191113190419-129.82.44.164-46367
+2019-11-13 19:29:16,635 INFO master.Master: Launching executor app-20191113192916-0005/1 on worker worker-20191113190415-129.82.44.164-39131
+2019-11-13 19:29:16,635 INFO master.Master: Launching executor app-20191113192916-0005/2 on worker worker-20191113190416-129.82.44.168-35469
+2019-11-13 19:29:16,635 INFO master.Master: Launching executor app-20191113192916-0005/3 on worker worker-20191113190416-129.82.44.166-44029
+2019-11-13 19:29:16,635 INFO master.Master: Launching executor app-20191113192916-0005/4 on worker worker-20191113190417-129.82.44.163-39095
+2019-11-13 19:29:16,635 INFO master.Master: Launching executor app-20191113192916-0005/5 on worker worker-20191113190414-129.82.44.172-33207
+2019-11-13 19:29:16,636 INFO master.Master: Launching executor app-20191113192916-0005/6 on worker worker-20191113190417-129.82.44.172-44113
+2019-11-13 19:29:16,636 INFO master.Master: Launching executor app-20191113192916-0005/7 on worker worker-20191113190414-129.82.44.174-35041
+2019-11-13 19:29:16,636 INFO master.Master: Launching executor app-20191113192916-0005/8 on worker worker-20191113190414-129.82.44.173-39055
+2019-11-13 19:29:16,636 INFO master.Master: Launching executor app-20191113192916-0005/9 on worker worker-20191113190414-129.82.44.169-40149
+2019-11-13 19:29:16,636 INFO master.Master: Launching executor app-20191113192916-0005/10 on worker worker-20191113190416-129.82.44.162-40005
+2019-11-13 19:29:16,636 INFO master.Master: Launching executor app-20191113192916-0005/11 on worker worker-20191113190414-129.82.44.166-44697
+2019-11-13 19:29:16,637 INFO master.Master: Launching executor app-20191113192916-0005/12 on worker worker-20191113190417-129.82.44.173-38727
+2019-11-13 19:29:16,637 INFO master.Master: Launching executor app-20191113192916-0005/13 on worker worker-20191113190417-129.82.44.169-39351
+2019-11-13 19:29:16,637 INFO master.Master: Launching executor app-20191113192916-0005/14 on worker worker-20191113190417-129.82.44.174-43885
+2019-11-13 19:29:16,637 INFO master.Master: Launching executor app-20191113192916-0005/15 on worker worker-20191113190414-129.82.44.163-39081
+2019-11-13 19:29:16,637 INFO master.Master: Launching executor app-20191113192916-0005/16 on worker worker-20191113190413-129.82.44.162-36983
+2019-11-13 19:29:16,638 INFO master.Master: Launching executor app-20191113192916-0005/17 on worker worker-20191113190413-129.82.44.168-42461
+2019-11-13 19:29:16,669 INFO master.Master: Received unregister request from application app-20191113192916-0005
+2019-11-13 19:29:16,669 INFO master.Master: Removing app app-20191113192916-0005
+2019-11-13 19:29:16,673 WARN master.Master: Got status update for unknown executor app-20191113192916-0005/10
+2019-11-13 19:29:16,673 WARN master.Master: Got status update for unknown executor app-20191113192916-0005/1
+2019-11-13 19:29:16,674 WARN master.Master: Got status update for unknown executor app-20191113192916-0005/16
+2019-11-13 19:29:16,674 WARN master.Master: Got status update for unknown executor app-20191113192916-0005/0
+2019-11-13 19:29:16,685 INFO master.Master: 129.82.44.171:33352 got disassociated, removing it.
+2019-11-13 19:29:16,685 INFO master.Master: santa-fe.cs.colostate.edu:32889 got disassociated, removing it.
+2019-11-13 19:29:16,702 WARN master.Master: Got status update for unknown executor app-20191113192916-0005/2
+2019-11-13 19:29:16,703 WARN master.Master: Got status update for unknown executor app-20191113192916-0005/17
+2019-11-13 19:29:16,705 WARN master.Master: Got status update for unknown executor app-20191113192916-0005/15
+2019-11-13 19:29:16,706 WARN master.Master: Got status update for unknown executor app-20191113192916-0005/6
+2019-11-13 19:29:16,714 WARN master.Master: Got status update for unknown executor app-20191113192916-0005/11
+2019-11-13 19:29:16,714 WARN master.Master: Got status update for unknown executor app-20191113192916-0005/7
+2019-11-13 19:29:16,715 WARN master.Master: Got status update for unknown executor app-20191113192916-0005/14
+2019-11-13 19:29:16,715 WARN master.Master: Got status update for unknown executor app-20191113192916-0005/3
+2019-11-13 19:29:16,716 WARN master.Master: Got status update for unknown executor app-20191113192916-0005/12
+2019-11-13 19:29:16,723 WARN master.Master: Got status update for unknown executor app-20191113192916-0005/8
+2019-11-13 19:29:16,726 WARN master.Master: Got status update for unknown executor app-20191113192916-0005/4
+2019-11-13 19:29:16,733 WARN master.Master: Got status update for unknown executor app-20191113192916-0005/5
+2019-11-13 19:29:16,733 WARN master.Master: Got status update for unknown executor app-20191113192916-0005/13
+2019-11-13 19:29:16,733 WARN master.Master: Got status update for unknown executor app-20191113192916-0005/9
+2019-11-13 19:29:16,735 WARN master.Master: Got status update for unknown executor app-20191113192916-0005/10
+2019-11-13 19:29:16,743 WARN master.Master: Got status update for unknown executor app-20191113192916-0005/0
+2019-11-13 19:29:16,743 WARN master.Master: Got status update for unknown executor app-20191113192916-0005/1
+2019-11-13 19:29:16,757 WARN master.Master: Got status update for unknown executor app-20191113192916-0005/16
+2019-11-13 19:50:16,629 INFO master.Master: Registering app Spark shell
+2019-11-13 19:50:16,630 INFO master.Master: Registered app Spark shell with ID app-20191113195016-0006
+2019-11-13 19:50:16,631 INFO master.Master: Launching executor app-20191113195016-0006/0 on worker worker-20191113190419-129.82.44.164-46367
+2019-11-13 19:50:16,631 INFO master.Master: Launching executor app-20191113195016-0006/1 on worker worker-20191113190415-129.82.44.164-39131
+2019-11-13 19:50:16,631 INFO master.Master: Launching executor app-20191113195016-0006/2 on worker worker-20191113190416-129.82.44.168-35469
+2019-11-13 19:50:16,632 INFO master.Master: Launching executor app-20191113195016-0006/3 on worker worker-20191113190416-129.82.44.166-44029
+2019-11-13 19:50:16,632 INFO master.Master: Launching executor app-20191113195016-0006/4 on worker worker-20191113190417-129.82.44.163-39095
+2019-11-13 19:50:16,632 INFO master.Master: Launching executor app-20191113195016-0006/5 on worker worker-20191113190414-129.82.44.172-33207
+2019-11-13 19:50:16,632 INFO master.Master: Launching executor app-20191113195016-0006/6 on worker worker-20191113190417-129.82.44.172-44113
+2019-11-13 19:50:16,632 INFO master.Master: Launching executor app-20191113195016-0006/7 on worker worker-20191113190414-129.82.44.174-35041
+2019-11-13 19:50:16,632 INFO master.Master: Launching executor app-20191113195016-0006/8 on worker worker-20191113190414-129.82.44.173-39055
+2019-11-13 19:50:16,633 INFO master.Master: Launching executor app-20191113195016-0006/9 on worker worker-20191113190414-129.82.44.169-40149
+2019-11-13 19:50:16,633 INFO master.Master: Launching executor app-20191113195016-0006/10 on worker worker-20191113190416-129.82.44.162-40005
+2019-11-13 19:50:16,633 INFO master.Master: Launching executor app-20191113195016-0006/11 on worker worker-20191113190414-129.82.44.166-44697
+2019-11-13 19:50:16,633 INFO master.Master: Launching executor app-20191113195016-0006/12 on worker worker-20191113190417-129.82.44.173-38727
+2019-11-13 19:50:16,633 INFO master.Master: Launching executor app-20191113195016-0006/13 on worker worker-20191113190417-129.82.44.169-39351
+2019-11-13 19:50:16,633 INFO master.Master: Launching executor app-20191113195016-0006/14 on worker worker-20191113190417-129.82.44.174-43885
+2019-11-13 19:50:16,634 INFO master.Master: Launching executor app-20191113195016-0006/15 on worker worker-20191113190414-129.82.44.163-39081
+2019-11-13 19:50:16,634 INFO master.Master: Launching executor app-20191113195016-0006/16 on worker worker-20191113190413-129.82.44.162-36983
+2019-11-13 19:50:16,634 INFO master.Master: Launching executor app-20191113195016-0006/17 on worker worker-20191113190413-129.82.44.168-42461
+2019-11-13 19:50:17,489 INFO master.Master: Received unregister request from application app-20191113195016-0006
+2019-11-13 19:50:17,490 INFO master.Master: Removing app app-20191113195016-0006
+2019-11-13 19:50:17,504 WARN master.Master: Got status update for unknown executor app-20191113195016-0006/6
+2019-11-13 19:50:17,506 WARN master.Master: Got status update for unknown executor app-20191113195016-0006/7
+2019-11-13 19:50:17,507 WARN master.Master: Got status update for unknown executor app-20191113195016-0006/14
+2019-11-13 19:50:17,507 WARN master.Master: Got status update for unknown executor app-20191113195016-0006/2
+2019-11-13 19:50:17,507 WARN master.Master: Got status update for unknown executor app-20191113195016-0006/8
+2019-11-13 19:50:17,507 WARN master.Master: Got status update for unknown executor app-20191113195016-0006/12
+2019-11-13 19:50:17,507 WARN master.Master: Got status update for unknown executor app-20191113195016-0006/17
+2019-11-13 19:50:17,508 WARN master.Master: Got status update for unknown executor app-20191113195016-0006/3
+2019-11-13 19:50:17,508 WARN master.Master: Got status update for unknown executor app-20191113195016-0006/13
+2019-11-13 19:50:17,510 WARN master.Master: Got status update for unknown executor app-20191113195016-0006/9
+2019-11-13 19:50:17,512 WARN master.Master: Got status update for unknown executor app-20191113195016-0006/0
+2019-11-13 19:50:17,513 WARN master.Master: Got status update for unknown executor app-20191113195016-0006/5
+2019-11-13 19:50:17,517 WARN master.Master: Got status update for unknown executor app-20191113195016-0006/1
+2019-11-13 19:50:17,525 INFO master.Master: 129.82.44.171:36082 got disassociated, removing it.
+2019-11-13 19:50:17,525 INFO master.Master: santa-fe.cs.colostate.edu:32863 got disassociated, removing it.
+2019-11-13 19:50:17,528 WARN master.Master: Got status update for unknown executor app-20191113195016-0006/15
+2019-11-13 19:50:17,528 WARN master.Master: Got status update for unknown executor app-20191113195016-0006/4
+2019-11-13 19:50:17,540 WARN master.Master: Got status update for unknown executor app-20191113195016-0006/10
+2019-11-13 19:50:17,540 WARN master.Master: Got status update for unknown executor app-20191113195016-0006/16
+2019-11-13 19:50:17,810 WARN master.Master: Got status update for unknown executor app-20191113195016-0006/11
+2019-11-13 19:54:43,961 INFO master.Master: Registering app Spark shell
+2019-11-13 19:54:43,964 INFO master.Master: Registered app Spark shell with ID app-20191113195443-0007
+2019-11-13 19:54:43,965 INFO master.Master: Launching executor app-20191113195443-0007/0 on worker worker-20191113190419-129.82.44.164-46367
+2019-11-13 19:54:43,966 INFO master.Master: Launching executor app-20191113195443-0007/1 on worker worker-20191113190415-129.82.44.164-39131
+2019-11-13 19:54:43,967 INFO master.Master: Launching executor app-20191113195443-0007/2 on worker worker-20191113190416-129.82.44.168-35469
+2019-11-13 19:54:43,967 INFO master.Master: Launching executor app-20191113195443-0007/3 on worker worker-20191113190416-129.82.44.166-44029
+2019-11-13 19:54:43,967 INFO master.Master: Launching executor app-20191113195443-0007/4 on worker worker-20191113190417-129.82.44.163-39095
+2019-11-13 19:54:43,967 INFO master.Master: Launching executor app-20191113195443-0007/5 on worker worker-20191113190414-129.82.44.172-33207
+2019-11-13 19:54:43,968 INFO master.Master: Launching executor app-20191113195443-0007/6 on worker worker-20191113190417-129.82.44.172-44113
+2019-11-13 19:54:43,968 INFO master.Master: Launching executor app-20191113195443-0007/7 on worker worker-20191113190414-129.82.44.174-35041
+2019-11-13 19:54:43,968 INFO master.Master: Launching executor app-20191113195443-0007/8 on worker worker-20191113190414-129.82.44.173-39055
+2019-11-13 19:54:43,968 INFO master.Master: Launching executor app-20191113195443-0007/9 on worker worker-20191113190414-129.82.44.169-40149
+2019-11-13 19:54:43,968 INFO master.Master: Launching executor app-20191113195443-0007/10 on worker worker-20191113190416-129.82.44.162-40005
+2019-11-13 19:54:43,968 INFO master.Master: Launching executor app-20191113195443-0007/11 on worker worker-20191113190414-129.82.44.166-44697
+2019-11-13 19:54:43,968 INFO master.Master: Launching executor app-20191113195443-0007/12 on worker worker-20191113190417-129.82.44.173-38727
+2019-11-13 19:54:43,969 INFO master.Master: Launching executor app-20191113195443-0007/13 on worker worker-20191113190417-129.82.44.169-39351
+2019-11-13 19:54:43,969 INFO master.Master: Launching executor app-20191113195443-0007/14 on worker worker-20191113190417-129.82.44.174-43885
+2019-11-13 19:54:43,969 INFO master.Master: Launching executor app-20191113195443-0007/15 on worker worker-20191113190414-129.82.44.163-39081
+2019-11-13 19:54:43,969 INFO master.Master: Launching executor app-20191113195443-0007/16 on worker worker-20191113190413-129.82.44.162-36983
+2019-11-13 19:54:43,969 INFO master.Master: Launching executor app-20191113195443-0007/17 on worker worker-20191113190413-129.82.44.168-42461
+2019-11-13 19:54:44,903 INFO master.Master: Received unregister request from application app-20191113195443-0007
+2019-11-13 19:54:44,904 INFO master.Master: Removing app app-20191113195443-0007
+2019-11-13 19:54:44,910 WARN master.Master: Got status update for unknown executor app-20191113195443-0007/4
+2019-11-13 19:54:44,910 WARN master.Master: Got status update for unknown executor app-20191113195443-0007/8
+2019-11-13 19:54:44,911 WARN master.Master: Got status update for unknown executor app-20191113195443-0007/6
+2019-11-13 19:54:44,912 WARN master.Master: Got status update for unknown executor app-20191113195443-0007/5
+2019-11-13 19:54:44,913 WARN master.Master: Got status update for unknown executor app-20191113195443-0007/9
+2019-11-13 19:54:44,914 WARN master.Master: Got status update for unknown executor app-20191113195443-0007/17
+2019-11-13 19:54:44,914 WARN master.Master: Got status update for unknown executor app-20191113195443-0007/13
+2019-11-13 19:54:44,916 WARN master.Master: Got status update for unknown executor app-20191113195443-0007/2
+2019-11-13 19:54:44,921 WARN master.Master: Got status update for unknown executor app-20191113195443-0007/15
+2019-11-13 19:54:44,921 WARN master.Master: Got status update for unknown executor app-20191113195443-0007/12
+2019-11-13 19:54:44,929 WARN master.Master: Got status update for unknown executor app-20191113195443-0007/0
+2019-11-13 19:54:44,932 WARN master.Master: Got status update for unknown executor app-20191113195443-0007/1
+2019-11-13 19:54:44,939 INFO master.Master: 129.82.44.171:36652 got disassociated, removing it.
+2019-11-13 19:54:44,939 INFO master.Master: santa-fe.cs.colostate.edu:43099 got disassociated, removing it.
+2019-11-13 19:54:47,697 WARN master.Master: Got status update for unknown executor app-20191113195443-0007/10
+2019-11-13 19:54:47,711 WARN master.Master: Got status update for unknown executor app-20191113195443-0007/16
+2019-11-13 19:54:47,749 WARN master.Master: Got status update for unknown executor app-20191113195443-0007/14
+2019-11-13 19:54:47,778 WARN master.Master: Got status update for unknown executor app-20191113195443-0007/7
+2019-11-13 19:54:49,305 WARN master.Master: Got status update for unknown executor app-20191113195443-0007/11
+2019-11-13 19:54:49,322 WARN master.Master: Got status update for unknown executor app-20191113195443-0007/3
+2019-11-13 19:57:56,992 INFO master.Master: Registering app Spark shell
+2019-11-13 19:57:56,993 INFO master.Master: Registered app Spark shell with ID app-20191113195756-0008
+2019-11-13 19:57:56,994 INFO master.Master: Launching executor app-20191113195756-0008/0 on worker worker-20191113190419-129.82.44.164-46367
+2019-11-13 19:57:56,994 INFO master.Master: Launching executor app-20191113195756-0008/1 on worker worker-20191113190415-129.82.44.164-39131
+2019-11-13 19:57:56,994 INFO master.Master: Launching executor app-20191113195756-0008/2 on worker worker-20191113190416-129.82.44.168-35469
+2019-11-13 19:57:56,994 INFO master.Master: Launching executor app-20191113195756-0008/3 on worker worker-20191113190416-129.82.44.166-44029
+2019-11-13 19:57:56,994 INFO master.Master: Launching executor app-20191113195756-0008/4 on worker worker-20191113190417-129.82.44.163-39095
+2019-11-13 19:57:56,994 INFO master.Master: Launching executor app-20191113195756-0008/5 on worker worker-20191113190414-129.82.44.172-33207
+2019-11-13 19:57:56,994 INFO master.Master: Launching executor app-20191113195756-0008/6 on worker worker-20191113190417-129.82.44.172-44113
+2019-11-13 19:57:56,995 INFO master.Master: Launching executor app-20191113195756-0008/7 on worker worker-20191113190414-129.82.44.174-35041
+2019-11-13 19:57:56,995 INFO master.Master: Launching executor app-20191113195756-0008/8 on worker worker-20191113190414-129.82.44.173-39055
+2019-11-13 19:57:56,995 INFO master.Master: Launching executor app-20191113195756-0008/9 on worker worker-20191113190414-129.82.44.169-40149
+2019-11-13 19:57:56,995 INFO master.Master: Launching executor app-20191113195756-0008/10 on worker worker-20191113190416-129.82.44.162-40005
+2019-11-13 19:57:56,995 INFO master.Master: Launching executor app-20191113195756-0008/11 on worker worker-20191113190414-129.82.44.166-44697
+2019-11-13 19:57:56,995 INFO master.Master: Launching executor app-20191113195756-0008/12 on worker worker-20191113190417-129.82.44.173-38727
+2019-11-13 19:57:56,995 INFO master.Master: Launching executor app-20191113195756-0008/13 on worker worker-20191113190417-129.82.44.169-39351
+2019-11-13 19:57:56,995 INFO master.Master: Launching executor app-20191113195756-0008/14 on worker worker-20191113190417-129.82.44.174-43885
+2019-11-13 19:57:56,996 INFO master.Master: Launching executor app-20191113195756-0008/15 on worker worker-20191113190414-129.82.44.163-39081
+2019-11-13 19:57:56,996 INFO master.Master: Launching executor app-20191113195756-0008/16 on worker worker-20191113190413-129.82.44.162-36983
+2019-11-13 19:57:56,996 INFO master.Master: Launching executor app-20191113195756-0008/17 on worker worker-20191113190413-129.82.44.168-42461
+2019-11-13 19:57:58,015 INFO master.Master: Received unregister request from application app-20191113195756-0008
+2019-11-13 19:57:58,015 INFO master.Master: Removing app app-20191113195756-0008
+2019-11-13 19:57:58,028 WARN master.Master: Got status update for unknown executor app-20191113195756-0008/9
+2019-11-13 19:57:58,028 WARN master.Master: Got status update for unknown executor app-20191113195756-0008/16
+2019-11-13 19:57:58,033 WARN master.Master: Got status update for unknown executor app-20191113195756-0008/15
+2019-11-13 19:57:58,033 WARN master.Master: Got status update for unknown executor app-20191113195756-0008/3
+2019-11-13 19:57:58,033 WARN master.Master: Got status update for unknown executor app-20191113195756-0008/8
+2019-11-13 19:57:58,034 WARN master.Master: Got status update for unknown executor app-20191113195756-0008/14
+2019-11-13 19:57:58,034 WARN master.Master: Got status update for unknown executor app-20191113195756-0008/4
+2019-11-13 19:57:58,034 WARN master.Master: Got status update for unknown executor app-20191113195756-0008/7
+2019-11-13 19:57:58,034 WARN master.Master: Got status update for unknown executor app-20191113195756-0008/12
+2019-11-13 19:57:58,035 WARN master.Master: Got status update for unknown executor app-20191113195756-0008/6
+2019-11-13 19:57:58,035 WARN master.Master: Got status update for unknown executor app-20191113195756-0008/5
+2019-11-13 19:57:58,035 WARN master.Master: Got status update for unknown executor app-20191113195756-0008/10
+2019-11-13 19:57:58,036 WARN master.Master: Got status update for unknown executor app-20191113195756-0008/13
+2019-11-13 19:57:58,036 WARN master.Master: Got status update for unknown executor app-20191113195756-0008/2
+2019-11-13 19:57:58,040 WARN master.Master: Got status update for unknown executor app-20191113195756-0008/0
+2019-11-13 19:57:58,041 WARN master.Master: Got status update for unknown executor app-20191113195756-0008/1
+2019-11-13 19:57:58,042 WARN master.Master: Got status update for unknown executor app-20191113195756-0008/17
+2019-11-13 19:57:58,047 WARN master.Master: Got status update for unknown executor app-20191113195756-0008/11
+2019-11-13 19:57:58,063 INFO master.Master: 129.82.44.171:37066 got disassociated, removing it.
+2019-11-13 19:57:58,063 INFO master.Master: santa-fe.cs.colostate.edu:40769 got disassociated, removing it.
+2019-11-13 20:15:50,206 INFO master.Master: 129.82.44.173:55960 got disassociated, removing it.
+2019-11-13 20:15:50,207 INFO master.Master: 129.82.44.173:39055 got disassociated, removing it.
+2019-11-13 20:15:50,208 INFO master.Master: Removing worker worker-20191113190414-129.82.44.173-39055 on 129.82.44.173:39055
+2019-11-13 20:15:50,210 INFO master.Master: Telling app of lost worker: worker-20191113190414-129.82.44.173-39055
+2019-11-13 20:15:50,245 INFO master.Master: 129.82.44.173:55964 got disassociated, removing it.
+2019-11-13 20:15:50,245 INFO master.Master: 129.82.44.173:38727 got disassociated, removing it.
+2019-11-13 20:15:50,245 INFO master.Master: Removing worker worker-20191113190417-129.82.44.173-38727 on 129.82.44.173:38727
+2019-11-13 20:15:50,245 INFO master.Master: Telling app of lost worker: worker-20191113190417-129.82.44.173-38727
+2019-11-13 20:15:50,291 ERROR master.Master: RECEIVED SIGNAL TERM

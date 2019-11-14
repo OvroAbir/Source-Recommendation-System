@@ -1,0 +1,107 @@
+Spark Command: /usr/local/jdk1.8.0_51/bin/java -cp /s/chopin/a/grad/joyghosh/spark-2.4.4-bin-hadoop2.7/conf/:/s/chopin/a/grad/joyghosh/spark-2.4.4-bin-hadoop2.7/jars/*:/s/chopin/a/grad/joyghosh/Documents/Code/cs555/FlightHadoopAssignment/hadoop-conf/ -Xmx1g org.apache.spark.deploy.master.Master --host santa-fe.cs.colostate.edu --port 47002 --webui-port 47007
+========================================
+2019-11-13 19:02:58,902 INFO master.Master: Started daemon with process name: 13105@santa-fe
+2019-11-13 19:02:58,910 INFO util.SignalUtils: Registered signal handler for TERM
+2019-11-13 19:02:58,911 INFO util.SignalUtils: Registered signal handler for HUP
+2019-11-13 19:02:58,911 INFO util.SignalUtils: Registered signal handler for INT
+2019-11-13 19:02:58,932 WARN master.MasterArguments: SPARK_MASTER_IP is deprecated, please use SPARK_MASTER_HOST
+2019-11-13 19:02:59,373 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2019-11-13 19:02:59,510 INFO spark.SecurityManager: Changing view acls to: joyghosh
+2019-11-13 19:02:59,511 INFO spark.SecurityManager: Changing modify acls to: joyghosh
+2019-11-13 19:02:59,511 INFO spark.SecurityManager: Changing view acls groups to: 
+2019-11-13 19:02:59,512 INFO spark.SecurityManager: Changing modify acls groups to: 
+2019-11-13 19:02:59,512 INFO spark.SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(joyghosh); groups with view permissions: Set(); users  with modify permissions: Set(joyghosh); groups with modify permissions: Set()
+2019-11-13 19:02:59,882 INFO util.Utils: Successfully started service 'sparkMaster' on port 47002.
+2019-11-13 19:02:59,912 INFO master.Master: Starting Spark master at spark://santa-fe.cs.colostate.edu:47002
+2019-11-13 19:02:59,916 INFO master.Master: Running Spark version 2.4.4
+2019-11-13 19:02:59,969 INFO util.log: Logging initialized @1685ms
+2019-11-13 19:03:00,016 INFO server.Server: jetty-9.3.z-SNAPSHOT, build timestamp: unknown, git hash: unknown
+2019-11-13 19:03:00,032 INFO server.Server: Started @1750ms
+2019-11-13 19:03:00,061 INFO server.AbstractConnector: Started ServerConnector@57c184{HTTP/1.1,[http/1.1]}{0.0.0.0:47007}
+2019-11-13 19:03:00,061 INFO util.Utils: Successfully started service 'MasterUI' on port 47007.
+2019-11-13 19:03:00,096 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@8f11e6{/app,null,AVAILABLE,@Spark}
+2019-11-13 19:03:00,097 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@e782b9{/app/json,null,AVAILABLE,@Spark}
+2019-11-13 19:03:00,098 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@15d4083{/,null,AVAILABLE,@Spark}
+2019-11-13 19:03:00,099 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@1b8397e{/json,null,AVAILABLE,@Spark}
+2019-11-13 19:03:00,108 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@190967a{/static,null,AVAILABLE,@Spark}
+2019-11-13 19:03:00,109 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@6036f1{/app/kill,null,AVAILABLE,@Spark}
+2019-11-13 19:03:00,110 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@16aa02c{/driver/kill,null,AVAILABLE,@Spark}
+2019-11-13 19:03:00,112 INFO ui.MasterWebUI: Bound MasterWebUI to 0.0.0.0, and started at http://santa-fe.cs.colostate.edu:47007
+2019-11-13 19:03:00,334 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@589887{/metrics/master/json,null,AVAILABLE,@Spark}
+2019-11-13 19:03:00,335 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@18bad9c{/metrics/applications/json,null,AVAILABLE,@Spark}
+2019-11-13 19:03:00,357 INFO master.Master: I have been elected leader! New state: ALIVE
+2019-11-13 19:03:06,546 INFO master.Master: Registering worker 129.82.44.162:45125 with 1 cores, 2.0 GB RAM
+2019-11-13 19:03:07,525 INFO master.Master: Registering worker 129.82.44.163:45939 with 1 cores, 2.0 GB RAM
+2019-11-13 19:03:09,358 INFO master.Master: Registering worker 129.82.44.162:36431 with 1 cores, 2.0 GB RAM
+2019-11-13 19:03:11,049 INFO master.Master: Registering worker 129.82.44.163:34101 with 1 cores, 2.0 GB RAM
+2019-11-13 19:03:17,337 INFO master.Master: Registering worker 129.82.44.173:43989 with 1 cores, 2.0 GB RAM
+2019-11-13 19:03:17,353 INFO master.Master: Registering worker 129.82.44.173:42621 with 1 cores, 2.0 GB RAM
+2019-11-13 19:03:17,448 INFO master.Master: Registering worker 129.82.44.166:44841 with 1 cores, 2.0 GB RAM
+2019-11-13 19:03:17,471 INFO master.Master: Registering worker 129.82.44.166:44375 with 1 cores, 2.0 GB RAM
+2019-11-13 19:03:17,536 INFO master.Master: Registering worker 129.82.44.168:35017 with 1 cores, 2.0 GB RAM
+2019-11-13 19:03:17,559 INFO master.Master: Registering worker 129.82.44.169:41247 with 1 cores, 2.0 GB RAM
+2019-11-13 19:03:17,571 INFO master.Master: Registering worker 129.82.44.168:39127 with 1 cores, 2.0 GB RAM
+2019-11-13 19:03:17,677 INFO master.Master: Registering worker 129.82.44.169:46037 with 1 cores, 2.0 GB RAM
+2019-11-13 19:03:18,063 INFO master.Master: Registering worker 129.82.44.172:35993 with 1 cores, 2.0 GB RAM
+2019-11-13 19:03:18,105 INFO master.Master: Registering worker 129.82.44.172:35975 with 1 cores, 2.0 GB RAM
+2019-11-13 19:03:18,313 INFO master.Master: Registering worker 129.82.44.174:35787 with 1 cores, 2.0 GB RAM
+2019-11-13 19:03:18,320 INFO master.Master: Registering worker 129.82.44.174:43249 with 1 cores, 2.0 GB RAM
+2019-11-13 19:03:20,054 INFO master.Master: Registering worker 129.82.44.164:35207 with 1 cores, 2.0 GB RAM
+2019-11-13 19:03:20,408 INFO master.Master: Registering worker 129.82.44.164:37671 with 1 cores, 2.0 GB RAM
+2019-11-13 19:03:28,175 INFO master.Master: 129.82.44.168:54292 got disassociated, removing it.
+2019-11-13 19:03:28,176 INFO master.Master: 129.82.44.168:39127 got disassociated, removing it.
+2019-11-13 19:03:28,177 INFO master.Master: Removing worker worker-20191113190316-129.82.44.168-39127 on 129.82.44.168:39127
+2019-11-13 19:03:28,179 INFO master.Master: Telling app of lost worker: worker-20191113190316-129.82.44.168-39127
+2019-11-13 19:03:28,213 INFO master.Master: 129.82.44.168:54290 got disassociated, removing it.
+2019-11-13 19:03:28,213 INFO master.Master: 129.82.44.173:55822 got disassociated, removing it.
+2019-11-13 19:03:28,213 INFO master.Master: 129.82.44.168:35017 got disassociated, removing it.
+2019-11-13 19:03:28,213 INFO master.Master: Removing worker worker-20191113190316-129.82.44.168-35017 on 129.82.44.168:35017
+2019-11-13 19:03:28,213 INFO master.Master: Telling app of lost worker: worker-20191113190316-129.82.44.168-35017
+2019-11-13 19:03:28,214 INFO master.Master: 129.82.44.173:43989 got disassociated, removing it.
+2019-11-13 19:03:28,214 INFO master.Master: Removing worker worker-20191113190316-129.82.44.173-43989 on 129.82.44.173:43989
+2019-11-13 19:03:28,214 INFO master.Master: Telling app of lost worker: worker-20191113190316-129.82.44.173-43989
+2019-11-13 19:03:28,235 INFO master.Master: 129.82.44.172:39776 got disassociated, removing it.
+2019-11-13 19:03:28,235 INFO master.Master: 129.82.44.172:35975 got disassociated, removing it.
+2019-11-13 19:03:28,235 INFO master.Master: Removing worker worker-20191113190317-129.82.44.172-35975 on 129.82.44.172:35975
+2019-11-13 19:03:28,235 INFO master.Master: Telling app of lost worker: worker-20191113190317-129.82.44.172-35975
+2019-11-13 19:03:28,254 INFO master.Master: 129.82.44.166:40058 got disassociated, removing it.
+2019-11-13 19:03:28,254 INFO master.Master: 129.82.44.166:44375 got disassociated, removing it.
+2019-11-13 19:03:28,254 INFO master.Master: Removing worker worker-20191113190316-129.82.44.166-44375 on 129.82.44.166:44375
+2019-11-13 19:03:28,254 INFO master.Master: Telling app of lost worker: worker-20191113190316-129.82.44.166-44375
+2019-11-13 19:03:28,255 INFO master.Master: 129.82.44.162:33516 got disassociated, removing it.
+2019-11-13 19:03:28,255 INFO master.Master: 129.82.44.162:45125 got disassociated, removing it.
+2019-11-13 19:03:28,255 INFO master.Master: Removing worker worker-20191113190305-129.82.44.162-45125 on 129.82.44.162:45125
+2019-11-13 19:03:28,255 INFO master.Master: Telling app of lost worker: worker-20191113190305-129.82.44.162-45125
+2019-11-13 19:03:28,269 INFO master.Master: 129.82.44.173:55824 got disassociated, removing it.
+2019-11-13 19:03:28,269 INFO master.Master: 129.82.44.173:42621 got disassociated, removing it.
+2019-11-13 19:03:28,270 INFO master.Master: Removing worker worker-20191113190316-129.82.44.173-42621 on 129.82.44.173:42621
+2019-11-13 19:03:28,270 INFO master.Master: Telling app of lost worker: worker-20191113190316-129.82.44.173-42621
+2019-11-13 19:03:28,304 INFO master.Master: 129.82.44.172:39774 got disassociated, removing it.
+2019-11-13 19:03:28,304 INFO master.Master: 129.82.44.172:35993 got disassociated, removing it.
+2019-11-13 19:03:28,304 INFO master.Master: Removing worker worker-20191113190317-129.82.44.172-35993 on 129.82.44.172:35993
+2019-11-13 19:03:28,304 INFO master.Master: Telling app of lost worker: worker-20191113190317-129.82.44.172-35993
+2019-11-13 19:03:28,316 INFO master.Master: 129.82.44.162:33530 got disassociated, removing it.
+2019-11-13 19:03:28,316 INFO master.Master: 129.82.44.162:36431 got disassociated, removing it.
+2019-11-13 19:03:28,316 INFO master.Master: Removing worker worker-20191113190308-129.82.44.162-36431 on 129.82.44.162:36431
+2019-11-13 19:03:28,317 INFO master.Master: Telling app of lost worker: worker-20191113190308-129.82.44.162-36431
+2019-11-13 19:03:28,317 INFO master.Master: 129.82.44.163:37462 got disassociated, removing it.
+2019-11-13 19:03:28,317 INFO master.Master: 129.82.44.163:45939 got disassociated, removing it.
+2019-11-13 19:03:28,317 INFO master.Master: Removing worker worker-20191113190306-129.82.44.163-45939 on 129.82.44.163:45939
+2019-11-13 19:03:28,317 INFO master.Master: Telling app of lost worker: worker-20191113190306-129.82.44.163-45939
+2019-11-13 19:03:28,323 INFO master.Master: 129.82.44.166:40056 got disassociated, removing it.
+2019-11-13 19:03:28,323 INFO master.Master: 129.82.44.166:44841 got disassociated, removing it.
+2019-11-13 19:03:28,323 INFO master.Master: Removing worker worker-20191113190316-129.82.44.166-44841 on 129.82.44.166:44841
+2019-11-13 19:03:28,323 INFO master.Master: Telling app of lost worker: worker-20191113190316-129.82.44.166-44841
+2019-11-13 19:03:28,336 INFO master.Master: 129.82.44.169:38202 got disassociated, removing it.
+2019-11-13 19:03:28,337 INFO master.Master: 129.82.44.169:46037 got disassociated, removing it.
+2019-11-13 19:03:28,337 INFO master.Master: Removing worker worker-20191113190317-129.82.44.169-46037 on 129.82.44.169:46037
+2019-11-13 19:03:28,337 INFO master.Master: Telling app of lost worker: worker-20191113190317-129.82.44.169-46037
+2019-11-13 19:03:28,376 INFO master.Master: 129.82.44.163:37474 got disassociated, removing it.
+2019-11-13 19:03:28,376 INFO master.Master: 129.82.44.163:34101 got disassociated, removing it.
+2019-11-13 19:03:28,376 INFO master.Master: Removing worker worker-20191113190310-129.82.44.163-34101 on 129.82.44.163:34101
+2019-11-13 19:03:28,376 INFO master.Master: Telling app of lost worker: worker-20191113190310-129.82.44.163-34101
+2019-11-13 19:03:28,409 INFO master.Master: 129.82.44.169:38198 got disassociated, removing it.
+2019-11-13 19:03:28,409 INFO master.Master: 129.82.44.169:41247 got disassociated, removing it.
+2019-11-13 19:03:28,409 INFO master.Master: Removing worker worker-20191113190316-129.82.44.169-41247 on 129.82.44.169:41247
+2019-11-13 19:03:28,409 INFO master.Master: Telling app of lost worker: worker-20191113190316-129.82.44.169-41247
+2019-11-13 19:03:28,585 ERROR master.Master: RECEIVED SIGNAL TERM

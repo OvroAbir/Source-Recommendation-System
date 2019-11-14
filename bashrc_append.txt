@@ -1,0 +1,10 @@
+#For spark
+export SPARK_HOME=${HOME}/Source-Recommendation-System/spark-2.4.4-bin-hadoop2.7
+#export PATH = $PATH:/home/hadoop/spark-2.4.4-bin-hadoop2.7/bin
+export PYTHONPATH=$SPARK_HOME/python:$SPARK_HOME/python/lib/py4j-0.10.7-src.zip:$PYTHONPATH
+export PATH=$SPARK_HOME/python:$PATH
+alias pyspark="~/Source-Recommendation-System/spark-2.4.4-bin-hadoop2.7/bin/pyspark"
+
+#For scala spark
+export PATH=$PATH:/usr/local/sbt/bin
+

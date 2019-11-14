@@ -1,3 +1,6 @@
+#For hadoop
+export HADOOP_CONF_DIR=~/Source-Recommendation-System/hadoop-conf
+
 #For spark
 export SPARK_HOME=${HOME}/Source-Recommendation-System/spark-2.4.4-bin-hadoop2.7
 #export PATH = $PATH:/home/hadoop/spark-2.4.4-bin-hadoop2.7/bin
@@ -7,4 +10,5 @@ alias pyspark="~/Source-Recommendation-System/spark-2.4.4-bin-hadoop2.7/bin/pysp
 
 #For scala spark
 export PATH=$PATH:/usr/local/sbt/bin
+
 

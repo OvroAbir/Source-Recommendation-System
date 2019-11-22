@@ -3,6 +3,7 @@
 
 # Log file
 *.log
+spark-2.4.4-bin-hadoop2.7/logs/*
 
 # BlueJ files
 *.ctxt
@@ -21,3 +22,6 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+
+#work files
+spark-2.4.4-bin-hadoop2.7/work/*

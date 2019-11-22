@@ -1,176 +1,86 @@
-Spark Command: /usr/local/jdk1.8.0_51/bin/java -cp /s/chopin/a/grad/joyghosh/spark-2.4.4-bin-hadoop2.7/conf/:/s/chopin/a/grad/joyghosh/spark-2.4.4-bin-hadoop2.7/jars/*:/s/chopin/a/grad/joyghosh/Documents/Code/cs555/FlightHadoopAssignment/hadoop-conf/ -Xmx1g org.apache.spark.deploy.worker.Worker --webui-port 8081 spark://santa-fe.cs.colostate.edu:47002
+Spark Command: /usr/local/jdk1.8.0_51/bin/java -cp /s/chopin/a/grad/joyghosh/Source-Recommendation-System/spark-2.4.4-bin-hadoop2.7/conf/:/s/chopin/a/grad/joyghosh/Source-Recommendation-System/spark-2.4.4-bin-hadoop2.7/jars/*:/s/chopin/a/grad/joyghosh/Source-Recommendation-System/hadoop-conf/ -Xmx1g org.apache.spark.deploy.worker.Worker --webui-port 8081 spark://santa-fe.cs.colostate.edu:47002
 ========================================
-2019-11-13 19:04:13,139 INFO worker.Worker: Started daemon with process name: 6032@tallahassee
-2019-11-13 19:04:13,147 INFO util.SignalUtils: Registered signal handler for TERM
-2019-11-13 19:04:13,148 INFO util.SignalUtils: Registered signal handler for HUP
-2019-11-13 19:04:13,148 INFO util.SignalUtils: Registered signal handler for INT
-2019-11-13 19:04:13,591 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
-2019-11-13 19:04:13,710 INFO spark.SecurityManager: Changing view acls to: joyghosh
-2019-11-13 19:04:13,710 INFO spark.SecurityManager: Changing modify acls to: joyghosh
-2019-11-13 19:04:13,711 INFO spark.SecurityManager: Changing view acls groups to: 
-2019-11-13 19:04:13,711 INFO spark.SecurityManager: Changing modify acls groups to: 
-2019-11-13 19:04:13,711 INFO spark.SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(joyghosh); groups with view permissions: Set(); users  with modify permissions: Set(joyghosh); groups with modify permissions: Set()
-2019-11-13 19:04:14,107 INFO util.Utils: Successfully started service 'sparkWorker' on port 39055.
-2019-11-13 19:04:14,328 INFO worker.Worker: Starting Spark worker 129.82.44.173:39055 with 1 cores, 2.0 GB RAM
-2019-11-13 19:04:14,332 INFO worker.Worker: Running Spark version 2.4.4
-2019-11-13 19:04:14,333 INFO worker.Worker: Spark home: /s/chopin/a/grad/joyghosh/spark-2.4.4-bin-hadoop2.7
-2019-11-13 19:04:14,405 INFO util.log: Logging initialized @1999ms
-2019-11-13 19:04:14,454 INFO server.Server: jetty-9.3.z-SNAPSHOT, build timestamp: unknown, git hash: unknown
-2019-11-13 19:04:14,470 INFO server.Server: Started @2067ms
-2019-11-13 19:04:14,484 WARN util.Utils: Service 'WorkerUI' could not bind on port 8081. Attempting port 8082.
-2019-11-13 19:04:14,485 WARN util.Utils: Service 'WorkerUI' could not bind on port 8082. Attempting port 8083.
-2019-11-13 19:04:14,485 WARN util.Utils: Service 'WorkerUI' could not bind on port 8083. Attempting port 8084.
-2019-11-13 19:04:14,485 WARN util.Utils: Service 'WorkerUI' could not bind on port 8084. Attempting port 8085.
-2019-11-13 19:04:14,485 WARN util.Utils: Service 'WorkerUI' could not bind on port 8085. Attempting port 8086.
-2019-11-13 19:04:14,486 WARN util.Utils: Service 'WorkerUI' could not bind on port 8086. Attempting port 8087.
-2019-11-13 19:04:14,491 INFO server.AbstractConnector: Started ServerConnector@1b7f66d{HTTP/1.1,[http/1.1]}{0.0.0.0:8087}
-2019-11-13 19:04:14,491 INFO util.Utils: Successfully started service 'WorkerUI' on port 8087.
-2019-11-13 19:04:14,515 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@b04329{/logPage,null,AVAILABLE,@Spark}
-2019-11-13 19:04:14,516 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@655cf0{/logPage/json,null,AVAILABLE,@Spark}
-2019-11-13 19:04:14,516 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@b23282{/,null,AVAILABLE,@Spark}
-2019-11-13 19:04:14,517 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@961948{/json,null,AVAILABLE,@Spark}
-2019-11-13 19:04:14,538 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@2852f6{/static,null,AVAILABLE,@Spark}
-2019-11-13 19:04:14,539 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@1327a42{/log,null,AVAILABLE,@Spark}
-2019-11-13 19:04:14,541 INFO ui.WorkerWebUI: Bound WorkerWebUI to 0.0.0.0, and started at http://tallahassee.cs.colostate.edu:8087
-2019-11-13 19:04:14,544 INFO worker.Worker: Connecting to master santa-fe.cs.colostate.edu:47002...
-2019-11-13 19:04:14,564 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@1462623{/metrics/json,null,AVAILABLE,@Spark}
-2019-11-13 19:04:14,645 INFO client.TransportClientFactory: Successfully created connection to santa-fe.cs.colostate.edu/129.82.44.171:47002 after 76 ms (0 ms spent in bootstraps)
-2019-11-13 19:04:14,740 INFO worker.Worker: Successfully registered with master spark://santa-fe.cs.colostate.edu:47002
-2019-11-13 19:20:40,527 INFO worker.Worker: Asked to launch executor app-20191113192040-0000/8 for PySparkShell
-2019-11-13 19:20:40,564 INFO spark.SecurityManager: Changing view acls to: joyghosh
-2019-11-13 19:20:40,564 INFO spark.SecurityManager: Changing modify acls to: joyghosh
-2019-11-13 19:20:40,564 INFO spark.SecurityManager: Changing view acls groups to: 
-2019-11-13 19:20:40,564 INFO spark.SecurityManager: Changing modify acls groups to: 
-2019-11-13 19:20:40,564 INFO spark.SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(joyghosh); groups with view permissions: Set(); users  with modify permissions: Set(joyghosh); groups with modify permissions: Set()
-2019-11-13 19:20:40,658 INFO worker.ExecutorRunner: Launch command: "/usr/local/jdk1.8.0_51/bin/java" "-cp" "/s/chopin/a/grad/joyghosh/spark-2.4.4-bin-hadoop2.7/conf/:/s/chopin/a/grad/joyghosh/spark-2.4.4-bin-hadoop2.7/jars/*:/s/chopin/a/grad/joyghosh/Documents/Code/cs555/FlightHadoopAssignment/hadoop-conf/" "-Xmx1024M" "-Dspark.driver.port=45293" "org.apache.spark.executor.CoarseGrainedExecutorBackend" "--driver-url" "spark://CoarseGrainedScheduler@santa-fe.cs.colostate.edu:45293" "--executor-id" "8" "--hostname" "129.82.44.173" "--cores" "1" "--app-id" "app-20191113192040-0000" "--worker-url" "spark://Worker@129.82.44.173:39055"
-2019-11-13 19:20:41,719 INFO worker.Worker: Asked to kill executor app-20191113192040-0000/8
-2019-11-13 19:20:41,720 INFO worker.ExecutorRunner: Runner thread for executor app-20191113192040-0000/8 interrupted
-2019-11-13 19:20:41,720 INFO worker.ExecutorRunner: Killing process!
-2019-11-13 19:20:41,749 INFO worker.Worker: Executor app-20191113192040-0000/8 finished with state KILLED exitStatus 143
-2019-11-13 19:20:41,749 INFO shuffle.ExternalShuffleBlockResolver: Clean up non-shuffle files associated with the finished executor 8
-2019-11-13 19:20:41,750 INFO shuffle.ExternalShuffleBlockResolver: Executor is not registered (appId=app-20191113192040-0000, execId=8)
-2019-11-13 19:20:41,753 INFO shuffle.ExternalShuffleBlockResolver: Application app-20191113192040-0000 removed, cleanupLocalDirs = true
-2019-11-13 19:20:41,753 INFO worker.Worker: Cleaning up local directories for application app-20191113192040-0000
-2019-11-13 19:20:41,933 INFO worker.Worker: Asked to launch executor app-20191113192041-0001/8 for PySparkShell
-2019-11-13 19:20:41,941 INFO spark.SecurityManager: Changing view acls to: joyghosh
-2019-11-13 19:20:41,941 INFO spark.SecurityManager: Changing modify acls to: joyghosh
-2019-11-13 19:20:41,941 INFO spark.SecurityManager: Changing view acls groups to: 
-2019-11-13 19:20:41,941 INFO spark.SecurityManager: Changing modify acls groups to: 
-2019-11-13 19:20:41,941 INFO spark.SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(joyghosh); groups with view permissions: Set(); users  with modify permissions: Set(joyghosh); groups with modify permissions: Set()
-2019-11-13 19:20:41,973 INFO worker.Worker: Asked to kill executor app-20191113192041-0001/8
-2019-11-13 19:20:41,991 INFO worker.ExecutorRunner: Launch command: "/usr/local/jdk1.8.0_51/bin/java" "-cp" "/s/chopin/a/grad/joyghosh/spark-2.4.4-bin-hadoop2.7/conf/:/s/chopin/a/grad/joyghosh/spark-2.4.4-bin-hadoop2.7/jars/*:/s/chopin/a/grad/joyghosh/Documents/Code/cs555/FlightHadoopAssignment/hadoop-conf/" "-Xmx1024M" "-Dspark.driver.port=39313" "org.apache.spark.executor.CoarseGrainedExecutorBackend" "--driver-url" "spark://CoarseGrainedScheduler@santa-fe.cs.colostate.edu:39313" "--executor-id" "8" "--hostname" "129.82.44.173" "--cores" "1" "--app-id" "app-20191113192041-0001" "--worker-url" "spark://Worker@129.82.44.173:39055"
-2019-11-13 19:20:42,002 INFO worker.ExecutorRunner: Runner thread for executor app-20191113192041-0001/8 interrupted
-2019-11-13 19:20:42,002 INFO worker.ExecutorRunner: Killing process!
-2019-11-13 19:20:42,004 INFO worker.Worker: Executor app-20191113192041-0001/8 finished with state KILLED exitStatus 143
-2019-11-13 19:20:42,004 INFO shuffle.ExternalShuffleBlockResolver: Clean up non-shuffle files associated with the finished executor 8
-2019-11-13 19:20:42,004 INFO shuffle.ExternalShuffleBlockResolver: Executor is not registered (appId=app-20191113192041-0001, execId=8)
-2019-11-13 19:20:42,004 INFO shuffle.ExternalShuffleBlockResolver: Application app-20191113192041-0001 removed, cleanupLocalDirs = true
-2019-11-13 19:20:42,004 INFO worker.Worker: Cleaning up local directories for application app-20191113192041-0001
-2019-11-13 19:27:13,949 INFO worker.Worker: Asked to launch executor app-20191113192713-0002/8 for PySparkShell
-2019-11-13 19:27:13,981 INFO spark.SecurityManager: Changing view acls to: joyghosh
-2019-11-13 19:27:13,981 INFO spark.SecurityManager: Changing modify acls to: joyghosh
-2019-11-13 19:27:13,981 INFO spark.SecurityManager: Changing view acls groups to: 
-2019-11-13 19:27:13,981 INFO spark.SecurityManager: Changing modify acls groups to: 
-2019-11-13 19:27:13,981 INFO spark.SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(joyghosh); groups with view permissions: Set(); users  with modify permissions: Set(joyghosh); groups with modify permissions: Set()
-2019-11-13 19:27:14,028 INFO worker.ExecutorRunner: Launch command: "/usr/local/jdk1.8.0_51/bin/java" "-cp" "/s/chopin/a/grad/joyghosh/spark-2.4.4-bin-hadoop2.7/conf/:/s/chopin/a/grad/joyghosh/spark-2.4.4-bin-hadoop2.7/jars/*:/s/chopin/a/grad/joyghosh/Documents/Code/cs555/FlightHadoopAssignment/hadoop-conf/" "-Xmx1024M" "-Dspark.driver.port=37841" "org.apache.spark.executor.CoarseGrainedExecutorBackend" "--driver-url" "spark://CoarseGrainedScheduler@santa-fe.cs.colostate.edu:37841" "--executor-id" "8" "--hostname" "129.82.44.173" "--cores" "1" "--app-id" "app-20191113192713-0002" "--worker-url" "spark://Worker@129.82.44.173:39055"
-2019-11-13 19:27:14,792 INFO worker.Worker: Asked to kill executor app-20191113192713-0002/8
-2019-11-13 19:27:14,792 INFO worker.ExecutorRunner: Runner thread for executor app-20191113192713-0002/8 interrupted
-2019-11-13 19:27:14,792 INFO worker.ExecutorRunner: Killing process!
-2019-11-13 19:27:14,808 INFO worker.Worker: Executor app-20191113192713-0002/8 finished with state KILLED exitStatus 143
-2019-11-13 19:27:14,808 INFO shuffle.ExternalShuffleBlockResolver: Clean up non-shuffle files associated with the finished executor 8
-2019-11-13 19:27:14,808 INFO shuffle.ExternalShuffleBlockResolver: Executor is not registered (appId=app-20191113192713-0002, execId=8)
-2019-11-13 19:27:14,808 INFO shuffle.ExternalShuffleBlockResolver: Application app-20191113192713-0002 removed, cleanupLocalDirs = true
-2019-11-13 19:27:14,808 INFO worker.Worker: Cleaning up local directories for application app-20191113192713-0002
-2019-11-13 19:27:14,992 INFO worker.Worker: Asked to launch executor app-20191113192714-0003/8 for PySparkShell
-2019-11-13 19:27:15,036 INFO worker.Worker: Asked to kill executor app-20191113192714-0003/8
-2019-11-13 19:27:15,037 INFO spark.SecurityManager: Changing view acls to: joyghosh
-2019-11-13 19:27:15,037 INFO spark.SecurityManager: Changing modify acls to: joyghosh
-2019-11-13 19:27:15,037 INFO spark.SecurityManager: Changing view acls groups to: 
-2019-11-13 19:27:15,037 INFO spark.SecurityManager: Changing modify acls groups to: 
-2019-11-13 19:27:15,037 INFO spark.SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(joyghosh); groups with view permissions: Set(); users  with modify permissions: Set(joyghosh); groups with modify permissions: Set()
-2019-11-13 19:27:15,104 INFO worker.ExecutorRunner: Launch command: "/usr/local/jdk1.8.0_51/bin/java" "-cp" "/s/chopin/a/grad/joyghosh/spark-2.4.4-bin-hadoop2.7/conf/:/s/chopin/a/grad/joyghosh/spark-2.4.4-bin-hadoop2.7/jars/*:/s/chopin/a/grad/joyghosh/Documents/Code/cs555/FlightHadoopAssignment/hadoop-conf/" "-Xmx1024M" "-Dspark.driver.port=33701" "org.apache.spark.executor.CoarseGrainedExecutorBackend" "--driver-url" "spark://CoarseGrainedScheduler@santa-fe.cs.colostate.edu:33701" "--executor-id" "8" "--hostname" "129.82.44.173" "--cores" "1" "--app-id" "app-20191113192714-0003" "--worker-url" "spark://Worker@129.82.44.173:39055"
-2019-11-13 19:27:15,121 INFO worker.ExecutorRunner: Runner thread for executor app-20191113192714-0003/8 interrupted
-2019-11-13 19:27:15,121 INFO worker.ExecutorRunner: Killing process!
-2019-11-13 19:27:15,123 INFO worker.Worker: Executor app-20191113192714-0003/8 finished with state KILLED exitStatus 143
-2019-11-13 19:27:15,123 INFO shuffle.ExternalShuffleBlockResolver: Clean up non-shuffle files associated with the finished executor 8
-2019-11-13 19:27:15,124 INFO shuffle.ExternalShuffleBlockResolver: Executor is not registered (appId=app-20191113192714-0003, execId=8)
-2019-11-13 19:27:15,124 INFO shuffle.ExternalShuffleBlockResolver: Application app-20191113192714-0003 removed, cleanupLocalDirs = true
-2019-11-13 19:27:15,124 INFO worker.Worker: Cleaning up local directories for application app-20191113192714-0003
-2019-11-13 19:29:15,600 INFO worker.Worker: Asked to launch executor app-20191113192915-0004/8 for PySparkShell
-2019-11-13 19:29:15,609 INFO spark.SecurityManager: Changing view acls to: joyghosh
-2019-11-13 19:29:15,609 INFO spark.SecurityManager: Changing modify acls to: joyghosh
-2019-11-13 19:29:15,609 INFO spark.SecurityManager: Changing view acls groups to: 
-2019-11-13 19:29:15,610 INFO spark.SecurityManager: Changing modify acls groups to: 
-2019-11-13 19:29:15,610 INFO spark.SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(joyghosh); groups with view permissions: Set(); users  with modify permissions: Set(joyghosh); groups with modify permissions: Set()
-2019-11-13 19:29:15,662 INFO worker.ExecutorRunner: Launch command: "/usr/local/jdk1.8.0_51/bin/java" "-cp" "/s/chopin/a/grad/joyghosh/spark-2.4.4-bin-hadoop2.7/conf/:/s/chopin/a/grad/joyghosh/spark-2.4.4-bin-hadoop2.7/jars/*:/s/chopin/a/grad/joyghosh/Documents/Code/cs555/FlightHadoopAssignment/hadoop-conf/" "-Xmx1024M" "-Dspark.driver.port=44303" "org.apache.spark.executor.CoarseGrainedExecutorBackend" "--driver-url" "spark://CoarseGrainedScheduler@santa-fe.cs.colostate.edu:44303" "--executor-id" "8" "--hostname" "129.82.44.173" "--cores" "1" "--app-id" "app-20191113192915-0004" "--worker-url" "spark://Worker@129.82.44.173:39055"
-2019-11-13 19:29:16,452 INFO worker.Worker: Asked to kill executor app-20191113192915-0004/8
-2019-11-13 19:29:16,452 INFO worker.ExecutorRunner: Runner thread for executor app-20191113192915-0004/8 interrupted
-2019-11-13 19:29:16,452 INFO worker.ExecutorRunner: Killing process!
-2019-11-13 19:29:16,457 INFO worker.Worker: Executor app-20191113192915-0004/8 finished with state KILLED exitStatus 143
-2019-11-13 19:29:16,458 INFO shuffle.ExternalShuffleBlockResolver: Clean up non-shuffle files associated with the finished executor 8
-2019-11-13 19:29:16,458 INFO shuffle.ExternalShuffleBlockResolver: Executor is not registered (appId=app-20191113192915-0004, execId=8)
-2019-11-13 19:29:16,458 INFO shuffle.ExternalShuffleBlockResolver: Application app-20191113192915-0004 removed, cleanupLocalDirs = true
-2019-11-13 19:29:16,458 INFO worker.Worker: Cleaning up local directories for application app-20191113192915-0004
-2019-11-13 19:29:16,638 INFO worker.Worker: Asked to launch executor app-20191113192916-0005/8 for PySparkShell
-2019-11-13 19:29:16,650 INFO spark.SecurityManager: Changing view acls to: joyghosh
-2019-11-13 19:29:16,650 INFO spark.SecurityManager: Changing modify acls to: joyghosh
-2019-11-13 19:29:16,650 INFO spark.SecurityManager: Changing view acls groups to: 
-2019-11-13 19:29:16,650 INFO spark.SecurityManager: Changing modify acls groups to: 
-2019-11-13 19:29:16,650 INFO spark.SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(joyghosh); groups with view permissions: Set(); users  with modify permissions: Set(joyghosh); groups with modify permissions: Set()
-2019-11-13 19:29:16,670 INFO worker.Worker: Asked to kill executor app-20191113192916-0005/8
-2019-11-13 19:29:16,693 INFO worker.ExecutorRunner: Launch command: "/usr/local/jdk1.8.0_51/bin/java" "-cp" "/s/chopin/a/grad/joyghosh/spark-2.4.4-bin-hadoop2.7/conf/:/s/chopin/a/grad/joyghosh/spark-2.4.4-bin-hadoop2.7/jars/*:/s/chopin/a/grad/joyghosh/Documents/Code/cs555/FlightHadoopAssignment/hadoop-conf/" "-Xmx1024M" "-Dspark.driver.port=32889" "org.apache.spark.executor.CoarseGrainedExecutorBackend" "--driver-url" "spark://CoarseGrainedScheduler@santa-fe.cs.colostate.edu:32889" "--executor-id" "8" "--hostname" "129.82.44.173" "--cores" "1" "--app-id" "app-20191113192916-0005" "--worker-url" "spark://Worker@129.82.44.173:39055"
-2019-11-13 19:29:16,713 INFO worker.ExecutorRunner: Runner thread for executor app-20191113192916-0005/8 interrupted
-2019-11-13 19:29:16,713 INFO worker.ExecutorRunner: Killing process!
-2019-11-13 19:29:16,715 INFO worker.Worker: Executor app-20191113192916-0005/8 finished with state KILLED exitStatus 143
-2019-11-13 19:29:16,715 INFO shuffle.ExternalShuffleBlockResolver: Clean up non-shuffle files associated with the finished executor 8
-2019-11-13 19:29:16,715 INFO shuffle.ExternalShuffleBlockResolver: Executor is not registered (appId=app-20191113192916-0005, execId=8)
-2019-11-13 19:29:16,715 INFO shuffle.ExternalShuffleBlockResolver: Application app-20191113192916-0005 removed, cleanupLocalDirs = true
-2019-11-13 19:29:16,715 INFO worker.Worker: Cleaning up local directories for application app-20191113192916-0005
-2019-11-13 19:50:16,634 INFO worker.Worker: Asked to launch executor app-20191113195016-0006/8 for Spark shell
-2019-11-13 19:50:16,641 INFO spark.SecurityManager: Changing view acls to: joyghosh
-2019-11-13 19:50:16,641 INFO spark.SecurityManager: Changing modify acls to: joyghosh
-2019-11-13 19:50:16,641 INFO spark.SecurityManager: Changing view acls groups to: 
-2019-11-13 19:50:16,641 INFO spark.SecurityManager: Changing modify acls groups to: 
-2019-11-13 19:50:16,641 INFO spark.SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(joyghosh); groups with view permissions: Set(); users  with modify permissions: Set(joyghosh); groups with modify permissions: Set()
-2019-11-13 19:50:16,689 INFO worker.ExecutorRunner: Launch command: "/usr/local/jdk1.8.0_51/bin/java" "-cp" "/s/chopin/a/grad/joyghosh/spark-2.4.4-bin-hadoop2.7/conf/:/s/chopin/a/grad/joyghosh/spark-2.4.4-bin-hadoop2.7/jars/*:/s/chopin/a/grad/joyghosh/Documents/Code/cs555/FlightHadoopAssignment/hadoop-conf/" "-Xmx1024M" "-Dspark.driver.port=32863" "org.apache.spark.executor.CoarseGrainedExecutorBackend" "--driver-url" "spark://CoarseGrainedScheduler@santa-fe.cs.colostate.edu:32863" "--executor-id" "8" "--hostname" "129.82.44.173" "--cores" "1" "--app-id" "app-20191113195016-0006" "--worker-url" "spark://Worker@129.82.44.173:39055"
-2019-11-13 19:50:17,490 INFO worker.Worker: Asked to kill executor app-20191113195016-0006/8
-2019-11-13 19:50:17,491 INFO worker.ExecutorRunner: Runner thread for executor app-20191113195016-0006/8 interrupted
-2019-11-13 19:50:17,491 INFO worker.ExecutorRunner: Killing process!
-2019-11-13 19:50:17,506 INFO worker.Worker: Executor app-20191113195016-0006/8 finished with state KILLED exitStatus 143
-2019-11-13 19:50:17,506 INFO shuffle.ExternalShuffleBlockResolver: Clean up non-shuffle files associated with the finished executor 8
-2019-11-13 19:50:17,506 INFO shuffle.ExternalShuffleBlockResolver: Executor is not registered (appId=app-20191113195016-0006, execId=8)
-2019-11-13 19:50:17,506 INFO shuffle.ExternalShuffleBlockResolver: Application app-20191113195016-0006 removed, cleanupLocalDirs = true
-2019-11-13 19:50:17,506 INFO worker.Worker: Cleaning up local directories for application app-20191113195016-0006
-2019-11-13 19:54:43,970 INFO worker.Worker: Asked to launch executor app-20191113195443-0007/8 for Spark shell
-2019-11-13 19:54:43,992 INFO spark.SecurityManager: Changing view acls to: joyghosh
-2019-11-13 19:54:43,992 INFO spark.SecurityManager: Changing modify acls to: joyghosh
-2019-11-13 19:54:43,992 INFO spark.SecurityManager: Changing view acls groups to: 
-2019-11-13 19:54:43,993 INFO spark.SecurityManager: Changing modify acls groups to: 
-2019-11-13 19:54:43,993 INFO spark.SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(joyghosh); groups with view permissions: Set(); users  with modify permissions: Set(joyghosh); groups with modify permissions: Set()
-2019-11-13 19:54:44,097 INFO worker.ExecutorRunner: Launch command: "/usr/local/jdk1.8.0_51/bin/java" "-cp" "/s/chopin/a/grad/joyghosh/spark-2.4.4-bin-hadoop2.7/conf/:/s/chopin/a/grad/joyghosh/spark-2.4.4-bin-hadoop2.7/jars/*:/s/chopin/a/grad/joyghosh/Documents/Code/cs555/FlightHadoopAssignment/hadoop-conf/" "-Xmx1024M" "-Dspark.driver.port=43099" "org.apache.spark.executor.CoarseGrainedExecutorBackend" "--driver-url" "spark://CoarseGrainedScheduler@santa-fe.cs.colostate.edu:43099" "--executor-id" "8" "--hostname" "129.82.44.173" "--cores" "1" "--app-id" "app-20191113195443-0007" "--worker-url" "spark://Worker@129.82.44.173:39055"
-2019-11-13 19:54:44,905 INFO worker.Worker: Asked to kill executor app-20191113195443-0007/8
-2019-11-13 19:54:44,905 INFO worker.ExecutorRunner: Runner thread for executor app-20191113195443-0007/8 interrupted
-2019-11-13 19:54:44,905 INFO worker.ExecutorRunner: Killing process!
-2019-11-13 19:54:44,909 INFO worker.Worker: Executor app-20191113195443-0007/8 finished with state KILLED exitStatus 143
-2019-11-13 19:54:44,909 INFO shuffle.ExternalShuffleBlockResolver: Clean up non-shuffle files associated with the finished executor 8
-2019-11-13 19:54:44,909 INFO shuffle.ExternalShuffleBlockResolver: Executor is not registered (appId=app-20191113195443-0007, execId=8)
-2019-11-13 19:54:44,910 INFO shuffle.ExternalShuffleBlockResolver: Application app-20191113195443-0007 removed, cleanupLocalDirs = true
-2019-11-13 19:54:44,910 INFO worker.Worker: Cleaning up local directories for application app-20191113195443-0007
-2019-11-13 19:57:56,997 INFO worker.Worker: Asked to launch executor app-20191113195756-0008/8 for Spark shell
-2019-11-13 19:57:57,021 INFO spark.SecurityManager: Changing view acls to: joyghosh
-2019-11-13 19:57:57,021 INFO spark.SecurityManager: Changing modify acls to: joyghosh
-2019-11-13 19:57:57,021 INFO spark.SecurityManager: Changing view acls groups to: 
-2019-11-13 19:57:57,021 INFO spark.SecurityManager: Changing modify acls groups to: 
-2019-11-13 19:57:57,021 INFO spark.SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(joyghosh); groups with view permissions: Set(); users  with modify permissions: Set(joyghosh); groups with modify permissions: Set()
-2019-11-13 19:57:57,064 INFO worker.ExecutorRunner: Launch command: "/usr/local/jdk1.8.0_51/bin/java" "-cp" "/s/chopin/a/grad/joyghosh/spark-2.4.4-bin-hadoop2.7/conf/:/s/chopin/a/grad/joyghosh/spark-2.4.4-bin-hadoop2.7/jars/*:/s/chopin/a/grad/joyghosh/Documents/Code/cs555/FlightHadoopAssignment/hadoop-conf/" "-Xmx1024M" "-Dspark.driver.port=40769" "org.apache.spark.executor.CoarseGrainedExecutorBackend" "--driver-url" "spark://CoarseGrainedScheduler@santa-fe.cs.colostate.edu:40769" "--executor-id" "8" "--hostname" "129.82.44.173" "--cores" "1" "--app-id" "app-20191113195756-0008" "--worker-url" "spark://Worker@129.82.44.173:39055"
-2019-11-13 19:57:58,016 INFO worker.Worker: Asked to kill executor app-20191113195756-0008/8
-2019-11-13 19:57:58,016 INFO worker.ExecutorRunner: Runner thread for executor app-20191113195756-0008/8 interrupted
-2019-11-13 19:57:58,017 INFO worker.ExecutorRunner: Killing process!
-2019-11-13 19:57:58,032 INFO worker.Worker: Executor app-20191113195756-0008/8 finished with state KILLED exitStatus 143
-2019-11-13 19:57:58,033 INFO shuffle.ExternalShuffleBlockResolver: Clean up non-shuffle files associated with the finished executor 8
-2019-11-13 19:57:58,033 INFO shuffle.ExternalShuffleBlockResolver: Executor is not registered (appId=app-20191113195756-0008, execId=8)
-2019-11-13 19:57:58,033 INFO shuffle.ExternalShuffleBlockResolver: Application app-20191113195756-0008 removed, cleanupLocalDirs = true
-2019-11-13 19:57:58,033 INFO worker.Worker: Cleaning up local directories for application app-20191113195756-0008
-2019-11-13 20:15:49,865 ERROR worker.Worker: RECEIVED SIGNAL TERM
-2019-11-13 20:15:49,869 INFO util.ShutdownHookManager: Shutdown hook called
-2019-11-13 20:15:49,870 INFO util.ShutdownHookManager: Deleting directory /tmp/spark-d3184c96-5887-40b4-a8c2-0952fbd65f5b
+2019-11-20 14:26:56,081 INFO worker.Worker: Started daemon with process name: 24434@tallahassee
+2019-11-20 14:26:56,092 INFO util.SignalUtils: Registered signal handler for TERM
+2019-11-20 14:26:56,093 INFO util.SignalUtils: Registered signal handler for HUP
+2019-11-20 14:26:56,093 INFO util.SignalUtils: Registered signal handler for INT
+2019-11-20 14:26:56,841 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2019-11-20 14:26:57,155 INFO spark.SecurityManager: Changing view acls to: joyghosh
+2019-11-20 14:26:57,155 INFO spark.SecurityManager: Changing modify acls to: joyghosh
+2019-11-20 14:26:57,156 INFO spark.SecurityManager: Changing view acls groups to: 
+2019-11-20 14:26:57,156 INFO spark.SecurityManager: Changing modify acls groups to: 
+2019-11-20 14:26:57,157 INFO spark.SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(joyghosh); groups with view permissions: Set(); users  with modify permissions: Set(joyghosh); groups with modify permissions: Set()
+2019-11-20 14:26:57,692 INFO util.Utils: Successfully started service 'sparkWorker' on port 39507.
+2019-11-20 14:26:57,980 INFO worker.Worker: Starting Spark worker 129.82.44.173:39507 with 1 cores, 2.0 GB RAM
+2019-11-20 14:26:57,986 INFO worker.Worker: Running Spark version 2.4.4
+2019-11-20 14:26:57,987 INFO worker.Worker: Spark home: /s/chopin/a/grad/joyghosh/Source-Recommendation-System/spark-2.4.4-bin-hadoop2.7
+2019-11-20 14:26:58,074 INFO util.log: Logging initialized @3596ms
+2019-11-20 14:26:58,142 INFO server.Server: jetty-9.3.z-SNAPSHOT, build timestamp: unknown, git hash: unknown
+2019-11-20 14:26:58,169 INFO server.Server: Started @3692ms
+2019-11-20 14:26:58,189 WARN util.Utils: Service 'WorkerUI' could not bind on port 8081. Attempting port 8082.
+2019-11-20 14:26:58,190 WARN util.Utils: Service 'WorkerUI' could not bind on port 8082. Attempting port 8083.
+2019-11-20 14:26:58,190 WARN util.Utils: Service 'WorkerUI' could not bind on port 8083. Attempting port 8084.
+2019-11-20 14:26:58,190 WARN util.Utils: Service 'WorkerUI' could not bind on port 8084. Attempting port 8085.
+2019-11-20 14:26:58,191 WARN util.Utils: Service 'WorkerUI' could not bind on port 8085. Attempting port 8086.
+2019-11-20 14:26:58,191 WARN util.Utils: Service 'WorkerUI' could not bind on port 8086. Attempting port 8087.
+2019-11-20 14:26:58,201 INFO server.AbstractConnector: Started ServerConnector@9d8b1b{HTTP/1.1,[http/1.1]}{0.0.0.0:8087}
+2019-11-20 14:26:58,201 INFO util.Utils: Successfully started service 'WorkerUI' on port 8087.
+2019-11-20 14:26:58,251 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@108a899{/logPage,null,AVAILABLE,@Spark}
+2019-11-20 14:26:58,252 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@d3c2ff{/logPage/json,null,AVAILABLE,@Spark}
+2019-11-20 14:26:58,252 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@1dcb75d{/,null,AVAILABLE,@Spark}
+2019-11-20 14:26:58,253 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@246988{/json,null,AVAILABLE,@Spark}
+2019-11-20 14:26:58,264 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@c88dc9{/static,null,AVAILABLE,@Spark}
+2019-11-20 14:26:58,265 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@14deb55{/log,null,AVAILABLE,@Spark}
+2019-11-20 14:26:58,268 INFO ui.WorkerWebUI: Bound WorkerWebUI to 0.0.0.0, and started at http://tallahassee.cs.colostate.edu:8087
+2019-11-20 14:26:58,281 INFO worker.Worker: Connecting to master santa-fe.cs.colostate.edu:47002...
+2019-11-20 14:26:58,338 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@1eee013{/metrics/json,null,AVAILABLE,@Spark}
+2019-11-20 14:26:58,512 INFO client.TransportClientFactory: Successfully created connection to santa-fe.cs.colostate.edu/129.82.44.171:47002 after 173 ms (0 ms spent in bootstraps)
+2019-11-20 14:26:58,622 INFO worker.Worker: Successfully registered with master spark://santa-fe.cs.colostate.edu:47002
+2019-11-20 14:27:20,160 INFO worker.Worker: Asked to launch executor app-20191120142719-0000/1 for PythonPageRank
+2019-11-20 14:27:20,193 INFO spark.SecurityManager: Changing view acls to: joyghosh
+2019-11-20 14:27:20,193 INFO spark.SecurityManager: Changing modify acls to: joyghosh
+2019-11-20 14:27:20,193 INFO spark.SecurityManager: Changing view acls groups to: 
+2019-11-20 14:27:20,193 INFO spark.SecurityManager: Changing modify acls groups to: 
+2019-11-20 14:27:20,194 INFO spark.SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(joyghosh); groups with view permissions: Set(); users  with modify permissions: Set(joyghosh); groups with modify permissions: Set()
+2019-11-20 14:27:20,280 INFO worker.ExecutorRunner: Launch command: "/usr/local/jdk1.8.0_51/bin/java" "-cp" "/s/chopin/a/grad/joyghosh/Source-Recommendation-System/spark-2.4.4-bin-hadoop2.7/conf/:/s/chopin/a/grad/joyghosh/Source-Recommendation-System/spark-2.4.4-bin-hadoop2.7/jars/*:/s/chopin/a/grad/joyghosh/Source-Recommendation-System/hadoop-conf/" "-Xmx1024M" "-Dspark.driver.port=41619" "org.apache.spark.executor.CoarseGrainedExecutorBackend" "--driver-url" "spark://CoarseGrainedScheduler@santa-fe.cs.colostate.edu:41619" "--executor-id" "1" "--hostname" "129.82.44.173" "--cores" "1" "--app-id" "app-20191120142719-0000" "--worker-url" "spark://Worker@129.82.44.173:39507"
+2019-11-20 14:27:22,165 INFO worker.Worker: Asked to kill executor app-20191120142719-0000/1
+2019-11-20 14:27:22,166 INFO worker.ExecutorRunner: Runner thread for executor app-20191120142719-0000/1 interrupted
+2019-11-20 14:27:22,166 INFO worker.ExecutorRunner: Killing process!
+2019-11-20 14:27:22,216 INFO worker.Worker: Executor app-20191120142719-0000/1 finished with state KILLED exitStatus 143
+2019-11-20 14:27:22,216 INFO shuffle.ExternalShuffleBlockResolver: Clean up non-shuffle files associated with the finished executor 1
+2019-11-20 14:27:22,217 INFO shuffle.ExternalShuffleBlockResolver: Executor is not registered (appId=app-20191120142719-0000, execId=1)
+2019-11-20 14:27:22,224 INFO shuffle.ExternalShuffleBlockResolver: Application app-20191120142719-0000 removed, cleanupLocalDirs = true
+2019-11-20 14:27:22,228 INFO worker.Worker: Cleaning up local directories for application app-20191120142719-0000
+2019-11-20 14:28:11,656 INFO worker.Worker: Asked to launch executor app-20191120142811-0001/1 for PythonPageRank
+2019-11-20 14:28:11,662 INFO spark.SecurityManager: Changing view acls to: joyghosh
+2019-11-20 14:28:11,662 INFO spark.SecurityManager: Changing modify acls to: joyghosh
+2019-11-20 14:28:11,662 INFO spark.SecurityManager: Changing view acls groups to: 
+2019-11-20 14:28:11,662 INFO spark.SecurityManager: Changing modify acls groups to: 
+2019-11-20 14:28:11,662 INFO spark.SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(joyghosh); groups with view permissions: Set(); users  with modify permissions: Set(joyghosh); groups with modify permissions: Set()
+2019-11-20 14:28:11,731 INFO worker.ExecutorRunner: Launch command: "/usr/local/jdk1.8.0_51/bin/java" "-cp" "/s/chopin/a/grad/joyghosh/Source-Recommendation-System/spark-2.4.4-bin-hadoop2.7/conf/:/s/chopin/a/grad/joyghosh/Source-Recommendation-System/spark-2.4.4-bin-hadoop2.7/jars/*:/s/chopin/a/grad/joyghosh/Source-Recommendation-System/hadoop-conf/" "-Xmx1024M" "-Dspark.driver.port=32983" "org.apache.spark.executor.CoarseGrainedExecutorBackend" "--driver-url" "spark://CoarseGrainedScheduler@santa-fe.cs.colostate.edu:32983" "--executor-id" "1" "--hostname" "129.82.44.173" "--cores" "1" "--app-id" "app-20191120142811-0001" "--worker-url" "spark://Worker@129.82.44.173:39507"
+2019-11-20 14:28:13,659 INFO worker.Worker: Asked to kill executor app-20191120142811-0001/1
+2019-11-20 14:28:13,659 INFO worker.ExecutorRunner: Runner thread for executor app-20191120142811-0001/1 interrupted
+2019-11-20 14:28:13,659 INFO worker.ExecutorRunner: Killing process!
+2019-11-20 14:28:13,676 INFO worker.Worker: Executor app-20191120142811-0001/1 finished with state KILLED exitStatus 143
+2019-11-20 14:28:13,676 INFO shuffle.ExternalShuffleBlockResolver: Clean up non-shuffle files associated with the finished executor 1
+2019-11-20 14:28:13,676 INFO shuffle.ExternalShuffleBlockResolver: Executor is not registered (appId=app-20191120142811-0001, execId=1)
+2019-11-20 14:28:13,676 INFO shuffle.ExternalShuffleBlockResolver: Application app-20191120142811-0001 removed, cleanupLocalDirs = true
+2019-11-20 14:28:13,676 INFO worker.Worker: Cleaning up local directories for application app-20191120142811-0001
+2019-11-20 14:29:50,213 INFO worker.Worker: Asked to launch executor app-20191120142950-0002/1 for PythonPageRank
+2019-11-20 14:29:50,219 INFO spark.SecurityManager: Changing view acls to: joyghosh
+2019-11-20 14:29:50,219 INFO spark.SecurityManager: Changing modify acls to: joyghosh
+2019-11-20 14:29:50,219 INFO spark.SecurityManager: Changing view acls groups to: 
+2019-11-20 14:29:50,219 INFO spark.SecurityManager: Changing modify acls groups to: 
+2019-11-20 14:29:50,219 INFO spark.SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(joyghosh); groups with view permissions: Set(); users  with modify permissions: Set(joyghosh); groups with modify permissions: Set()
+2019-11-20 14:29:50,315 INFO worker.ExecutorRunner: Launch command: "/usr/local/jdk1.8.0_51/bin/java" "-cp" "/s/chopin/a/grad/joyghosh/Source-Recommendation-System/spark-2.4.4-bin-hadoop2.7/conf/:/s/chopin/a/grad/joyghosh/Source-Recommendation-System/spark-2.4.4-bin-hadoop2.7/jars/*:/s/chopin/a/grad/joyghosh/Source-Recommendation-System/hadoop-conf/" "-Xmx1024M" "-Dspark.driver.port=38555" "org.apache.spark.executor.CoarseGrainedExecutorBackend" "--driver-url" "spark://CoarseGrainedScheduler@santa-fe.cs.colostate.edu:38555" "--executor-id" "1" "--hostname" "129.82.44.173" "--cores" "1" "--app-id" "app-20191120142950-0002" "--worker-url" "spark://Worker@129.82.44.173:39507"
+2019-11-20 14:30:23,029 INFO worker.Worker: Asked to kill executor app-20191120142950-0002/1
+2019-11-20 14:30:23,029 INFO worker.ExecutorRunner: Runner thread for executor app-20191120142950-0002/1 interrupted
+2019-11-20 14:30:23,029 INFO worker.ExecutorRunner: Killing process!
+2019-11-20 14:30:23,372 INFO worker.Worker: Executor app-20191120142950-0002/1 finished with state KILLED exitStatus 143
+2019-11-20 14:30:23,372 INFO shuffle.ExternalShuffleBlockResolver: Clean up non-shuffle files associated with the finished executor 1
+2019-11-20 14:30:23,372 INFO shuffle.ExternalShuffleBlockResolver: Executor is not registered (appId=app-20191120142950-0002, execId=1)
+2019-11-20 14:30:23,372 INFO shuffle.ExternalShuffleBlockResolver: Application app-20191120142950-0002 removed, cleanupLocalDirs = true
+2019-11-20 14:30:23,372 INFO worker.Worker: Cleaning up local directories for application app-20191120142950-0002
+2019-11-20 15:03:53,776 ERROR worker.Worker: RECEIVED SIGNAL TERM
+2019-11-20 15:03:53,779 INFO util.ShutdownHookManager: Shutdown hook called
+2019-11-20 15:03:53,780 INFO util.ShutdownHookManager: Deleting directory /tmp/spark-7f3ac239-37b3-4ffa-89aa-d5e0f7cba106

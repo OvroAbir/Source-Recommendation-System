@@ -1,56 +1,44 @@
-Spark Command: /usr/local/jdk1.8.0_51/bin/java -cp /s/chopin/a/grad/joyghosh/spark-2.4.4-bin-hadoop2.7/conf/:/s/chopin/a/grad/joyghosh/spark-2.4.4-bin-hadoop2.7/jars/*:/s/chopin/a/grad/joyghosh/Documents/Code/cs555/FlightHadoopAssignment/hadoop-conf/ -Xmx1g org.apache.spark.deploy.worker.Worker --webui-port 8082 spark://santa-fe.cs.colostate.edu:47002
+Spark Command: /usr/local/jdk1.8.0_51/bin/java -cp /s/chopin/a/grad/joyghosh/Source-Recommendation-System/spark-2.4.4-bin-hadoop2.7/conf/:/s/chopin/a/grad/joyghosh/Source-Recommendation-System/spark-2.4.4-bin-hadoop2.7/jars/*:/s/chopin/a/grad/joyghosh/Source-Recommendation-System/hadoop-conf/ -Xmx1g org.apache.spark.deploy.worker.Worker --webui-port 8082 spark://santa-fe.cs.colostate.edu:47002
 ========================================
-2019-11-14 10:55:36,331 INFO worker.Worker: Started daemon with process name: 11612@salem
-2019-11-14 10:55:36,339 INFO util.SignalUtils: Registered signal handler for TERM
-2019-11-14 10:55:36,339 INFO util.SignalUtils: Registered signal handler for HUP
-2019-11-14 10:55:36,339 INFO util.SignalUtils: Registered signal handler for INT
-2019-11-14 10:55:36,795 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
-2019-11-14 10:55:36,901 INFO spark.SecurityManager: Changing view acls to: joyghosh
-2019-11-14 10:55:36,901 INFO spark.SecurityManager: Changing modify acls to: joyghosh
-2019-11-14 10:55:36,902 INFO spark.SecurityManager: Changing view acls groups to: 
-2019-11-14 10:55:36,902 INFO spark.SecurityManager: Changing modify acls groups to: 
-2019-11-14 10:55:36,902 INFO spark.SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(joyghosh); groups with view permissions: Set(); users  with modify permissions: Set(joyghosh); groups with modify permissions: Set()
-2019-11-14 10:55:37,285 INFO util.Utils: Successfully started service 'sparkWorker' on port 43039.
-2019-11-14 10:55:37,509 INFO worker.Worker: Starting Spark worker 129.82.44.169:43039 with 1 cores, 2.0 GB RAM
-2019-11-14 10:55:37,512 INFO worker.Worker: Running Spark version 2.4.4
-2019-11-14 10:55:37,512 INFO worker.Worker: Spark home: /s/chopin/a/grad/joyghosh/spark-2.4.4-bin-hadoop2.7
-2019-11-14 10:55:37,560 INFO util.log: Logging initialized @1893ms
-2019-11-14 10:55:37,609 INFO server.Server: jetty-9.3.z-SNAPSHOT, build timestamp: unknown, git hash: unknown
-2019-11-14 10:55:37,625 INFO server.Server: Started @1959ms
-2019-11-14 10:55:37,640 WARN util.Utils: Service 'WorkerUI' could not bind on port 8082. Attempting port 8083.
-2019-11-14 10:55:37,641 WARN util.Utils: Service 'WorkerUI' could not bind on port 8083. Attempting port 8084.
-2019-11-14 10:55:37,641 WARN util.Utils: Service 'WorkerUI' could not bind on port 8084. Attempting port 8085.
-2019-11-14 10:55:37,641 WARN util.Utils: Service 'WorkerUI' could not bind on port 8085. Attempting port 8086.
-2019-11-14 10:55:37,641 WARN util.Utils: Service 'WorkerUI' could not bind on port 8086. Attempting port 8087.
-2019-11-14 10:55:37,642 WARN util.Utils: Service 'WorkerUI' could not bind on port 8087. Attempting port 8088.
-2019-11-14 10:55:37,642 WARN util.Utils: Service 'WorkerUI' could not bind on port 8088. Attempting port 8089.
-2019-11-14 10:55:37,642 WARN util.Utils: Service 'WorkerUI' could not bind on port 8089. Attempting port 8090.
-2019-11-14 10:55:37,642 WARN util.Utils: Service 'WorkerUI' could not bind on port 8090. Attempting port 8091.
-2019-11-14 10:55:37,643 WARN util.Utils: Service 'WorkerUI' could not bind on port 8091. Attempting port 8092.
-2019-11-14 10:55:37,643 WARN util.Utils: Service 'WorkerUI' could not bind on port 8092. Attempting port 8093.
-2019-11-14 10:55:37,649 INFO server.AbstractConnector: Started ServerConnector@127c3c4{HTTP/1.1,[http/1.1]}{0.0.0.0:8093}
-2019-11-14 10:55:37,649 INFO util.Utils: Successfully started service 'WorkerUI' on port 8093.
-2019-11-14 10:55:37,675 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@178cc03{/logPage,null,AVAILABLE,@Spark}
-2019-11-14 10:55:37,676 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@173d638{/logPage/json,null,AVAILABLE,@Spark}
-2019-11-14 10:55:37,676 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@60aca4{/,null,AVAILABLE,@Spark}
-2019-11-14 10:55:37,677 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@156ecce{/json,null,AVAILABLE,@Spark}
-2019-11-14 10:55:37,684 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@cb254a{/static,null,AVAILABLE,@Spark}
-2019-11-14 10:55:37,684 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@7b4ef3{/log,null,AVAILABLE,@Spark}
-2019-11-14 10:55:37,686 INFO ui.WorkerWebUI: Bound WorkerWebUI to 0.0.0.0, and started at http://salem.cs.colostate.edu:8093
-2019-11-14 10:55:37,688 INFO worker.Worker: Connecting to master santa-fe.cs.colostate.edu:47002...
-2019-11-14 10:55:37,714 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@8c8440{/metrics/json,null,AVAILABLE,@Spark}
-2019-11-14 10:55:37,779 INFO client.TransportClientFactory: Successfully created connection to santa-fe.cs.colostate.edu/129.82.44.171:47002 after 63 ms (0 ms spent in bootstraps)
-2019-11-14 10:55:37,845 INFO worker.Worker: Successfully registered with master spark://santa-fe.cs.colostate.edu:47002
-2019-11-14 10:56:24,849 INFO worker.Worker: Asked to launch executor app-20191114105624-0000/14 for PySparkShell
-2019-11-14 10:56:24,866 INFO spark.SecurityManager: Changing view acls to: joyghosh
-2019-11-14 10:56:24,866 INFO spark.SecurityManager: Changing modify acls to: joyghosh
-2019-11-14 10:56:24,866 INFO spark.SecurityManager: Changing view acls groups to: 
-2019-11-14 10:56:24,866 INFO spark.SecurityManager: Changing modify acls groups to: 
-2019-11-14 10:56:24,866 INFO spark.SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(joyghosh); groups with view permissions: Set(); users  with modify permissions: Set(joyghosh); groups with modify permissions: Set()
-2019-11-14 10:56:24,936 INFO worker.ExecutorRunner: Launch command: "/usr/local/jdk1.8.0_51/bin/java" "-cp" "/s/chopin/a/grad/joyghosh/spark-2.4.4-bin-hadoop2.7/conf/:/s/chopin/a/grad/joyghosh/spark-2.4.4-bin-hadoop2.7/jars/*:/s/chopin/a/grad/joyghosh/Documents/Code/cs555/FlightHadoopAssignment/hadoop-conf/" "-Xmx1024M" "-Dspark.driver.port=33957" "org.apache.spark.executor.CoarseGrainedExecutorBackend" "--driver-url" "spark://CoarseGrainedScheduler@santa-fe.cs.colostate.edu:33957" "--executor-id" "14" "--hostname" "129.82.44.169" "--cores" "1" "--app-id" "app-20191114105624-0000" "--worker-url" "spark://Worker@129.82.44.169:43039"
-2019-11-14 11:00:55,453 ERROR worker.Worker: RECEIVED SIGNAL TERM
-2019-11-14 11:00:55,459 INFO worker.ExecutorRunner: Killing process!
-2019-11-14 11:00:55,801 INFO util.ShutdownHookManager: Shutdown hook called
-2019-11-14 11:00:55,802 INFO util.ShutdownHookManager: Deleting directory /tmp/spark-b2569822-56ed-4069-b668-422fe3e8974c
-2019-11-14 11:00:55,806 INFO worker.Worker: Executor app-20191114105624-0000/14 finished with state EXITED message Worker shutting down exitStatus 143
-2019-11-14 11:00:55,807 INFO shuffle.ExternalShuffleBlockResolver: Clean up non-shuffle files associated with the finished executor 14
+2019-11-20 20:26:00,350 INFO worker.Worker: Started daemon with process name: 30013@salem
+2019-11-20 20:26:00,361 INFO util.SignalUtils: Registered signal handler for TERM
+2019-11-20 20:26:00,362 INFO util.SignalUtils: Registered signal handler for HUP
+2019-11-20 20:26:00,362 INFO util.SignalUtils: Registered signal handler for INT
+2019-11-20 20:26:00,839 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2019-11-20 20:26:00,967 INFO spark.SecurityManager: Changing view acls to: joyghosh
+2019-11-20 20:26:00,967 INFO spark.SecurityManager: Changing modify acls to: joyghosh
+2019-11-20 20:26:00,968 INFO spark.SecurityManager: Changing view acls groups to: 
+2019-11-20 20:26:00,968 INFO spark.SecurityManager: Changing modify acls groups to: 
+2019-11-20 20:26:00,969 INFO spark.SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(joyghosh); groups with view permissions: Set(); users  with modify permissions: Set(joyghosh); groups with modify permissions: Set()
+2019-11-20 20:26:01,395 INFO util.Utils: Successfully started service 'sparkWorker' on port 38335.
+2019-11-20 20:26:01,620 INFO worker.Worker: Starting Spark worker 129.82.44.169:38335 with 1 cores, 2.0 GB RAM
+2019-11-20 20:26:01,622 INFO worker.Worker: Running Spark version 2.4.4
+2019-11-20 20:26:01,623 INFO worker.Worker: Spark home: /s/chopin/a/grad/joyghosh/Source-Recommendation-System/spark-2.4.4-bin-hadoop2.7
+2019-11-20 20:26:01,668 INFO util.log: Logging initialized @1984ms
+2019-11-20 20:26:01,714 INFO server.Server: jetty-9.3.z-SNAPSHOT, build timestamp: unknown, git hash: unknown
+2019-11-20 20:26:01,730 INFO server.Server: Started @2047ms
+2019-11-20 20:26:01,744 WARN util.Utils: Service 'WorkerUI' could not bind on port 8082. Attempting port 8083.
+2019-11-20 20:26:01,745 WARN util.Utils: Service 'WorkerUI' could not bind on port 8083. Attempting port 8084.
+2019-11-20 20:26:01,745 WARN util.Utils: Service 'WorkerUI' could not bind on port 8084. Attempting port 8085.
+2019-11-20 20:26:01,745 WARN util.Utils: Service 'WorkerUI' could not bind on port 8085. Attempting port 8086.
+2019-11-20 20:26:01,745 WARN util.Utils: Service 'WorkerUI' could not bind on port 8086. Attempting port 8087.
+2019-11-20 20:26:01,746 WARN util.Utils: Service 'WorkerUI' could not bind on port 8087. Attempting port 8088.
+2019-11-20 20:26:01,746 WARN util.Utils: Service 'WorkerUI' could not bind on port 8088. Attempting port 8089.
+2019-11-20 20:26:01,746 WARN util.Utils: Service 'WorkerUI' could not bind on port 8089. Attempting port 8090.
+2019-11-20 20:26:01,746 WARN util.Utils: Service 'WorkerUI' could not bind on port 8090. Attempting port 8091.
+2019-11-20 20:26:01,747 WARN util.Utils: Service 'WorkerUI' could not bind on port 8091. Attempting port 8092.
+2019-11-20 20:26:01,747 WARN util.Utils: Service 'WorkerUI' could not bind on port 8092. Attempting port 8093.
+2019-11-20 20:26:01,752 INFO server.AbstractConnector: Started ServerConnector@1e16d1f{HTTP/1.1,[http/1.1]}{0.0.0.0:8093}
+2019-11-20 20:26:01,752 INFO util.Utils: Successfully started service 'WorkerUI' on port 8093.
+2019-11-20 20:26:01,776 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@18fca3{/logPage,null,AVAILABLE,@Spark}
+2019-11-20 20:26:01,777 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@7aa7b9{/logPage/json,null,AVAILABLE,@Spark}
+2019-11-20 20:26:01,777 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@9ef740{/,null,AVAILABLE,@Spark}
+2019-11-20 20:26:01,778 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@606fe0{/json,null,AVAILABLE,@Spark}
+2019-11-20 20:26:01,784 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@148523a{/static,null,AVAILABLE,@Spark}
+2019-11-20 20:26:01,785 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@8c91cc{/log,null,AVAILABLE,@Spark}
+2019-11-20 20:26:01,787 INFO ui.WorkerWebUI: Bound WorkerWebUI to 0.0.0.0, and started at http://salem.cs.colostate.edu:8093
+2019-11-20 20:26:01,789 INFO worker.Worker: Connecting to master santa-fe.cs.colostate.edu:47002...
+2019-11-20 20:26:01,817 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@1c55f0d{/metrics/json,null,AVAILABLE,@Spark}
+2019-11-20 20:26:01,910 INFO client.TransportClientFactory: Successfully created connection to santa-fe.cs.colostate.edu/129.82.44.171:47002 after 91 ms (0 ms spent in bootstraps)
+2019-11-20 20:26:01,985 INFO worker.Worker: Successfully registered with master spark://santa-fe.cs.colostate.edu:47002
+2019-11-20 23:21:48,725 ERROR worker.Worker: RECEIVED SIGNAL TERM

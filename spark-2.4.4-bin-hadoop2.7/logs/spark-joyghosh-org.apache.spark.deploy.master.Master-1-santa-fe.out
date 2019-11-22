@@ -1,62 +1,92 @@
-Spark Command: /usr/local/jdk1.8.0_51/bin/java -cp /s/chopin/a/grad/joyghosh/Source-Recommendation-System/spark-2.4.4-bin-hadoop2.7/conf/:/s/chopin/a/grad/joyghosh/Source-Recommendation-System/spark-2.4.4-bin-hadoop2.7/jars/*:/s/chopin/a/grad/joyghosh/Documents/Code/cs555/FlightHadoopAssignment/hadoop-conf/ -Xmx1g org.apache.spark.deploy.master.Master --host santa-fe.cs.colostate.edu --port 47002 --webui-port 47007
+Spark Command: /usr/local/jdk1.8.0_51/bin/java -cp /s/chopin/a/grad/joyghosh/Source-Recommendation-System/spark-2.4.4-bin-hadoop2.7/conf/:/s/chopin/a/grad/joyghosh/Source-Recommendation-System/spark-2.4.4-bin-hadoop2.7/jars/*:/s/chopin/a/grad/joyghosh/Source-Recommendation-System/hadoop-conf/ -Xmx1g org.apache.spark.deploy.master.Master --host santa-fe.cs.colostate.edu --port 47002 --webui-port 47007
 ========================================
-2019-11-14 16:19:43,769 INFO master.Master: Started daemon with process name: 2945@santa-fe
-2019-11-14 16:19:43,777 INFO util.SignalUtils: Registered signal handler for TERM
-2019-11-14 16:19:43,782 INFO util.SignalUtils: Registered signal handler for HUP
-2019-11-14 16:19:43,782 INFO util.SignalUtils: Registered signal handler for INT
-2019-11-14 16:19:43,801 WARN master.MasterArguments: SPARK_MASTER_IP is deprecated, please use SPARK_MASTER_HOST
-2019-11-14 16:19:44,291 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
-2019-11-14 16:19:44,405 INFO spark.SecurityManager: Changing view acls to: joyghosh
-2019-11-14 16:19:44,406 INFO spark.SecurityManager: Changing modify acls to: joyghosh
-2019-11-14 16:19:44,406 INFO spark.SecurityManager: Changing view acls groups to: 
-2019-11-14 16:19:44,407 INFO spark.SecurityManager: Changing modify acls groups to: 
-2019-11-14 16:19:44,408 INFO spark.SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(joyghosh); groups with view permissions: Set(); users  with modify permissions: Set(joyghosh); groups with modify permissions: Set()
-2019-11-14 16:19:44,812 INFO util.Utils: Successfully started service 'sparkMaster' on port 47002.
-2019-11-14 16:19:44,852 INFO master.Master: Starting Spark master at spark://santa-fe.cs.colostate.edu:47002
-2019-11-14 16:19:44,857 INFO master.Master: Running Spark version 2.4.4
-2019-11-14 16:19:44,941 INFO util.log: Logging initialized @1975ms
-2019-11-14 16:19:44,995 INFO server.Server: jetty-9.3.z-SNAPSHOT, build timestamp: unknown, git hash: unknown
-2019-11-14 16:19:45,013 INFO server.Server: Started @2048ms
-2019-11-14 16:19:45,033 INFO server.AbstractConnector: Started ServerConnector@a60a09{HTTP/1.1,[http/1.1]}{0.0.0.0:47007}
-2019-11-14 16:19:45,033 INFO util.Utils: Successfully started service 'MasterUI' on port 47007.
-2019-11-14 16:19:45,059 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@e32b18{/app,null,AVAILABLE,@Spark}
-2019-11-14 16:19:45,060 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@1d60fa4{/app/json,null,AVAILABLE,@Spark}
-2019-11-14 16:19:45,060 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@1bd99fe{/,null,AVAILABLE,@Spark}
-2019-11-14 16:19:45,061 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@1c88096{/json,null,AVAILABLE,@Spark}
-2019-11-14 16:19:45,068 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@3c1de4{/static,null,AVAILABLE,@Spark}
-2019-11-14 16:19:45,069 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@6986cc{/app/kill,null,AVAILABLE,@Spark}
-2019-11-14 16:19:45,070 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@1b99654{/driver/kill,null,AVAILABLE,@Spark}
-2019-11-14 16:19:45,072 INFO ui.MasterWebUI: Bound MasterWebUI to 0.0.0.0, and started at http://santa-fe.cs.colostate.edu:47007
-2019-11-14 16:19:45,259 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@5bfa19{/metrics/master/json,null,AVAILABLE,@Spark}
-2019-11-14 16:19:45,260 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@412201{/metrics/applications/json,null,AVAILABLE,@Spark}
-2019-11-14 16:19:45,288 INFO master.Master: I have been elected leader! New state: ALIVE
-2019-11-14 16:20:06,091 INFO master.Master: Registering worker 129.82.44.162:46211 with 1 cores, 2.0 GB RAM
-2019-11-14 16:20:06,100 INFO master.Master: Registering worker 129.82.44.162:46201 with 1 cores, 2.0 GB RAM
-2019-11-14 16:20:06,262 INFO master.Master: Registering worker 129.82.44.173:42963 with 1 cores, 2.0 GB RAM
-2019-11-14 16:20:06,454 INFO master.Master: Registering worker 129.82.44.168:35665 with 1 cores, 2.0 GB RAM
-2019-11-14 16:20:06,679 INFO master.Master: Registering worker 129.82.44.174:43891 with 1 cores, 2.0 GB RAM
-2019-11-14 16:20:06,681 INFO master.Master: Registering worker 129.82.44.174:36263 with 1 cores, 2.0 GB RAM
-2019-11-14 16:20:06,827 INFO master.Master: Registering worker 129.82.44.172:36467 with 1 cores, 2.0 GB RAM
-2019-11-14 16:20:06,853 INFO master.Master: Registering worker 129.82.44.172:36211 with 1 cores, 2.0 GB RAM
-2019-11-14 16:21:24,554 INFO master.Master: Registering app PySparkShell
-2019-11-14 16:21:24,558 INFO master.Master: Registered app PySparkShell with ID app-20191114162124-0000
-2019-11-14 16:21:24,576 INFO master.Master: Launching executor app-20191114162124-0000/0 on worker worker-20191114162005-129.82.44.168-35665
-2019-11-14 16:21:24,583 INFO master.Master: Launching executor app-20191114162124-0000/1 on worker worker-20191114162006-129.82.44.174-43891
-2019-11-14 16:21:24,584 INFO master.Master: Launching executor app-20191114162124-0000/2 on worker worker-20191114162005-129.82.44.173-42963
-2019-11-14 16:21:24,585 INFO master.Master: Launching executor app-20191114162124-0000/3 on worker worker-20191114162006-129.82.44.174-36263
-2019-11-14 16:21:24,586 INFO master.Master: Launching executor app-20191114162124-0000/4 on worker worker-20191114162006-129.82.44.172-36211
-2019-11-14 16:21:24,587 INFO master.Master: Launching executor app-20191114162124-0000/5 on worker worker-20191114162005-129.82.44.162-46201
-2019-11-14 16:21:24,587 INFO master.Master: Launching executor app-20191114162124-0000/6 on worker worker-20191114162005-129.82.44.162-46211
-2019-11-14 16:21:24,588 INFO master.Master: Launching executor app-20191114162124-0000/7 on worker worker-20191114162006-129.82.44.172-36467
-2019-11-14 16:21:48,437 INFO master.Master: Received unregister request from application app-20191114162124-0000
-2019-11-14 16:21:48,438 INFO master.Master: Removing app app-20191114162124-0000
-2019-11-14 16:21:48,464 WARN master.Master: Got status update for unknown executor app-20191114162124-0000/3
-2019-11-14 16:21:48,464 WARN master.Master: Got status update for unknown executor app-20191114162124-0000/1
-2019-11-14 16:21:48,471 WARN master.Master: Got status update for unknown executor app-20191114162124-0000/4
-2019-11-14 16:21:48,475 WARN master.Master: Got status update for unknown executor app-20191114162124-0000/7
-2019-11-14 16:21:48,478 WARN master.Master: Got status update for unknown executor app-20191114162124-0000/0
-2019-11-14 16:21:48,478 WARN master.Master: Got status update for unknown executor app-20191114162124-0000/5
-2019-11-14 16:21:48,479 WARN master.Master: Got status update for unknown executor app-20191114162124-0000/2
-2019-11-14 16:21:48,479 WARN master.Master: Got status update for unknown executor app-20191114162124-0000/6
-2019-11-14 16:21:48,550 INFO master.Master: 129.82.44.171:58572 got disassociated, removing it.
-2019-11-14 16:21:48,551 INFO master.Master: santa-fe.cs.colostate.edu:42931 got disassociated, removing it.
+2019-11-21 19:01:09,362 INFO master.Master: Started daemon with process name: 6672@santa-fe
+2019-11-21 19:01:09,370 INFO util.SignalUtils: Registered signal handler for TERM
+2019-11-21 19:01:09,371 INFO util.SignalUtils: Registered signal handler for HUP
+2019-11-21 19:01:09,371 INFO util.SignalUtils: Registered signal handler for INT
+2019-11-21 19:01:09,392 WARN master.MasterArguments: SPARK_MASTER_IP is deprecated, please use SPARK_MASTER_HOST
+2019-11-21 19:01:09,856 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2019-11-21 19:01:09,977 INFO spark.SecurityManager: Changing view acls to: joyghosh
+2019-11-21 19:01:09,977 INFO spark.SecurityManager: Changing modify acls to: joyghosh
+2019-11-21 19:01:09,978 INFO spark.SecurityManager: Changing view acls groups to: 
+2019-11-21 19:01:09,978 INFO spark.SecurityManager: Changing modify acls groups to: 
+2019-11-21 19:01:09,979 INFO spark.SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(joyghosh); groups with view permissions: Set(); users  with modify permissions: Set(joyghosh); groups with modify permissions: Set()
+2019-11-21 19:01:10,347 INFO util.Utils: Successfully started service 'sparkMaster' on port 47002.
+2019-11-21 19:01:10,377 INFO master.Master: Starting Spark master at spark://santa-fe.cs.colostate.edu:47002
+2019-11-21 19:01:10,381 INFO master.Master: Running Spark version 2.4.4
+2019-11-21 19:01:10,471 INFO util.log: Logging initialized @1773ms
+2019-11-21 19:01:10,522 INFO server.Server: jetty-9.3.z-SNAPSHOT, build timestamp: unknown, git hash: unknown
+2019-11-21 19:01:10,555 INFO server.Server: Started @1858ms
+2019-11-21 19:01:10,579 INFO server.AbstractConnector: Started ServerConnector@446739{HTTP/1.1,[http/1.1]}{0.0.0.0:47007}
+2019-11-21 19:01:10,579 INFO util.Utils: Successfully started service 'MasterUI' on port 47007.
+2019-11-21 19:01:10,609 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@1d45f4b{/app,null,AVAILABLE,@Spark}
+2019-11-21 19:01:10,610 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@978e8a{/app/json,null,AVAILABLE,@Spark}
+2019-11-21 19:01:10,611 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@11ed1e4{/,null,AVAILABLE,@Spark}
+2019-11-21 19:01:10,612 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@12a72e{/json,null,AVAILABLE,@Spark}
+2019-11-21 19:01:10,620 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@559cf8{/static,null,AVAILABLE,@Spark}
+2019-11-21 19:01:10,621 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@e2c39c{/app/kill,null,AVAILABLE,@Spark}
+2019-11-21 19:01:10,622 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@e95e40{/driver/kill,null,AVAILABLE,@Spark}
+2019-11-21 19:01:10,624 INFO ui.MasterWebUI: Bound MasterWebUI to 0.0.0.0, and started at http://santa-fe.cs.colostate.edu:47007
+2019-11-21 19:01:10,785 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@88dc38{/metrics/master/json,null,AVAILABLE,@Spark}
+2019-11-21 19:01:10,786 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@1e75e61{/metrics/applications/json,null,AVAILABLE,@Spark}
+2019-11-21 19:01:10,808 INFO master.Master: I have been elected leader! New state: ALIVE
+2019-11-21 19:01:16,515 INFO master.Master: Registering worker 129.82.44.172:39945 with 1 cores, 2.0 GB RAM
+2019-11-21 19:01:19,561 INFO master.Master: Registering worker 129.82.44.168:37725 with 1 cores, 2.0 GB RAM
+2019-11-21 19:01:19,655 INFO master.Master: Registering worker 129.82.44.172:39533 with 1 cores, 2.0 GB RAM
+2019-11-21 19:01:22,989 INFO master.Master: Registering worker 129.82.44.169:46701 with 1 cores, 2.0 GB RAM
+2019-11-21 19:01:23,288 INFO master.Master: Registering worker 129.82.44.168:43775 with 1 cores, 2.0 GB RAM
+2019-11-21 19:01:24,139 INFO master.Master: Registering worker 129.82.44.169:34963 with 1 cores, 2.0 GB RAM
+2019-11-21 19:01:27,401 INFO master.Master: Registering worker 129.82.44.174:44537 with 1 cores, 2.0 GB RAM
+2019-11-21 19:01:27,406 INFO master.Master: Registering worker 129.82.44.174:36777 with 1 cores, 2.0 GB RAM
+2019-11-21 19:01:27,413 INFO master.Master: Registering worker 129.82.44.162:34927 with 1 cores, 2.0 GB RAM
+2019-11-21 19:01:27,415 INFO master.Master: Registering worker 129.82.44.162:45485 with 1 cores, 2.0 GB RAM
+2019-11-21 19:01:27,436 INFO master.Master: Registering worker 129.82.44.166:46699 with 1 cores, 2.0 GB RAM
+2019-11-21 19:01:27,497 INFO master.Master: Registering worker 129.82.44.166:45703 with 1 cores, 2.0 GB RAM
+2019-11-21 19:01:27,504 INFO master.Master: Registering worker 129.82.44.163:41885 with 1 cores, 2.0 GB RAM
+2019-11-21 19:01:27,507 INFO master.Master: Registering worker 129.82.44.163:34555 with 1 cores, 2.0 GB RAM
+2019-11-21 19:01:27,514 INFO master.Master: Registering worker 129.82.44.173:33385 with 1 cores, 2.0 GB RAM
+2019-11-21 19:01:27,527 INFO master.Master: Registering worker 129.82.44.164:43197 with 1 cores, 2.0 GB RAM
+2019-11-21 19:01:27,537 INFO master.Master: Registering worker 129.82.44.173:43347 with 1 cores, 2.0 GB RAM
+2019-11-21 19:01:27,549 INFO master.Master: Registering worker 129.82.44.164:42365 with 1 cores, 2.0 GB RAM
+2019-11-21 19:05:29,911 INFO master.Master: Registering app PySparkShell
+2019-11-21 19:05:29,915 INFO master.Master: Registered app PySparkShell with ID app-20191121190529-0000
+2019-11-21 19:05:29,933 INFO master.Master: Launching executor app-20191121190529-0000/0 on worker worker-20191121190119-129.82.44.172-39533
+2019-11-21 19:05:29,941 INFO master.Master: Launching executor app-20191121190529-0000/1 on worker worker-20191121190126-129.82.44.173-43347
+2019-11-21 19:05:29,941 INFO master.Master: Launching executor app-20191121190529-0000/2 on worker worker-20191121190126-129.82.44.166-46699
+2019-11-21 19:05:29,942 INFO master.Master: Launching executor app-20191121190529-0000/3 on worker worker-20191121190126-129.82.44.163-41885
+2019-11-21 19:05:29,943 INFO master.Master: Launching executor app-20191121190529-0000/4 on worker worker-20191121190126-129.82.44.166-45703
+2019-11-21 19:05:29,944 INFO master.Master: Launching executor app-20191121190529-0000/5 on worker worker-20191121190118-129.82.44.168-37725
+2019-11-21 19:05:29,945 INFO master.Master: Launching executor app-20191121190529-0000/6 on worker worker-20191121190126-129.82.44.174-36777
+2019-11-21 19:05:29,948 INFO master.Master: Launching executor app-20191121190529-0000/7 on worker worker-20191121190115-129.82.44.172-39945
+2019-11-21 19:05:29,949 INFO master.Master: Launching executor app-20191121190529-0000/8 on worker worker-20191121190126-129.82.44.164-42365
+2019-11-21 19:05:29,950 INFO master.Master: Launching executor app-20191121190529-0000/9 on worker worker-20191121190122-129.82.44.169-46701
+2019-11-21 19:05:29,950 INFO master.Master: Launching executor app-20191121190529-0000/10 on worker worker-20191121190126-129.82.44.162-34927
+2019-11-21 19:05:29,951 INFO master.Master: Launching executor app-20191121190529-0000/11 on worker worker-20191121190123-129.82.44.169-34963
+2019-11-21 19:05:29,951 INFO master.Master: Launching executor app-20191121190529-0000/12 on worker worker-20191121190122-129.82.44.168-43775
+2019-11-21 19:05:29,953 INFO master.Master: Launching executor app-20191121190529-0000/13 on worker worker-20191121190126-129.82.44.173-33385
+2019-11-21 19:05:29,953 INFO master.Master: Launching executor app-20191121190529-0000/14 on worker worker-20191121190126-129.82.44.174-44537
+2019-11-21 19:05:29,954 INFO master.Master: Launching executor app-20191121190529-0000/15 on worker worker-20191121190126-129.82.44.162-45485
+2019-11-21 19:05:29,955 INFO master.Master: Launching executor app-20191121190529-0000/16 on worker worker-20191121190126-129.82.44.164-43197
+2019-11-21 19:05:29,956 INFO master.Master: Launching executor app-20191121190529-0000/17 on worker worker-20191121190126-129.82.44.163-34555
+2019-11-21 19:31:36,225 INFO master.Master: Received unregister request from application app-20191121190529-0000
+2019-11-21 19:31:36,230 INFO master.Master: Removing app app-20191121190529-0000
+2019-11-21 19:31:36,255 WARN master.Master: Got status update for unknown executor app-20191121190529-0000/17
+2019-11-21 19:31:36,265 WARN master.Master: Got status update for unknown executor app-20191121190529-0000/14
+2019-11-21 19:31:36,265 WARN master.Master: Got status update for unknown executor app-20191121190529-0000/11
+2019-11-21 19:31:36,269 WARN master.Master: Got status update for unknown executor app-20191121190529-0000/16
+2019-11-21 19:31:36,270 WARN master.Master: Got status update for unknown executor app-20191121190529-0000/1
+2019-11-21 19:31:36,273 WARN master.Master: Got status update for unknown executor app-20191121190529-0000/7
+2019-11-21 19:31:36,273 WARN master.Master: Got status update for unknown executor app-20191121190529-0000/8
+2019-11-21 19:31:36,276 WARN master.Master: Got status update for unknown executor app-20191121190529-0000/9
+2019-11-21 19:31:36,276 WARN master.Master: Got status update for unknown executor app-20191121190529-0000/3
+2019-11-21 19:31:36,279 WARN master.Master: Got status update for unknown executor app-20191121190529-0000/13
+2019-11-21 19:31:36,282 WARN master.Master: Got status update for unknown executor app-20191121190529-0000/0
+2019-11-21 19:31:36,284 WARN master.Master: Got status update for unknown executor app-20191121190529-0000/4
+2019-11-21 19:31:36,285 WARN master.Master: Got status update for unknown executor app-20191121190529-0000/6
+2019-11-21 19:31:36,315 WARN master.Master: Got status update for unknown executor app-20191121190529-0000/10
+2019-11-21 19:31:36,331 INFO master.Master: 129.82.44.171:36734 got disassociated, removing it.
+2019-11-21 19:31:36,332 INFO master.Master: santa-fe.cs.colostate.edu:38011 got disassociated, removing it.
+2019-11-21 19:31:36,334 WARN master.Master: Got status update for unknown executor app-20191121190529-0000/2
+2019-11-21 19:31:36,370 WARN master.Master: Got status update for unknown executor app-20191121190529-0000/15
+2019-11-21 19:31:36,403 WARN master.Master: Got status update for unknown executor app-20191121190529-0000/12
+2019-11-21 19:31:36,703 WARN master.Master: Got status update for unknown executor app-20191121190529-0000/5

@@ -15,7 +15,6 @@ def isNumeric(word):
     return False
 
 class RakeKeywordExtractor:
-
   def __init__(self):
     self.stopwords = set(nltk.corpus.stopwords.words())
     self.top_fraction = 1 # consider top third candidate keywords by score
@@ -62,7 +61,7 @@ class RakeKeywordExtractor:
       phrase_scores[" ".join(phrase)] = phrase_score
     return phrase_scores
     
-  def extract(self, text, incl_scores=False):
+  def __extract(self, text, incl_scores=False):
     sentences = nltk.sent_tokenize(text)
     phrase_list = self._generate_candidate_keywords(sentences)
     word_scores = self._calculate_word_scores(phrase_list)
@@ -76,21 +75,35 @@ class RakeKeywordExtractor:
     else:
       return map(lambda x: x[0],
         sorted_phrase_scores[0:int(n_phrases/self.top_fraction)])
-
-
-# def test():
-#   rake = RakeKeywordExtractor()
-#   keywords = rake.extract("""
-# Compatibility of systems of linear constraints over the set of natural numbers.
-# Criteria of compatibility of a system of linear Diophantine equations, strict inequations,
-# and nonstrict inequations are considered. Upper bounds for components of a minimal set
-# of solutions and algorithms of construction of minimal generating sets of solutions for all
-# types of systems are given. These criteria and the corresponding algorithms for
-# constructing a minimal supporting set of solutions can be used in solving all the
-# considered types of systems and systems of mixed types.""", incl_scores=True)
-#   print keywords
   
-# if __name__ == "__main__":
-#   test()
+  def extract_with_filename(self, text, filename, incl_scores=False):
+    output_list = []
+    text = str(text)
+    if(type(text).__name__ != 'str'):
+      return output_list
+    key_scores = self.__extract(text, incl_scores)
+    for ks in key_scores:
+        if(incl_scores):
+            output_list.append((str(ks[0]), str(filename).split("/")[-1] + "," + str(ks[1])))
+        else:
+            output_list.append((str(ks), str(filename).split("/")[-1]))
+    return output_list
+
+
+def test():
+  rake = RakeKeywordExtractor()
+  filename = "dummy file"
+  keywords = rake.extract_with_filename("""
+Compatibility of systems of linear constraints over the set of natural numbers.
+Criteria of compatibility of a system of linear Diophantine equations, strict inequations,
+and nonstrict inequations are considered. Upper bounds for components of a minimal set
+of solutions and algorithms of construction of minimal generating sets of solutions for all
+types of systems are given. These criteria and the corresponding algorithms for
+constructing a minimal supporting set of solutions can be used in solving all the
+considered types of systems and systems of mixed types.""", filename, incl_scores=False)
+  print keywords
+  
+if __name__ == "__main__":
+  test()
 
 

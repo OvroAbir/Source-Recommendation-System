@@ -62,31 +62,52 @@ class RakeKeywordExtractor:
     return phrase_scores
     
   def __extract(self, text, incl_scores=False):
-    sentences = nltk.sent_tokenize(text)
-    phrase_list = self._generate_candidate_keywords(sentences)
-    word_scores = self._calculate_word_scores(phrase_list)
-    phrase_scores = self._calculate_phrase_scores(
-      phrase_list, word_scores)
-    sorted_phrase_scores = sorted(phrase_scores.iteritems(),
-      key=operator.itemgetter(1), reverse=True)
-    n_phrases = len(sorted_phrase_scores)
-    if incl_scores:
-      return sorted_phrase_scores[0:int(n_phrases/self.top_fraction)]
-    else:
-      return map(lambda x: x[0],
-        sorted_phrase_scores[0:int(n_phrases/self.top_fraction)])
-  
+    try:
+      sentences = nltk.sent_tokenize(text)
+      phrase_list = self._generate_candidate_keywords(sentences)
+      word_scores = self._calculate_word_scores(phrase_list)
+      phrase_scores = self._calculate_phrase_scores(
+        phrase_list, word_scores)
+      sorted_phrase_scores = sorted(phrase_scores.iteritems(),
+        key=operator.itemgetter(1), reverse=True)
+      n_phrases = len(sorted_phrase_scores)
+      if incl_scores:
+        return sorted_phrase_scores[0:int(n_phrases/self.top_fraction)]
+      else:
+        return map(lambda x: x[0],
+          sorted_phrase_scores[0:int(n_phrases/self.top_fraction)])
+    except UnicodeDecodeError:
+      return []
+    except UnicodeEncodeError:
+      return []
+    return []
+
   def extract_with_filename(self, text, filename, incl_scores=False):
     output_list = []
-    text = str(text)
-    if(type(text).__name__ != 'str'):
-      return output_list
+    text = str(text.encode('ascii', "ignore"))
+    #text = self.convert_unicode_str(text)
+    #if(type(text).__name__ != 'str'):
+    #  return output_list
     key_scores = self.__extract(text, incl_scores)
     for ks in key_scores:
         if(incl_scores):
             output_list.append((str(ks[0]), str(filename).split("/")[-1] + "," + str(ks[1])))
         else:
             output_list.append((str(ks), str(filename).split("/")[-1]))
+    return output_list
+
+  def extract_with_row_id(self, row_id, text, incl_scores=False):
+    output_list = []
+    text = str(text.encode('ascii', "ignore"))
+    #text = self.convert_unicode_str(text)
+    if(type(text).__name__ != 'str'):
+      return output_list
+    key_scores = self.__extract(text, incl_scores)
+    for ks in key_scores:
+        if(incl_scores):
+            output_list.append((str(ks[0]), str(row_id) + "," + str(ks[1])))
+        else:
+            output_list.append((str(ks), str(row_id)))
     return output_list
 
 

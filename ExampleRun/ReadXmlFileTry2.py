@@ -15,14 +15,13 @@ def delete_path(spark, path):
 
 spark = SparkSession.builder.appName("ReadXmlFileFromBuzzFeed").getOrCreate()
 inputfolderpath = "hdfs://santa-fe:47001/Source-Recommendation-System/BuzzFeed-Webis/articles"
-outputfolderpath = "hdfs://santa-fe:47001/Source-Recommendation-System/KeyWordFileScoreFolder"
-intermediate_filename = "hdfs://santa-fe:47001/Source-Recommendation-System/TempOutputFolder/intermediate_file.csv"
+outputfolderpath = "hdfs://santa-fe:47001/Source-Recommendation-System/BuzzFeed-Webis-Outputs"
 schema = StructType([   
         StructField("keyword", StringType(), False),
-        StructField("file_name&score", StringType(), False)
+        StructField("filename&score", StringType(), False)
     ])
 
-delete_path(spark, intermediate_filename)
+#delete_path(spark, intermediate_filename)
 delete_path(spark, outputfolderpath)
 inputfile = spark.read.format("com.databricks.spark.xml").options(rowTag="article").load(inputfolderpath)
 inputfile = inputfile.withColumn("filename", input_file_name())
@@ -36,4 +35,4 @@ keyword_file_scores_rdd = mainText_inputfile_DF.rdd\
         .map(lambda key_files : (key_files[0], list(key_files[1])))
 keyword_file_scores_df = spark.createDataFrame(keyword_file_scores_rdd, schema=schema)
 keyword_file_scores_df.write.csv(outputfolderpath)
-keyword_file_scores_df.show()
+#keyword_file_scores_df.show()

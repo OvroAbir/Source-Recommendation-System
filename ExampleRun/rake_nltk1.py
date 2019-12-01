@@ -16,11 +16,15 @@ def isNumeric(word):
 
 class RakeKeywordExtractor:
   def __init__(self):
+    if("/s/chopin/a/grad/joyghosh/nltk_data" not in nltk.data.path):
+      nltk.data.path.append("/s/chopin/a/grad/joyghosh/nltk_data")
     self.stopwords = set(nltk.corpus.stopwords.words())
     self.top_fraction = 1 # consider top third candidate keywords by score
 
   def _generate_candidate_keywords(self, sentences):
     phrase_list = []
+    if("/s/chopin/a/grad/joyghosh/nltk_data" not in nltk.data.path):
+      nltk.data.path.append("/s/chopin/a/grad/joyghosh/nltk_data")
     for sentence in sentences:
       words = map(lambda x: "|" if x in self.stopwords else x,
         nltk.word_tokenize(sentence.lower()))
@@ -83,6 +87,8 @@ class RakeKeywordExtractor:
     return []
 
   def extract_with_filename(self, text, filename, incl_scores=False):
+    if("/s/chopin/a/grad/joyghosh/nltk_data" not in nltk.data.path):
+      nltk.data.path.append("/s/chopin/a/grad/joyghosh/nltk_data")
     output_list = []
     text = str(text.encode('ascii', "ignore"))
     #text = self.convert_unicode_str(text)
@@ -97,6 +103,11 @@ class RakeKeywordExtractor:
     return output_list
 
   def extract_with_row_id(self, row_id, text, incl_scores=False):
+    #if(int(row_id) % 10000 == 0):
+    #  print("considering " + row_id)
+    #print("in rake extracting keyword from " + row_id)
+    if("/s/chopin/a/grad/joyghosh/nltk_data" not in nltk.data.path):
+      nltk.data.path.append("/s/chopin/a/grad/joyghosh/nltk_data")
     output_list = []
     text = str(text.encode('ascii', "ignore"))
     #text = self.convert_unicode_str(text)
@@ -105,15 +116,16 @@ class RakeKeywordExtractor:
     key_scores = self.__extract(text, incl_scores)
     for ks in key_scores:
         if(incl_scores):
-            output_list.append((str(ks[0]), str(row_id) + "," + str(ks[1])))
+            output_list.append((str(ks[0]).lower(), "(" + str(row_id) + "," + str(round(ks[1], 1)) + ")"))
         else:
-            output_list.append((str(ks), str(row_id)))
+            output_list.append((str(ks).lower(), "(" + str(row_id) + ")"))
     return output_list
 
 
 def test():
   rake = RakeKeywordExtractor()
   filename = "dummy file"
+  print(nltk.data.path)
   keywords = rake.extract_with_filename("""
 Compatibility of systems of linear constraints over the set of natural numbers.
 Criteria of compatibility of a system of linear Diophantine equations, strict inequations,
@@ -122,7 +134,7 @@ of solutions and algorithms of construction of minimal generating sets of soluti
 types of systems are given. These criteria and the corresponding algorithms for
 constructing a minimal supporting set of solutions can be used in solving all the
 considered types of systems and systems of mixed types.""", filename, incl_scores=False)
-  print keywords
+  print(keywords)
   
 if __name__ == "__main__":
   test()

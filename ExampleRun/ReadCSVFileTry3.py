@@ -1,5 +1,4 @@
 from pyspark.sql.functions import input_file_name
-from rake_nltk import RakeKeywordExtractor
 from pyspark.sql.types import *
 from pyspark.sql import SparkSession
 import nltk
@@ -8,6 +7,7 @@ from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 from ast import literal_eval
 from operator import concat
+from rake_nltk import Rake
 
 def delete_path(spark, path):
     sc = spark.sparkContext
@@ -18,14 +18,6 @@ def delete_path(spark, path):
           )
     fs.delete(sc._jvm.org.apache.hadoop.fs.Path(path), True)
 
-def keywords_from_row(id, content, title, keywords, meta_keywords, meta_description, tags, summary, rake):
-    keywords_exctracted = []
-    if content is not None:
-        keywords_from_content = rake.extract(str(content), True)
-        for key_score in keywords_from_content:
-            keywords_exctracted.append((key_score[0], id, key_score[1]))
-    return (id, keywords_exctracted)
-
 def get_processed_words(title):
     title = str(title.encode("ascii", "ignore"))
     if("/s/chopin/a/grad/joyghosh/nltk_data" not in nltk.data.path):
@@ -33,24 +25,21 @@ def get_processed_words(title):
     stop_words = set(stopwords.words('english')) 
     return [w.lower() for w in word_tokenize(title) if (not w in stop_words and len(w) > 1)]
 
-# 
-# blank 0
-# id	1, 0
-# domain 2	
-# type	3
-# url	4
-# content	5, 1
-# scraped_at	6
-# inserted_at	7
-# updated_at	8
-# title	9, 2
-# authors	10
-# keywords	11, 3
-# meta_keywords	12, 4
-# meta_description	13, 5
-# tags	14, 6
-# summary 15, 7
-
+def extract_with_row_id(id, content):
+    try:
+        if("/s/chopin/a/grad/joyghosh/nltk_data" not in nltk.data.path):
+            nltk.data.path.append("/s/chopin/a/grad/joyghosh/nltk_data")
+        text = str(content.encode('ascii', "ignore"))
+        global rake
+        rake.extract_keywords_from_text(text)
+        first_half_keywords = rake.get_ranked_phrases_with_scores()
+        first_half_keywords = first_half_keywords[0:len(first_half_keywords)]
+        return [ (sk[1].lower(), "(" + str(id) + "," + str(round(sk[0], 1))+")") for sk in first_half_keywords ]
+    except UnicodeDecodeError:
+        return []
+    except UnicodeEncodeError:
+        return []
+    return []
 
 #inputfolderpath = "hdfs://santa-fe:47001/Source-Recommendation-System/FakeNewsCorpus/news_cleaned_2018_02_13.csv"
 #inputfolderpath = "hdfs://santa-fe:47001/FakeNewsCorpus/news_cleaned_2018_02_13.csv"
@@ -60,27 +49,26 @@ inputfolderpath = "hdfs://santa-fe:47001/FakeNewsCorpus-Outputs/news_cleaned_par
 outputfolderpath = "hdfs://santa-fe:47001/FakeNewsCorpus-Outputs/KeywordsFromPartitions/news_cleaned_partitioned/news_cleaned_2018_02_1300000temp"
 
 
-title_score = 10
-keywords_score = 15
-meta_keywords_score = 15
-meta_description_score = 8
-tags_score = 12
-summary_score = 10
+title_score = 5
+keywords_score = 7
+meta_keywords_score = 7
+meta_description_score = 7
+tags_score = 7
+summary_score = 5
 
 spark = SparkSession.builder.appName("ReadCSVFileFromFakeNewsPartitions").getOrCreate()
 delete_path(spark, outputfolderpath)
-#sc = SparkContext(master="spark://santa-fe:47002")
 sqlContext = SQLContext(spark.sparkContext)
 inputfile = sqlContext.read.csv(inputfolderpath, header=True,sep=",", multiLine = True, quote='"', escape='"')
 
 inputfile = inputfile\
     .select("id", "content", "title", "keywords", "meta_keywords", "meta_description", "tags", "summary")
 
-rake = RakeKeywordExtractor()
+rake = Rake()
 
 keywords_from_content = inputfile.rdd\
     .filter(lambda row : row["content"] is not None and row["content"] != "null")\
-    .map(lambda  row : rake.extract_with_row_id(row["id"], row["content"], True))\
+    .map(lambda  row : extract_with_row_id(row["id"], row["content"]))\
     .flatMap(lambda xs: [(x) for x in xs])
 print("++++ Finished processing content column")
 
@@ -113,7 +101,7 @@ keywords_from_tags = inputfile.rdd\
 print("++++ Finished processing tags column")
 keywords_from_summary = inputfile.rdd\
     .filter(lambda row : row["summary"] is not None and row["summary"] != "null")\
-    .map(lambda  row : rake.extract_with_row_id(row["id"], row["summary"], True))\
+    .map(lambda  row : extract_with_row_id(row["id"], row["summary"]))\
     .flatMap(lambda xs: [(x) for x in xs])
 print("++++ Finished processing summary column")
 
@@ -122,13 +110,9 @@ all_keywords_list = [keywords_from_content, keywords_from_title, keywords_from_k
 
 all_keywords_rdd = spark.sparkContext.union(all_keywords_list)
 all_keywords_rdd = all_keywords_rdd\
-    .filter(lambda row: len(row[0]) > 2)
+    .filter(lambda row: len(row[0]) > 2)\
+    .reduceByKey(concat)
 
-# all_keywords_rdd = all_keywords_rdd.groupByKey()\
-#         .map(lambda key_rows : (key_rows[0], list(key_rows[1])))
-#all_keywords_rdd = all_keywords_rdd.reduceByKey(concat)
-
-#print("++++ Finished groupBy")
 schema = StructType([   
         StructField("Keyword", StringType(), False),
         StructField("RowId & Score", StringType(), False)
@@ -137,7 +121,7 @@ schema = StructType([
 all_keywords_df = spark.createDataFrame(all_keywords_rdd, schema=schema)
 #all_keywords_df = all_keywords_df.sort(all_keywords_df.Keyword)
 print("++++ Finished sorting")
-all_keywords_df.write.csv(outputfolderpath, header=True, quote='"', escape='"')
+all_keywords_df.repartition(1).write.csv(outputfolderpath, header=True, quote='"', escape='"')
 print("++++ Finshed saving")
 
 spark.stop()

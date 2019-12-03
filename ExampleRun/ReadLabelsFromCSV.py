@@ -14,6 +14,6 @@ inputfile_rdd = sqlContext.read.csv(inputfolder, header=True,sep=",", multiLine 
 
 selected_rows_from_input = inputfile_rdd\
     .filter(lambda row: row["id"] in id_list)\
-    .map(lambda row: (row["id"], row["type"]))
+    .map(lambda row: (row["id"], row["type"], row["content"]))
 
 selected_rows_from_input.collect()

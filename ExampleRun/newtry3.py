@@ -40,6 +40,13 @@ def cosine_similarity_score(X, Y):
         cosine=0
     return cosine
 
+def compare_phrase(phrase, phrase_list):
+    p1 = re.sub('[^A-Za-z0-9 ]+', '', p1).split(' ')
+    if(len(set(p1).intersection(set(p2))) > 0):
+        return True
+    else:
+        return False
+
 def match_phrases(keyword, id_score):
     # print("++machine is " + socket.gethostbyname(socket.gethostname()))
     result = []
@@ -64,8 +71,9 @@ def match_phrases(keyword, id_score):
             for item in id_score:
                 result.append((score,item))
         else:
-            # if(not text.__contains__(keyword)):
-            #     return []
+            p2 = re.sub('[^A-Za-z0-9 ]+', '', text).split(' ')
+            if(not compare_phrase(keyword, p2)):
+                return []
             # search for each word in phrase
             id_score = id_score.replace('(','').split(')')
             while('' in id_score) : 
@@ -108,19 +116,10 @@ inputfolderpath2 = "hdfs://richmond:53001/SampleInputs/keyword_input.csv"
 schema2 = StructType([ \
     StructField("Keyword", StringType(), True), \
     StructField("RowId & Score", StringType(), True)])
-inputfileDF = sqlContext.read.format('com.databricks.spark.csv') \
+inputfileRDD = sqlContext.read.format('com.databricks.spark.csv') \
     .options(header='true', inferschema='true', sep=",", multiLine = True, quote='"', escape='"') \
     .load(inputfolderpath2, schema = schema2).rdd.repartition(30)
 
-# inputfileDF = inputfileDF.rdd\
-#     .reduceByKey(concat)
-#     # .filter(lambda row: row[1] is None or row[1]=='null')
-
-# newDF = spark.createDataFrame(inputfileDF)
-
-# print(newDF.dtypes)
-# newDF.show()
-# print(newDF.count())
 textinputfile="/s/chopin/k/grad/deotales/Source-Recommendation-System/ExampleRun/input.txt"
 file1 = open(textinputfile,"r")
 text = file1.read()
@@ -132,13 +131,26 @@ keyphrases_w_scores = rake.get_ranked_phrases_with_scores()
 keyphrases_w_scores = keyphrases_w_scores[0:len(keyphrases_w_scores)/2]
 keyphrases = rake.get_ranked_phrases()
 
-inputfileDF = inputfileDF\
+reduced_list = inputfileRDD\
     .flatMap(lambda row: match_phrases(row[0], row[1]))\
     .flatMap(lambda row: map_scored_ids(row[0],row[1]))\
-    .reduceByKey(lambda a, b: (float(a))+(float(b)))
+    .reduceByKey(lambda a, b: (float(a))+(float(b)))\
+    .top(20, key=lambda x: x[1])
 
-inputfileDF = spark.createDataFrame(inputfileDF)
-# inputfileDF.repartition(3)
-inputfileDF.show()
-# print(inputfileDF.count())
+print(reduced_list)
+id_list_w_scores = reduced_list
+id_list = [x[0] for x in id_list_w_scores]
+print(id_list)
+
+
+input_partitioned_folder = "hdfs://santa-fe:47001/FakeNewsCorpus-Outputs/news_cleaned_partitioned/news_cleaned_2018_02_1300000"
+whole_inputfile_rdd = sqlContext.read.csv(input_partitioned_folder, header=True,sep=",", multiLine = True, quote='"', escape='"')\
+    .rdd.repartition(30)
+
+selected_rows_from_input = whole_inputfile_rdd\
+    .filter(lambda row: row["id"] in id_list)\
+    .map(lambda row: (row["id"], row["type"], row["content"]))
+
+
+
 spark.stop()

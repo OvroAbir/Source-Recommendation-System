@@ -49,6 +49,7 @@ def parse_meta_keywords(txt):
     except:
         print("++Got exception for " + txt)
         return []
+
 def get_keywords_from_keywords_col(txt):
     try:
         return str(row["keywords"].encode('ascii', "ignore")).split(" ")
@@ -63,73 +64,54 @@ def main(inputfolderpath, outputfolderpath, jobname):
     #inputfolderpath = "hdfs://santa-fe:47001/Source-Recommendation-System/FakeNewsCorpus/news_sample.csv"
     #outputfolderpath = "hdfs://santa-fe:47001/Source-Recommendation-System/FakeNewsCorpus-Outputs"
     #outputfolderpath = "hdfs://santa-fe:47001/FakeNewsCorpus-Outputs/KeywordsFromPartitions/news_cleaned_partitioned/news_cleaned_2018_02_1300000temp"
-
     title_score = 10
     keywords_score = 13
     meta_keywords_score = 13
     meta_description_score = 13
     tags_score = 13
     summary_score = 10
-
-    # jobname = "ReadCSVFileTry5"
-    # rake = Rake()
-
     #spark = SparkSession.builder.appName(jobname).getOrCreate()
     sc = SparkContext(master="spark://santa-fe.cs.colostate.edu:47002", appName=jobname)
     delete_path(sc, outputfolderpath)
     sqlContext = SQLContext(sc)
     inputfile_rdd = sqlContext.read.csv(inputfolderpath, header=True,sep=",", multiLine = True, quote='"', escape='"')\
         .rdd.repartition(29)
-
     keywords_from_content = inputfile_rdd\
         .filter(lambda row : row["content"] is not None and row["content"] != "null")\
         .map(lambda  row : extract_with_row_id(row["id"], row["content"]))\
         .flatMap(lambda xs: [(x) for x in xs])
-
-
     keywords_from_title = inputfile_rdd\
         .filter(lambda row : row["title"] is not None and row["title"] != "null")\
         .map(lambda row : [(x,"(" + str(row["id"]) + "," + str(title_score) + ")") for x in get_processed_words(row["title"])])\
         .flatMap(lambda xs: [(x) for x in xs])
-
     keywords_from_keywords_col = inputfile_rdd\
         .filter(lambda row : row["keywords"] is not None and row["keywords"] != "null")\
         .map(lambda row : [(x.lower(),"(" + str(row["id"]) + "," + str(keywords_score) + ")") for x in get_keywords_from_keywords_col(row["keywords"])])\
         .flatMap(lambda xs: [(x) for x in xs])
-
     keywords_from_meta_keywords = inputfile_rdd\
         .filter(lambda row : row["meta_keywords"] is not None and row["meta_keywords"] != "null")\
         .map(lambda row : [(x.lower(),"(" + str(row["id"]) + "," + str(meta_keywords_score) + ")") for x in parse_meta_keywords(row["meta_keywords"]) if len(x) > 1 ])\
         .flatMap(lambda xs: [(x) for x in xs])
-
     keywords_from_meta_description = inputfile_rdd\
         .filter(lambda row : row["meta_description"] is not None and row["meta_description"] != "null")\
         .map(lambda row : [(x, "(" + str(row["id"]) + "," + str(meta_description_score) + ")") for x in get_processed_words(row["meta_description"])])\
         .flatMap(lambda xs: [(x) for x in xs])
-
     keywords_from_tags = inputfile_rdd\
         .filter(lambda row : row["tags"] is not None and row["tags"] != "null")\
         .map(lambda row : [(x.lower(), "(" + str(row["id"]) + "," + str(tags_score) + ")") for x in str(row["tags"].encode('ascii', "ignore")).split(",") ])\
         .flatMap(lambda xs: [(x) for x in xs])
-
     keywords_from_summary = inputfile_rdd\
         .filter(lambda row : row["summary"] is not None and row["summary"] != "null")\
         .map(lambda  row : extract_with_row_id(row["id"], row["summary"]))\
         .flatMap(lambda xs: [(x) for x in xs])
-
-
     all_keywords_list = [keywords_from_content, keywords_from_title, keywords_from_keywords_col, keywords_from_meta_keywords,
         keywords_from_meta_description, keywords_from_tags, keywords_from_summary]
-
     all_keywords_rdd = sc.union(all_keywords_list)
     all_keywords_rdd = all_keywords_rdd\
         .filter(lambda row: len(row[0]) > 2)\
         .reduceByKey(concat)
-
     all_keywords_df = all_keywords_rdd.toDF(["Keyword", "RowId & Score"])
-
     all_keywords_df.write.csv(outputfolderpath, header=True, quote='"', escape='"')
-
     sc.stop()
 
 rake = Rake()

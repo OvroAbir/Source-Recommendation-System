@@ -90,6 +90,16 @@ def match_phrases(keyword, id_score):
         traceback.print_exc()
     return result
 
+def save_file(index, id, label, content, folder):
+    id = str(id.encode("ascii", "ignore"))
+    label = str(label.encode("ascii", "ignore"))
+    content = str(content.encode("ascii", "ignore"))
+    filename = folder + "/" + str(index) + "_" + str(id.encode() + ".txt")
+    file = open(filename, "w")
+    file.write(id + "\n" + label + "\n" + content)
+    file.close()
+    return filename
+
 def map_scored_ids(keyscore, id_score):
     result = []
     keyscore = float(keyscore)
@@ -111,7 +121,7 @@ spark = SparkSession \
     .getOrCreate()
 sc = spark.sparkContext
 sqlContext = SQLContext(sc)
-inputfolderpath2 = "hdfs://richmond:53001/SampleInputs/keyword_input.csv"
+inputfolderpath2 = "hdfs://santa-fe:47001//FakeNewsCorpus-Outputs/KeywordsFromPartitions/news_cleaned_partitioned/news_cleaned_2018_02_1300000"
 
 schema2 = StructType([ \
     StructField("Keyword", StringType(), True), \
@@ -120,7 +130,7 @@ inputfileRDD = sqlContext.read.format('com.databricks.spark.csv') \
     .options(header='true', inferschema='true', sep=",", multiLine = True, quote='"', escape='"') \
     .load(inputfolderpath2, schema = schema2).rdd.repartition(30)
 
-textinputfile="/s/chopin/k/grad/deotales/Source-Recommendation-System/ExampleRun/input.txt"
+textinputfile="/s/chopin/a/grad/joyghosh/Source-Recommendation-System/ExampleRun/input.txt"
 file1 = open(textinputfile,"r")
 text = file1.read()
 text = str(text.encode('ascii', "ignore"))
@@ -150,7 +160,14 @@ whole_inputfile_rdd = sqlContext.read.csv(input_partitioned_folder, header=True,
 selected_rows_from_input = whole_inputfile_rdd\
     .filter(lambda row: row["id"] in id_list)\
     .map(lambda row: (row["id"], row["type"], row["content"]))
+selected_rows_from_input_list = selected_rows_from_input.collect()
 
-
+filecount = 0
+output_documents_folder = "./Source-Recommendation-System/ExampleRun"
+for id in id_list:
+    for row in selected_rows_from_input_list:
+        if(id == str(row[0].encode("ascii", "ignore"))):
+            print(save_file(filecount, id, row[1], row[2], output_documents_folder))
+            filecount += 1
 
 spark.stop()

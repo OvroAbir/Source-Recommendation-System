@@ -110,7 +110,7 @@ schema2 = StructType([ \
     StructField("RowId & Score", StringType(), True)])
 inputfileDF = sqlContext.read.format('com.databricks.spark.csv') \
     .options(header='true', inferschema='true', sep=",", multiLine = True, quote='"', escape='"') \
-    .load(inputfolderpath2, schema = schema2).rdd.repartition(10)
+    .load(inputfolderpath2, schema = schema2).rdd.repartition(30)
 
 # inputfileDF = inputfileDF.rdd\
 #     .reduceByKey(concat)
@@ -129,6 +129,7 @@ file1.close()
 rake = Rake()
 rake.extract_keywords_from_text(text)
 keyphrases_w_scores = rake.get_ranked_phrases_with_scores()
+keyphrases_w_scores = keyphrases_w_scores[0:len(keyphrases_w_scores)/2]
 keyphrases = rake.get_ranked_phrases()
 
 inputfileDF = inputfileDF\
@@ -139,5 +140,5 @@ inputfileDF = inputfileDF\
 inputfileDF = spark.createDataFrame(inputfileDF)
 # inputfileDF.repartition(3)
 inputfileDF.show()
-print(inputfileDF.count())
+# print(inputfileDF.count())
 spark.stop()

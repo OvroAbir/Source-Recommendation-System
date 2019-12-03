@@ -64,8 +64,8 @@ def match_phrases(keyword, id_score):
             for item in id_score:
                 result.append((score,item))
         else:
-            if(not text.__contains__(keyword)):
-                return []
+            # if(not text.__contains__(keyword)):
+            #     return []
             # search for each word in phrase
             id_score = id_score.replace('(','').split(')')
             while('' in id_score) : 
@@ -82,12 +82,26 @@ def match_phrases(keyword, id_score):
         traceback.print_exc()
     return result
 
+def map_scored_ids(keyscore, id_score):
+    result = []
+    keyscore = float(keyscore)
+    id_score = id_score.replace('(','').split(')')
+    while('' in id_score) : 
+        id_score.remove('')
+    for item in id_score:
+        el = item.split(',')
+        id = el[0]
+        score =float(el[1])
+        final_score = keyscore + score
+        result.append((id, final_score))
+    return result
+
 spark = SparkSession \
     .builder \
-    .appName("Reading from Fake News Corpus") \
+    .appName("Match keywords") \
+    .master("spark://richmond.cs.colostate.edu:53101") \
     .getOrCreate()
 sc = spark.sparkContext
-
 sqlContext = SQLContext(sc)
 inputfolderpath2 = "hdfs://richmond:53001/SampleInputs/keyword_input.csv"
 
@@ -96,8 +110,7 @@ schema2 = StructType([ \
     StructField("RowId & Score", StringType(), True)])
 inputfileDF = sqlContext.read.format('com.databricks.spark.csv') \
     .options(header='true', inferschema='true', sep=",", multiLine = True, quote='"', escape='"') \
-    .load(inputfolderpath2, schema = schema2)
-inputfileDF.repartition(3)
+    .load(inputfolderpath2, schema = schema2).rdd.repartition(10)
 
 # inputfileDF = inputfileDF.rdd\
 #     .reduceByKey(concat)
@@ -118,12 +131,13 @@ rake.extract_keywords_from_text(text)
 keyphrases_w_scores = rake.get_ranked_phrases_with_scores()
 keyphrases = rake.get_ranked_phrases()
 
-inputfileDF = inputfileDF.rdd\
+inputfileDF = inputfileDF\
     .flatMap(lambda row: match_phrases(row[0], row[1]))\
-    .repartition(3)
+    .flatMap(lambda row: map_scored_ids(row[0],row[1]))\
+    .reduceByKey(lambda a, b: (float(a))+(float(b)))
 
 inputfileDF = spark.createDataFrame(inputfileDF)
-inputfileDF.repartition(3)
+# inputfileDF.repartition(3)
 inputfileDF.show()
 print(inputfileDF.count())
 spark.stop()

@@ -124,6 +124,9 @@ def map_scored_ids(keyscore, id_score):
         result.append((id, final_score))
     return result
 
+
+
+
 spark = SparkSession \
     .builder \
     .appName("Match keywords") \
@@ -133,7 +136,7 @@ sc = spark.sparkContext
 sqlContext = SQLContext(sc)
 #hdfs://richmond:53001/SampleInputs/keyword_input.csv
 #hdfs://santa-fe:47001//FakeNewsCorpus-Outputs/KeywordsFromPartitions/news_cleaned_partitioned/news_cleaned_2018_02_1300000
-inputfolderpath2 = "hdfs://richmond:53001/SampleInputs/keyword_input.csv"
+inputfolderpath2 = "hdfs://richmond:53001/SampleInputs/Op2"
 
 schema2 = StructType([ \
     StructField("Keyword", StringType(), True), \
@@ -165,7 +168,7 @@ print(id_list_w_scores)
 id_list = [x[0] for x in id_list_w_scores]
 print(id_list)
 
-input_partitioned_folder = "hdfs://santa-fe:47001/FakeNewsCorpus-Outputs/news_cleaned_partitioned/news_cleaned_2018_02_1300000"
+input_partitioned_folder = "hdfs://santa-fe:47001/FakeNewsCorpus-Outputs/news_cleaned_partitioned/_Partition2File"
 whole_inputfile_rdd = sqlContext.read.csv(input_partitioned_folder, header=True,sep=",", multiLine = True, quote='"', escape='"')\
     .rdd.repartition(30)
 

@@ -133,9 +133,10 @@ def main(inputfolderpath, outputfolderpath, jobname):
     sc.stop()
 
 rake = Rake()
-inputfolderpath = sys.argv[1]
-outputfolderpath = sys.argv[2]
-jobname = sys.argv[3]
+# inputfolderpath = sys.argv[1]
+# outputfolderpath = sys.argv[2]
+# jobname = sys.argv[3]
 
-main(inputfolderpath, outputfolderpath, jobname)
+# main(inputfolderpath, outputfolderpath, jobname)
 
+main("hdfs://santa-fe:47001/FakeNewsCorpus-Outputs/news_cleaned_partitioned/_Partition2File", "hdfs://richmond:53001/SampleInputs/Op2", "Generate keywords")

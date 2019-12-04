@@ -9,6 +9,7 @@ import nltk, string
 import traceback
 import re
 from sklearn.feature_extraction.text import TfidfVectorizer
+from ExtractKeywordsFromFakeCorpus import main
 
 def cosine_similarity_score(X, Y):
     cosine = 0
@@ -124,6 +125,9 @@ def map_scored_ids(keyscore, id_score):
         result.append((id, final_score))
     return result
 
+main("hdfs://santa-fe:47001/FakeNewsCorpus-Outputs/news_cleaned_partitioned/_Partition1File", "hdfs://santa-fe:47001/FakeNewsCorpus-Outputs/news_cleaned_partitioned/_Partition1File/Op", "Generate keywords")
+
+
 spark = SparkSession \
     .builder \
     .appName("Match keywords") \
@@ -165,7 +169,7 @@ print(id_list_w_scores)
 id_list = [x[0] for x in id_list_w_scores]
 print(id_list)
 
-input_partitioned_folder = "hdfs://santa-fe:47001/FakeNewsCorpus-Outputs/news_cleaned_partitioned/news_cleaned_2018_02_1300000"
+input_partitioned_folder = "hdfs://santa-fe:47001/FakeNewsCorpus-Outputs/news_cleaned_partitioned/_Partition1File/Op"
 whole_inputfile_rdd = sqlContext.read.csv(input_partitioned_folder, header=True,sep=",", multiLine = True, quote='"', escape='"')\
     .rdd.repartition(30)
 

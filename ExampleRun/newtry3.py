@@ -4,8 +4,11 @@ from rake_nltk import Rake
 from fuzzywuzzy import fuzz
 from operator import concat
 from nltk.corpus import stopwords 
-from nltk.tokenize import word_tokenize 
-import traceback, socket
+from nltk.tokenize import word_tokenize
+import nltk, string
+import traceback
+# import re
+from sklearn.feature_extraction.text import TfidfVectorizer
 
 def cosine_similarity_score(X, Y):
     cosine = 0
@@ -40,7 +43,7 @@ def cosine_similarity_score(X, Y):
         cosine=0
     return cosine
 
-def compare_phrase(phrase, phrase_list):
+def compare_phrase(p1, p2):
     p1 = re.sub('[^A-Za-z0-9 ]+', '', p1).split(' ')
     if(len(set(p1).intersection(set(p2))) > 0):
         return True
@@ -48,7 +51,6 @@ def compare_phrase(phrase, phrase_list):
         return False
 
 def match_phrases(keyword, id_score):
-    # print("++machine is " + socket.gethostbyname(socket.gethostname()))
     result = []
     global text
     global keyphrases_w_scores
@@ -121,7 +123,9 @@ spark = SparkSession \
     .getOrCreate()
 sc = spark.sparkContext
 sqlContext = SQLContext(sc)
-inputfolderpath2 = "hdfs://santa-fe:47001//FakeNewsCorpus-Outputs/KeywordsFromPartitions/news_cleaned_partitioned/news_cleaned_2018_02_1300000"
+#hdfs://richmond:53001/SampleInputs/keyword_input.csv
+#hdfs://santa-fe:47001//FakeNewsCorpus-Outputs/KeywordsFromPartitions/news_cleaned_partitioned/news_cleaned_2018_02_1300000
+inputfolderpath2 = "hdfs://richmond:53001/SampleInputs/keyword_input.csv"
 
 schema2 = StructType([ \
     StructField("Keyword", StringType(), True), \
@@ -130,7 +134,7 @@ inputfileRDD = sqlContext.read.format('com.databricks.spark.csv') \
     .options(header='true', inferschema='true', sep=",", multiLine = True, quote='"', escape='"') \
     .load(inputfolderpath2, schema = schema2).rdd.repartition(30)
 
-textinputfile="/s/chopin/a/grad/joyghosh/Source-Recommendation-System/ExampleRun/input.txt"
+textinputfile="/s/chopin/k/grad/deotales/Source-Recommendation-System/ExampleRun/input.txt"
 file1 = open(textinputfile,"r")
 text = file1.read()
 text = str(text.encode('ascii', "ignore"))
@@ -141,29 +145,60 @@ keyphrases_w_scores = rake.get_ranked_phrases_with_scores()
 keyphrases_w_scores = keyphrases_w_scores[0:len(keyphrases_w_scores)/2]
 keyphrases = rake.get_ranked_phrases()
 
-reduced_list = inputfileRDD\
+inputfileRDD = inputfileRDD\
     .flatMap(lambda row: match_phrases(row[0], row[1]))\
-    .flatMap(lambda row: map_scored_ids(row[0],row[1]))\
+    .flatMap(lambda row: map_scored_ids(row[0], row[1]))\
     .reduceByKey(lambda a, b: (float(a))+(float(b)))\
-    .top(20, key=lambda x: x[1])
+    .top(15, key=lambda x: x[1])
 
-print(reduced_list)
-id_list_w_scores = reduced_list
+# print(inputfileRDD.count())
+id_list_w_scores = inputfileRDD
 id_list = [x[0] for x in id_list_w_scores]
 print(id_list)
-
 
 input_partitioned_folder = "hdfs://santa-fe:47001/FakeNewsCorpus-Outputs/news_cleaned_partitioned/news_cleaned_2018_02_1300000"
 whole_inputfile_rdd = sqlContext.read.csv(input_partitioned_folder, header=True,sep=",", multiLine = True, quote='"', escape='"')\
     .rdd.repartition(30)
 
+# Similarity score logic
+stemmer = nltk.stem.porter.PorterStemmer()
+remove_punctuation_map = dict((ord(char), None) for char in string.punctuation)
+
+def stem_tokens(tokens):
+    return [stemmer.stem(item) for item in tokens]
+
+#'''remove punctuation, lowercase, stem'''
+def normalize(text):
+    return stem_tokens(nltk.word_tokenize(text.lower().translate(remove_punctuation_map)))
+
+vectorizer = TfidfVectorizer(tokenizer=normalize, stop_words='english')
+
+def cosine_sim(text1, text2):
+    text2 = str(text2.encode('ascii', "ignore"))
+    tfidf = vectorizer.fit_transform([text1, text2])
+    return ((tfidf * tfidf.T).A)[0,1]
+#
+
+#similarity score for each document needs to be calculated
+# simScore = whole_inputfile_rdd\
+#     .filter(lambda row: row["id"] in id_list)\
+#     .map(lambda row: cosine_sim(text, row["content"], row["id"]))\
+#     .take(15)
+
+# print(simScore)
+
+def getsim_score(text_inp):
+    return cosine_sim(text, text_inp)
+
+
 selected_rows_from_input = whole_inputfile_rdd\
     .filter(lambda row: row["id"] in id_list)\
-    .map(lambda row: (row["id"], row["type"], row["content"]))
+    .map(lambda row: (row["id"], row["type"], row["content"], getsim_score(row["content"])))
+
 selected_rows_from_input_list = selected_rows_from_input.collect()
 
 filecount = 0
-output_documents_folder = "./Source-Recommendation-System/ExampleRun"
+output_documents_folder = " /s/chopin/k/grad/deotales/Source-Recommendation-System/ExampleRun"
 for id in id_list:
     for row in selected_rows_from_input_list:
         if(id == str(row[0].encode("ascii", "ignore"))):

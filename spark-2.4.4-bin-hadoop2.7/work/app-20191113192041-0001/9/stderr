@@ -1,3 +1,0 @@
-Spark Executor Command: "/usr/local/jdk1.8.0_51/bin/java" "-cp" "/s/chopin/a/grad/joyghosh/spark-2.4.4-bin-hadoop2.7/conf/:/s/chopin/a/grad/joyghosh/spark-2.4.4-bin-hadoop2.7/jars/*:/s/chopin/a/grad/joyghosh/Documents/Code/cs555/FlightHadoopAssignment/hadoop-conf/" "-Xmx1024M" "-Dspark.driver.port=39313" "org.apache.spark.executor.CoarseGrainedExecutorBackend" "--driver-url" "spark://CoarseGrainedScheduler@santa-fe.cs.colostate.edu:39313" "--executor-id" "9" "--hostname" "129.82.44.169" "--cores" "1" "--app-id" "app-20191113192041-0001" "--worker-url" "spark://Worker@129.82.44.169:40149"
-========================================
-

@@ -198,7 +198,7 @@ selected_rows_from_input = whole_inputfile_rdd\
 selected_rows_from_input_list = selected_rows_from_input.collect()
 
 filecount = 0
-output_documents_folder = " /s/chopin/k/grad/deotales/Source-Recommendation-System/ExampleRun"
+output_documents_folder = "/s/chopin/k/grad/deotales/Source-Recommendation-System/ExampleRun/Outputs"
 for id in id_list:
     for row in selected_rows_from_input_list:
         if(id == str(row[0].encode("ascii", "ignore"))):

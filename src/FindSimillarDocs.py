@@ -7,7 +7,7 @@ from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 import nltk, string
 import traceback
-# import re
+import re
 from sklearn.feature_extraction.text import TfidfVectorizer
 
 def cosine_similarity_score(X, Y):
@@ -19,12 +19,12 @@ def cosine_similarity_score(X, Y):
         Y_list = word_tokenize(Y) 
         
         # sw contains the list of stopwords 
-        sw = stopwords.words('english')  
+        # sw = stopwords.words('english')  
         l1 =[];l2 =[] 
         
         # remove stop words from string 
-        X_set = {w for w in X_list if not w in sw}  
-        Y_set = {w for w in Y_list if not w in sw} 
+        X_set = set(X_list)
+        Y_set = set(Y_list)
         
         # form a set containing keywords of both strings  
         rvector = X_set.union(Y_set)  
@@ -45,7 +45,7 @@ def cosine_similarity_score(X, Y):
 
 def compare_phrase(p1, p2):
     p1 = re.sub('[^A-Za-z0-9 ]+', '', p1).split(' ')
-    if(len(set(p1).intersection(set(p2))) > 0):
+    if(len(set(p1).intersection(set(p2))) > len(p1)/2):
         return True
     else:
         return False
@@ -80,9 +80,9 @@ def match_phrases(keyword, id_score):
             id_score = id_score.replace('(','').split(')')
             while('' in id_score) : 
                 id_score.remove('')
-            for phrase in phrase_list:
+            for phrase in phrase_list[:len(phrase_list)/20]:
                 ratio = cosine_similarity_score(keyword, phrase)
-                if(ratio > 0):
+                if(ratio > 0.5):
                     # for all id_score value pair get id
                     score = (float)(keyphrases_w_scores.__getitem__(phrase_list.index(phrase))[0])
                     for item in id_score:
@@ -92,13 +92,21 @@ def match_phrases(keyword, id_score):
         traceback.print_exc()
     return result
 
-def save_file(index, id, label, content, folder):
+def save_file(index, id, label, title, content, sim_score, folder):
     id = str(id.encode("ascii", "ignore"))
-    label = str(label.encode("ascii", "ignore"))
+    if(title == None):
+        title = ''
+    else:
+        title = str(title.encode("ascii", "ignore"))
+    if(label == None):
+        label = ''
+    else:
+        label = str(label.encode("ascii", "ignore"))
     content = str(content.encode("ascii", "ignore"))
     filename = folder + "/" + str(index) + "_" + str(id.encode() + ".txt")
+    sim_score = str(sim_score)
     file = open(filename, "w")
-    file.write(id + "\n" + label + "\n" + content)
+    file.write("File id in dataset: " + id + "\nLabels from dataset: " + label + "\nSimilarity Score: " + sim_score + "\n" + "Title: " + title + "\n" + content)
     file.close()
     return filename
 
@@ -134,10 +142,10 @@ inputfileRDD = sqlContext.read.format('com.databricks.spark.csv') \
     .options(header='true', inferschema='true', sep=",", multiLine = True, quote='"', escape='"') \
     .load(inputfolderpath2, schema = schema2).rdd.repartition(30)
 
-textinputfile="/s/chopin/k/grad/deotales/Source-Recommendation-System/ExampleRun/input.txt"
+textinputfile="/s/chopin/k/grad/deotales/Source-Recommendation-System/ExampleRun/diff_input.txt"
 file1 = open(textinputfile,"r")
 text = file1.read()
-text = str(text.encode('ascii', "ignore"))
+# text = str(text.encode('ascii', "ignore"))
 file1.close() 
 rake = Rake()
 rake.extract_keywords_from_text(text)
@@ -153,6 +161,7 @@ inputfileRDD = inputfileRDD\
 
 # print(inputfileRDD.count())
 id_list_w_scores = inputfileRDD
+print(id_list_w_scores)
 id_list = [x[0] for x in id_list_w_scores]
 print(id_list)
 
@@ -193,16 +202,16 @@ def getsim_score(text_inp):
 
 selected_rows_from_input = whole_inputfile_rdd\
     .filter(lambda row: row["id"] in id_list)\
-    .map(lambda row: (row["id"], row["type"], row["content"], getsim_score(row["content"])))
+    .map(lambda row: (row["id"], row["type"], row["title"], row["content"], getsim_score(row["content"])))
 
 selected_rows_from_input_list = selected_rows_from_input.collect()
 
 filecount = 0
-output_documents_folder = " /s/chopin/k/grad/deotales/Source-Recommendation-System/ExampleRun"
+output_documents_folder = "/s/chopin/k/grad/deotales/Source-Recommendation-System/ExampleRun/Outputs"
 for id in id_list:
     for row in selected_rows_from_input_list:
         if(id == str(row[0].encode("ascii", "ignore"))):
-            print(save_file(filecount, id, row[1], row[2], output_documents_folder))
+            print(save_file(filecount, id, row[1], row[2], row[3], row[4], output_documents_folder))
             filecount += 1
 
 spark.stop()
